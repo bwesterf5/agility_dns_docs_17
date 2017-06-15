@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; agility_dns_docs_17 0.1 documentation</title>
+  <title>DNS LAB – GETTING STARTED &mdash; agility_dns_docs_17 0.1 documentation</title>
   
 
   
@@ -34,8 +34,10 @@
   
         <link rel="index" title="Index"
               href="genindex.html"/>
-        <link rel="search" title="Search" href="#"/>
-    <link rel="top" title="agility_dns_docs_17 0.1 documentation" href="index.html"/> 
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="agility_dns_docs_17 0.1 documentation" href="index.html"/>
+        <link rel="next" title="BIG-IP DNS: Global Server Load Balancing" href="dns101_agility2017.html"/>
+        <link rel="prev" title="Welcome to agility_dns_docs_17’s documentation!" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -71,7 +73,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -88,8 +90,8 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="lab_getting_started.html">DNS LAB – GETTING STARTED</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DNS LAB – GETTING STARTED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html">BIG-IP DNS: Global Server Load Balancing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-1-1-initial-setup">Exercise 1.1 – Initial Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-2-1-gslb-active-standby-data-centers">Exercise 2.1 – GSLB Active/Standby Data Centers</a></li>
@@ -142,10 +144,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>DNS LAB – GETTING STARTED</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/lab_getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -157,19 +163,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="dns-lab-getting-started">
+<h1>DNS LAB – GETTING STARTED<a class="headerlink" href="#dns-lab-getting-started" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li></li>
+</ul>
+<p>-We will be utilizing Ravello Systems for our virtualized lab in this
+-class. Each student will be working in a self-contained virtual lab
+-containing:
+-
+–  (2) F5 BIG-IP VEs running 12.1 and provisioned with LTM and GTM
+-
+–  LAMP Server that will act as a back-end BIND sever
+-
+–  Windows7 RDP server which will be used as a jumpbox in to your
+-       environment
+-
+-To access your Ravello Lab Environment, from either Chrome or Mozilla
+-Browser connect to the Ravello Training Portal <strong>(Ask an instructor for the IP address)</strong>
+-
+-Type in your username such as <strong>dns201_student1, dns201_student2</strong>,
+-etc. with a shared password of <strong>“DnS201”</strong>
+-
+-Select ‘View’ Under the Actions Column associated with the DNS201 lab.
+-
+-Once you are logged in, you will see the URL for your specific windows
+-jump box needed to proceed with the lab. A student view:
+-
+-<a href="#id1"><span class="problematic" id="id2">|image0|</span></a>
+-
+-NOTE: All the VMs should be in a STARTED state, if a VM is in any other
+-state please let the Lab Instructors know or you can attempt to RESTART
+-the VM yourself.
+-
+-Select and Highlight then COPY the URL Link located under the DNS
+-section
+-
+-Open a Remote Desktop Client on your Laptop and Paste the DNS URL Link
+-from the Ravello Login screen.
+-
+-Username: <strong>Student</strong>
+-
+-Password: <strong>F5&#64;GilitY!</strong> //This is the same password for all Student
+-Logins
+-
+-Once connected to the Windows7 jumpbox, you will be able to access all
+-other machines needed for this lab from this system. From the jumpbox,
+-your F5 device is accessible via HTTPS at: <strong>10.128.1.245</strong> (username:
+-<strong>admin</strong> password: <strong>admin</strong>)
+-
+-And available via SSH at the same address with username: <strong>root</strong>
+-password: <strong>default</strong>
+-
+-Shortcuts to your devices have been provided on your Windows Desktop.
+-
+-<strong>**Please use the ‘Command Prompt’ shortcut for ALL ‘dig’ related commands.</strong>
+-
+-Your F5 has already been configured with the following:
+-
+– Networking: VLANs, SelfIPs, Routing
+-
+– DNS, NTP</p>
+</div></blockquote>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            <div class="articleComments">
@@ -177,6 +235,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dns101_agility2017.html" class="btn btn-neutral float-right" title="BIG-IP DNS: Global Server Load Balancing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to agility_dns_docs_17’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -215,7 +282,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -231,14 +297,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
