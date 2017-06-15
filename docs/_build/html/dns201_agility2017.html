@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DNS LAB – GETTING STARTED &mdash; agility_dns_docs_17 0.1 documentation</title>
+  <title>F5 DNS 201 &mdash; agility_dns_docs_17 0.1 documentation</title>
   
 
   
@@ -96,8 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-2-2-gslb-active-active-data-centers">Exercise 2.2 – GSLB Active/Active Data Centers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-2-3-gslb-with-topology">Exercise 2.3 – GSLB with Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-3-1-creating-a-synchronization-group">Exercise 3.1 – Creating a Synchronization Group</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DNS LAB – GETTING STARTED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#f5-dns-201">F5 DNS 201</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">F5 DNS 201</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#exercise-1-1-authoritative-ns-slave-from-off-box-bind">EXERCISE 1.1 – AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#task-1-configuring-dns-logging">TASK 1 – Configuring DNS Logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#task-2-create-a-new-dns-profile">TASK 2 – Create a new DNS Profile</a></li>
@@ -194,7 +193,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>DNS LAB – GETTING STARTED</li>
+      <li>F5 DNS 201</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -216,72 +215,7 @@
   <p>Agility 2017 Hands-on Lab Guide</p>
 <p>DNS Services Beyond GSLB with BIG-IP DNS (201)</p>
 <p>Written for: TMOS<sup>®</sup> v13.0.0</p>
-<p>Presented by:</p>
-<p>What’s inside</p>
-<p><a class="reference external" href="#dns-lab-getting-started">DNS LAB – GETTING STARTED 1</a></p>
-<p><a class="reference external" href="#f5-dns-201">F5 DNS 201 4</a></p>
-<p><a class="reference external" href="#exercise-1.1-authoritative-ns-slave-from-off-box-bind">EXERCISE 1.1 – AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND
-4</a></p>
-<p><a class="reference external" href="#exercise-1.2-authoritative-ns-slave-from-on-box-bind">EXERCISE 1.2 – AUTHORITATIVE NS: SLAVE FROM ON-BOX BIND
-14</a></p>
-<p><a class="reference external" href="#exercise-1.3-slaving-off-of-dns-express">EXERCISE 1.3 – SLAVING OFF OF DNS EXPRESS
-21</a></p>
-<p><a class="reference external" href="#exercise-2.1-transparent-caching">EXERCISE 2.1 – TRANSPARENT CACHING
-25</a></p>
-<p><a class="reference external" href="#exercise-2.2-resolver-cache">EXERCISE 2.2 – RESOLVER CACHE 34</a></p>
-<p><a class="reference external" href="#exercise-2.3-validating-resolver">EXERCISE 2.3 – VALIDATING RESOLVER
-37</a></p>
-<p><a class="reference external" href="#exercise-2.4-forwarders">EXERCISE 2.4 – FORWARDERS 41</a></p>
-<p><a class="reference external" href="#learn-more">Learn More 43</a></p>
-<div class="section" id="dns-lab-getting-started">
-<h1>DNS LAB – GETTING STARTED<a class="headerlink" href="#dns-lab-getting-started" title="Permalink to this headline">¶</a></h1>
-<p>We will be utilizing Ravello Systems for our virtualized lab in this
-class. Each student will be working in a self-contained virtual lab
-containing:</p>
-<ul class="simple">
-<li><ol class="first arabic" start="2">
-<li>F5 BIG-IP VEs running 12.1 and provisioned with LTM and GTM</li>
-</ol>
-</li>
-<li>LAMP Server that will act as a back-end BIND sever</li>
-<li><dl class="first docutils">
-<dt>Windows7 RDP server which will be used as a jumpbox in to your</dt>
-<dd>environment</dd>
-</dl>
-</li>
-</ul>
-<p>To access your Ravello Lab Environment, from either Chrome or Mozilla
-Browser connect to the Ravello Training Portal <strong>(Ask an instructor for the IP address)</strong></p>
-<p>Type in your username such as <strong>dns201_student1, dns201_student2</strong>,
-etc. with a shared password of <strong>“DnS201”</strong></p>
-<p>Select ‘View’ Under the Actions Column associated with the DNS201 lab.</p>
-<p>Once you are logged in, you will see the URL for your specific windows
-jump box needed to proceed with the lab. A student view:</p>
-<p><a class="reference internal" href="_images/image2.png"><img alt="image0" src="_images/image2.png" style="width: 5.30972in; height: 2.02776in;" /></a></p>
-<p>NOTE: All the VMs should be in a STARTED state, if a VM is in any other
-state please let the Lab Instructors know or you can attempt to RESTART
-the VM yourself.</p>
-<p>Select and Highlight then COPY the URL Link located under the DNS
-section</p>
-<p>Open a Remote Desktop Client on your Laptop and Paste the DNS URL Link
-from the Ravello Login screen.</p>
-<p>Username: <strong>Student</strong></p>
-<p>Password: <strong>F5&#64;GilitY!</strong> //This is the same password for all Student
-Logins</p>
-<p>Once connected to the Windows7 jumpbox, you will be able to access all
-other machines needed for this lab from this system. From the jumpbox,
-your F5 device is accessible via HTTPS at: <strong>10.128.1.245</strong> (username:
-<strong>admin</strong> password: <strong>admin</strong>)</p>
-<p>And available via SSH at the same address with username: <strong>root</strong>
-password: <strong>default</strong></p>
-<p>Shortcuts to your devices have been provided on your Windows Desktop.</p>
-<p><strong>**Please use the ‘Command Prompt’ shortcut for ALL ‘dig’ related commands.</strong></p>
-<p>Your F5 has already been configured with the following:</p>
-<ul class="simple">
-<li>Networking: VLANs, SelfIPs, Routing</li>
-<li>DNS, NTP</li>
-</ul>
-</div>
+<p>Presented by: DNS 2017 F5 Agility Team</p>
 <div class="section" id="f5-dns-201">
 <h1>F5 DNS 201<a class="headerlink" href="#f5-dns-201" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="exercise-1-1-authoritative-ns-slave-from-off-box-bind">

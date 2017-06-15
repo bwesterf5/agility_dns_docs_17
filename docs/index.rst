@@ -9,6 +9,7 @@ Welcome to agility_dns_docs_17's documentation!
 .. toctree::
    :maxdepth: 2
 
+   lab_getting_started
    dns101_agility2017
    dns201_agility2017
 
