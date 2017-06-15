@@ -5,7 +5,7 @@ We will be utilizing Ravello Systems for our virtualized lab in this
 class. Each student will be working in a self-contained virtual lab
 containing:
 
--  (2) F5 BIG-IP VEs running 12.1 and provisioned with LTM and GTM
+-  2 F5 BIG-IP VEs running 13.0 and provisioned with LTM and GTM
 
 -  LAMP Server that will act as a back-end BIND sever
 
