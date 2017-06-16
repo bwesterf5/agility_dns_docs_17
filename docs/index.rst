@@ -1,16 +1,12 @@
-.. agility_dns_docs_17 documentation master file, created by
-   sphinx-quickstart on Thu Jun 15 10:42:46 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to agility_dns_docs_17's documentation!
+===============================================
+F5 DNS Agility Labs Documentation
 ===============================================
 
 .. toctree::
    :maxdepth: 2
 
-   lab_getting_started
-   lab_topology/index.rst
+   lab_access/index
+   lab_topology/index
    dns101_agility2017
    dns201_agility2017
 
