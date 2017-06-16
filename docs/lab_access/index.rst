@@ -1,34 +1,30 @@
 =========================
-Access
+Lab Access
 =========================
 
-  The lab environment is hosted in cloud environments managed by Ravello Systems.
+  The lab environment is hosted in cloud environments managed by Ravello
+Systems. Login to the Ravello training portal using a browser.
+**(Ask an instructor for the login information**
 
-  Log in to the Ravello training portal using a browser.
-  **(Ask an instructor for the IP address, Username, and Password)**
+Select ‘View’ Under the Actions Column.
 
-Select ‘View’ Under the Actions Column associated with the lab.
+**TODO insert updated Ravello screenshots**
 
-Once you are logged in, you will see the URL for your specific windows
-jump box needed to proceed with the lab. A student view:
+Once logged in, you will find the URL for your windows
+jumpbox.
 
 .. figure:: ./images/ravello.png
    :alt: 
    :width: 7.05000in
    :height: 2.96064in
 
-NOTE: All the VMs should be in a STARTED state, if a VM is in any other
-state please let the Lab Instructors know or you can attempt to RESTART
-the VM yourself.
+NOTE: All the VMs should be in a STARTED state.
 
-Select and Highlight then COPY the URL Link located under the DNS
-section
+Copy the FQDN located under the DNS section.
 
-Open a Remote Desktop Client on your Laptop and Paste the DNS URL Link
-from the Ravello Login screen.
+Open a remote desktop client on your workstation and connect to the jumpbox.
 
 Username: **user**
-
 Password: **Agility1**
 
 .. figure:: ./images/rdp_to_jumpbox.jpeg
