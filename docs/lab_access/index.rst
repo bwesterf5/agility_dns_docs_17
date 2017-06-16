@@ -8,8 +8,7 @@ Lab Access
 
 **TODO insert updated Ravello screenshots**
 
-Once logged in, you will find the URL for your windows
-jumpbox.
+Once logged in, you will find the URL for your windows jumpbox.
 
 .. figure:: ./images/ravello.png
    :alt: 
