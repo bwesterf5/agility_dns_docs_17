@@ -6,3 +6,5 @@ https://github.com/bwesterf5/agility_dns_docs_17
 http://agility-dns-docs-17.readthedocs.io/en/latest/
 
 Ravello Blueprint: "Agility2017 - DNS-bp_201706151647"
+
+git clone https://github.com/bwesterf5/agility_dns_docs_17.git
