@@ -1,8 +1,8 @@
 ##################
-H1: document title
+Lab Topology
 ##################
 
-Introduction text.
+  The Agility lab is hosted in the cloud and managed by Ravello
 
 
 *********

@@ -91,6 +91,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab_getting_started.html">DNS LAB – GETTING STARTED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_topology/index.html">H1: document title</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html">BIG-IP DNS: Global Server Load Balancing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-1-1-initial-setup">Exercise 1.1 – Initial Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns101_agility2017.html#exercise-2-1-gslb-active-standby-data-centers">Exercise 2.1 – GSLB Active/Standby Data Centers</a></li>
@@ -522,7 +523,7 @@ to your F5 BIGIP1. You should have a BIGIP1 putty icon on your
 desktop. Use username: <strong>root</strong> password: <strong>default</strong> and issue the
 following TMSH command once logged in.</p>
 <blockquote>
-<div><p><strong>tmsh modify sys db log.zxfrd.level value “debug”</strong></p>
+<div><p><strong>tmsh modify sys db log.zxfrd.level value &#8220;debug&#8221;</strong></p>
 <p>Now, view the log file real-time by issuing this command at the SSH
 prompt:</p>
 <p><strong>tail –f /var/log/ltm</strong></p>
@@ -537,14 +538,14 @@ You can break out of the tail process with &lt;Ctrl-C&gt;.</p>
 click <strong>Finished.</strong></p>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image4.png"><img alt="image1" src="_images/image4.png" style="width: 3.93000in; height: 3.05000in;" /></a></p>
+<p><a class="reference internal" href="_images/image41.png"><img alt="image1" src="_images/image41.png" style="width: 3.93000in; height: 3.05000in;" /></a></p>
 <ul class="simple">
 <li>You should see log messages in your SSH console indicating a
 successful transfer from the hidden master. You can also view the
 state of the transfer by clicking back on the newly created zone and
 observing the “Availability” as shown in the figure below.</li>
 </ul>
-<p><a class="reference internal" href="_images/image5.png"><img alt="image2" src="_images/image5.png" style="width: 2.66667in; height: 1.41319in;" /></a></p>
+<p><a class="reference internal" href="_images/image51.png"><img alt="image2" src="_images/image51.png" style="width: 2.66667in; height: 1.41319in;" /></a></p>
 <ul class="simple">
 <li>Issue the following command from SSH console to see specifics of the
 status and statistics related to the zone.</li>
@@ -673,7 +674,7 @@ List: Create</strong></li>
 <li>Configure the dnsx.com zone for DNSSEC using the previously created
 keys as shown below.</li>
 </ul>
-<p><a class="reference internal" href="_images/image6.png"><img alt="image3" src="_images/image6.png" style="width: 3.23729in; height: 2.35556in;" /></a></p>
+<p><a class="reference internal" href="_images/image61.png"><img alt="image3" src="_images/image61.png" style="width: 3.23729in; height: 2.35556in;" /></a></p>
 <ul class="simple">
 <li>Test that the zone is successfully signed by issuing a DNSSEC query
 to the external listener. For example:</li>
@@ -693,7 +694,7 @@ zone transfers, notifies, etc.</li>
 </li>
 <li>Select the “View” Details as shown in the diagram below:</li>
 </ul>
-<p><a class="reference internal" href="_images/image7.png"><img alt="image4" src="_images/image7.png" style="width: 3.96000in; height: 1.71000in;" /></a></p>
+<p><a class="reference internal" href="_images/image71.png"><img alt="image4" src="_images/image71.png" style="width: 3.96000in; height: 1.71000in;" /></a></p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>View the types of statistics available for the zone such as serial</dt>
@@ -792,8 +793,8 @@ added to send a NOTIFY message to an internal GTM IP address for
 processing. Likewise BIND needs to allow the transfer from the
 loopback address. The diagram below shows the basic operation.</li>
 </ul>
-<p><a class="reference internal" href="_images/image8.png"><img alt="image5" src="_images/image8.png" style="width: 3.13333in; height: 1.40000in;" /></a></p>
-<p><a class="reference internal" href="_images/image9.png"><img alt="image6" src="_images/image9.png" style="width: 5.31042in; height: 6.32847in;" /></a></p>
+<p><a class="reference internal" href="_images/image81.png"><img alt="image5" src="_images/image81.png" style="width: 3.13333in; height: 1.40000in;" /></a></p>
+<p><a class="reference internal" href="_images/image91.png"><img alt="image6" src="_images/image91.png" style="width: 5.31042in; height: 6.32847in;" /></a></p>
 </div>
 <div class="section" id="task-4-create-a-nameserver-for-on-box-bind">
 <h3>TASK 4 – Create a Nameserver for on-box BIND<a class="headerlink" href="#task-4-create-a-nameserver-for-on-box-bind" title="Permalink to this headline">¶</a></h3>
@@ -841,7 +842,7 @@ elements to consider:</p>
 <li>Create the “student1.com” zone as shown in the figure below and then
 click <strong>Finished.</strong></li>
 </ul>
-<p><a class="reference internal" href="_images/image10.png"><img alt="image7" src="_images/image10.png" style="width: 4.03000in; height: 3.21000in;" /></a></p>
+<p><a class="reference internal" href="_images/image101.png"><img alt="image7" src="_images/image101.png" style="width: 4.03000in; height: 3.21000in;" /></a></p>
 <ul>
 <li><p class="first">Perform the same validation steps as the previous lab for validating
 the successful transfer of student1.com to DNS Express</p>
@@ -875,7 +876,7 @@ listener for a record in the zone</p>
 click <strong>Finished</strong>.</p>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image11.png"><img alt="image8" src="_images/image11.png" style="width: 3.95000in; height: 2.51000in;" /></a></p>
+<p><a class="reference internal" href="_images/image111.png"><img alt="image8" src="_images/image111.png" style="width: 3.95000in; height: 2.51000in;" /></a></p>
 <ul class="simple">
 <li>Validate the DNS Express was updated by performing a dnsxdump and/or
 query for your new record to the Listener.</li>
@@ -1027,7 +1028,7 @@ case (looking to receive a transfer of the on-prem student2.com local
 zone). This example shows BIGIP1 adding the student2.com zone to pull
 from DNS Express on BIGIP2.</li>
 </ul>
-<p><a class="reference internal" href="_images/image12.png"><img alt="image9" src="_images/image12.png" style="width: 3.95000in; height: 2.97000in;" /></a></p>
+<p><a class="reference internal" href="_images/image121.png"><img alt="image9" src="_images/image121.png" style="width: 3.95000in; height: 2.97000in;" /></a></p>
 <ul>
 <li><p class="first">Perform the same validation steps as the previous lab for validating
 the successful transfer of student2.com zone</p>
@@ -1065,7 +1066,7 @@ update to the cloud GTM (BIGIP1) in this scenario.</p>
 </dl>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image13.png"><img alt="image10" src="_images/image13.png" style="width: 3.64000in; height: 2.46000in;" /></a></p>
+<p><a class="reference internal" href="_images/image131.png"><img alt="image10" src="_images/image131.png" style="width: 3.64000in; height: 2.46000in;" /></a></p>
 <ul>
 <li><dl class="first docutils">
 <dt>Note the logs in each F5. You will see BIGIP2 perform a zone transfer</dt>
@@ -1114,7 +1115,7 @@ configured for the zone.</p>
 pool of BIND servers.</li>
 <li>Estimated completion time: 10 minutes</li>
 </ul>
-<p><a class="reference internal" href="_images/image14.png"><img alt="image11" src="_images/image14.png" style="width: 4.25347in; height: 3.55347in;" /></a></p>
+<p><a class="reference internal" href="_images/image141.png"><img alt="image11" src="_images/image141.png" style="width: 4.25347in; height: 3.55347in;" /></a></p>
 <div class="section" id="task-1-create-a-dns-cache">
 <h3>TASK 1 – Create a DNS Cache<a class="headerlink" href="#task-1-create-a-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1246,7 +1247,7 @@ the figure below.</li>
 </tr>
 </tbody>
 </table>
-<p><a class="reference internal" href="_images/image15.png"><img alt="image12" src="_images/image15.png" style="width: 4.24000in; height: 4.25000in;" /></a></p>
+<p><a class="reference internal" href="_images/image151.png"><img alt="image12" src="_images/image151.png" style="width: 4.24000in; height: 4.25000in;" /></a></p>
 </div>
 <div class="section" id="task-5-create-a-new-external-dns-listener">
 <h3>TASK 5 – Create a new External DNS Listener<a class="headerlink" href="#task-5-create-a-new-external-dns-listener" title="Permalink to this headline">¶</a></h3>
@@ -1259,7 +1260,7 @@ List: Create</strong></li>
 figure below. Use the Listener IP of <strong>10.128.10.54</strong>. <em>**Note that
 you need to be in the “Advanced” Menu to set some of the options</em>.</li>
 </ul>
-<p><a class="reference internal" href="_images/image16.png"><img alt="image13" src="_images/image16.png" style="width: 4.71000in; height: 6.97000in;" /></a></p>
+<p><a class="reference internal" href="_images/image161.png"><img alt="image13" src="_images/image161.png" style="width: 4.71000in; height: 6.97000in;" /></a></p>
 <ul class="simple">
 <li>From your workstation at a command prompt, perform several recursive
 queries to your new listener to test. You will want to repeat some of the same queries multiple times
@@ -1278,17 +1279,17 @@ statistics and cache entries.</li>
 </li>
 <li>Your output should look similar to below with several entries</li>
 </ul>
-<p><a class="reference internal" href="_images/image17.png"><img alt="image14" src="_images/image17.png" style="width: 5.46000in; height: 2.55000in;" /></a></p>
+<p><a class="reference internal" href="_images/image171.png"><img alt="image14" src="_images/image171.png" style="width: 5.46000in; height: 2.55000in;" /></a></p>
 <ul class="simple">
 <li>If you go to the TMSH console, you can see several other ways to
 query the cache database. Below show some examples.</li>
 <li>View cache entries for a particular domain / owner:</li>
 </ul>
-<p><a class="reference internal" href="_images/image18.png"><img alt="image15" src="_images/image18.png" style="width: 5.46000in; height: 1.54000in;" /></a></p>
+<p><a class="reference internal" href="_images/image181.png"><img alt="image15" src="_images/image181.png" style="width: 5.46000in; height: 1.54000in;" /></a></p>
 <ul class="simple">
 <li>View cache entries of a particular RR type:</li>
 </ul>
-<p><a class="reference internal" href="_images/image19.png"><img alt="image16" src="_images/image19.png" style="width: 5.46000in; height: 1.95000in;" /></a></p>
+<p><a class="reference internal" href="_images/image191.png"><img alt="image16" src="_images/image191.png" style="width: 5.46000in; height: 1.95000in;" /></a></p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>There are other options… feel free to play around and familiarize</dt>
@@ -1305,7 +1306,7 @@ query the cache database. Below show some examples.</li>
 </dl>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image20.png"><img alt="image17" src="_images/image20.png" style="width: 5.45000in; height: 3.26000in;" /></a></p>
+<p><a class="reference internal" href="_images/image201.png"><img alt="image17" src="_images/image201.png" style="width: 5.45000in; height: 3.26000in;" /></a></p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>In the GUI, you can find similar data as above by navigating</dt>
@@ -1316,7 +1317,7 @@ query the cache database. Below show some examples.</li>
 <li>Select “View” under the Details column for transparent-cache</li>
 <li>Note that stats can also be reset from this view (Reset).</li>
 </ul>
-<p><a class="reference internal" href="_images/image21.png"><img alt="image18" src="_images/image21.png" style="width: 3.86667in; height: 2.92014in;" /></a></p>
+<p><a class="reference internal" href="_images/image211.png"><img alt="image18" src="_images/image211.png" style="width: 3.86667in; height: 2.92014in;" /></a></p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>Spend some time looking in the DNS Analytics to verify that AVR is</dt>
@@ -1342,7 +1343,7 @@ query the cache database. Below show some examples.</li>
 </dl>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image22.png"><img alt="image19" src="_images/image22.png" style="width: 5.87000in; height: 3.78000in;" /></a></p>
+<p><a class="reference internal" href="_images/image221.png"><img alt="image19" src="_images/image221.png" style="width: 5.87000in; height: 3.78000in;" /></a></p>
 <p><strong>- Clearing Entire Cache</strong></p>
 <ul class="simple">
 <li>Via the GUI, navigate to <strong>Statistics &gt; Module Statistics &gt; DNS &gt; Caches</strong></li>
@@ -1361,7 +1362,7 @@ query the cache database. Below show some examples.</li>
 </li>
 <li>Estimated completion time: 10 minutes</li>
 </ul>
-<p><a class="reference internal" href="_images/image23.png"><img alt="image20" src="_images/image23.png" style="width: 4.58264in; height: 2.95764in;" /></a></p>
+<p><a class="reference internal" href="_images/image231.png"><img alt="image20" src="_images/image231.png" style="width: 4.58264in; height: 2.95764in;" /></a></p>
 <div class="section" id="task-1-create-a-new-dns-cache">
 <h3>TASK 1 – Create a new DNS Cache<a class="headerlink" href="#task-1-create-a-new-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1469,7 +1470,7 @@ cache hits and perform recursive queries. Below are some examples:</li>
 In/Out, Packets In/Out and Connections are of particular interest.</p>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image24.png"><img alt="image21" src="_images/image24.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
+<p><a class="reference internal" href="_images/image241.png"><img alt="image21" src="_images/image241.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
 </div>
 </div>
 <div class="section" id="exercise-2-3-validating-resolver">
@@ -1519,7 +1520,7 @@ reference.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Get the root name servers in DNSKEY format and output to the file</dt>
-<dd><p class="first last">“root-dnskey”</p>
+<dd><p class="first last">&#8220;root-dnskey&#8221;</p>
 </dd>
 </dl>
 <p>&gt;dig +multi +noall +answer DNSKEY . &gt;root-dnskey</p>
@@ -1551,7 +1552,7 @@ entries.</p>
 <li><p class="first">The figure below shows what your configuration should look like.</p>
 </li>
 </ul>
-<p><a class="reference internal" href="_images/image25.png"><img alt="image22" src="_images/image25.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
+<p><a class="reference internal" href="_images/image251.png"><img alt="image22" src="_images/image251.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
 </div>
 <div class="section" id="id6">
 <h3>TASK 2 – Create a new DNS Profile<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
@@ -1626,7 +1627,7 @@ queries to your external Listener to test. Perform the following command
 <p>Your output should look similar to below with statistics. Response
 Validation</p>
 <p>and DNSSEC Key stats are of particular interest in this use-case.</p>
-<p><a class="reference internal" href="_images/image26.png"><img alt="image23" src="_images/image26.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
+<p><a class="reference internal" href="_images/image261.png"><img alt="image23" src="_images/image261.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
 <ul>
 <li><dl class="first docutils">
 <dt>In the GUI, you can find similar data as above by navigating</dt>
@@ -1680,7 +1681,7 @@ from the top menu.</li>
 <li>Click <strong>Add</strong> and configure as shown in the figure below and then
 click <strong>Finished</strong>:</li>
 </ul>
-<p><a class="reference internal" href="_images/image27.png"><img alt="image24" src="_images/image27.png" style="width: 4.31000in; height: 2.82000in;" /></a></p>
+<p><a class="reference internal" href="_images/image271.png"><img alt="image24" src="_images/image271.png" style="width: 4.31000in; height: 2.82000in;" /></a></p>
 <ul>
 <li><p class="first">From your workstation, perform the following recursive queries to your
 external Listener to test.</p>
