@@ -9,6 +9,16 @@ GSLB
    :maxdepth: 1
 
    orientation.rst
+   global-settings.rst
    logging.rst
    profiles.rst
+   listeners.rst
+   datacenters.rst
+   servers_standalone.rst
+   servers_hapairs.rst
+   trust.rst
+   links.rst
+   pools.rst
+   wip.rst
+   generic_host.rst
 
