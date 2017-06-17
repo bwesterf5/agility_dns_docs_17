@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Global Server Load Balancing &mdash; agility_dns_docs_17 0.1 documentation</title>
+  <title>GSLB &mdash; agility_dns_docs_17 0.1 documentation</title>
   
 
   
@@ -93,7 +93,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../lab_access/index.html">Lab Access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab_topology/index.html">Lab Topology</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Global Server Load Balancing</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GSLB</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#orientation">Orientation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dns-profile">DNS Profile</a></li>
@@ -173,7 +173,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Global Server Load Balancing</li>
+      <li>GSLB</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +192,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="global-server-load-balancing">
-<h1>Global Server Load Balancing<a class="headerlink" href="#global-server-load-balancing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gslb">
+<h1>GSLB<a class="headerlink" href="#gslb" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div>Students will configure an F5 DNS server to support GSLB services on a single device in site1, and subsequently join an additional F5 DNS server in site2 to the GSLB cluster. A Windows AD DNS server is authoritative for the zone example.com and contains a static A record for &#8220;www.example.com&#8221;, which resolves to 203.0.113.9. Students will add glue records and delegate gslb.example.com to the F5 GSLB DNS servers, and convert the A record &#8220;www.example.com&#8221; to be a CNAME record pointing
 to &#8220;www.gslb.example.com&#8221;. At the end of the lab students will observe that the F5 GSLB DNS servers will alternately resolve www.example.com to 203.0.113.9 and 198.51.100.41.</div></blockquote>
