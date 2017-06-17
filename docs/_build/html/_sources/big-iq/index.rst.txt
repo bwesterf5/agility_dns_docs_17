@@ -1,5 +1,5 @@
 ====================================
-Slave
+BIG-IQ
 ====================================
 
-DNS Express
+Centralized DNS Management
