@@ -15,10 +15,11 @@ http://agility-dns-docs-17.readthedocs.io/en/latest/
    lab_topology/index
    gslb/index
    cache/index
-   rpz/index
    dnsx/index
    dns201_agility2017
    ipi/index
    irules/index
+   firewall/index
+   dnssec/index
    routing/index
    big-iq/index
