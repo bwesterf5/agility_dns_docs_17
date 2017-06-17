@@ -1,0 +1,1419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Global Server Load Balancing &mdash; agility_dns_docs_17 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="agility_dns_docs_17 0.1 documentation" href="index.html"/>
+        <link rel="next" title="F5 DNS 201" href="dns201_agility2017.html"/>
+        <link rel="prev" title="Lab Topology" href="lab_topology/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> agility_dns_docs_17
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab_access/index.html">Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_topology/index.html">Lab Topology</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Global Server Load Balancing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#orientation">Orientation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-profile">DNS Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#listener">Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-centers">Data Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server-object">Server Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generic-host">Generic Host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-2-1-gslb-active-standby-data-centers">Exercise 2.1 – GSLB Active/Standby Data Centers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1-create-a-gtm-pool">TASK 1 – Create a GTM Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-2-create-a-wideip">TASK 2 – Create a WideIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-3-configure-zone-delegation">TASK 3 – Configure zone delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-4-configure-fallback">TASK 4 – Configure Fallback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-5-load-balancing-across-pools">TASK 5 – Load balancing across pools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-2-2-gslb-active-active-data-centers">Exercise 2.2 – GSLB Active/Active Data Centers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1-configure-active-active-traffic-distribution">TASK 1 – Configure Active/Active traffic distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-2-adding-persistence">TASK 2 – Adding Persistence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-2-3-gslb-with-topology">Exercise 2.3 – GSLB with Topology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1-create-topology-records">TASK 1 – Create Topology Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-3-configure-wideip">TASK 3 – Configure WideIP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-3-1-creating-a-synchronization-group">Exercise 3.1 – Creating a Synchronization Group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1-create-server-object-on-gtm1">TASK 1 – Create Server Object on GTM1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-2-create-a-synchronization-group">TASK 2 – Create a Synchronization Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-3-add-new-gtm-to-synchronization-group">TASK 3 – Add New GTM to Synchronization Group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dns201_agility2017.html">F5 DNS 201</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns201_agility2017.html#learn-more">Learn More</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">agility_dns_docs_17</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Global Server Load Balancing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dns101_agility2017.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="global-server-load-balancing">
+<h1>Global Server Load Balancing<a class="headerlink" href="#global-server-load-balancing" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Configure F5 DNS to support GSLB services hosted in two separate datacenters</p>
+<ul class="simple">
+<li>Start with configuring a standalone F5 (<a class="reference external" href="https://gtm1.site.example.com">https://gtm1.site.example.com</a>) in datacenter 1, and later expand the GSLB cluster across multiple datacenters.</li>
+<li>Orientation</li>
+<li>Logging</li>
+<li>Profile and Listeners</li>
+<li>Data Centers</li>
+<li>Server Objects</li>
+<li>Local LTM Virtual Server</li>
+</ul>
+</div></blockquote>
+<div class="section" id="orientation">
+<h2>Orientation<a class="headerlink" href="#orientation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>On the Windows Jumpbox run command promt and execure the command</dt>
+<dd><p class="first last"><strong>dig example.com</strong>. Examine the output.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Connect to the domain controller – on the Windows Jumpbox hit</dt>
+<dd><p class="first last"><strong>Start</strong> – <strong>Remote Desktop Connection</strong> – <strong>10.1.70.200</strong>. The
+user account is <strong>EXAMPLE\user</strong>, password <strong>Agility1</strong>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Click on <strong>Server Manager</strong>, and in the top right corner choose</dt>
+<dd><p class="first last"><strong>Tools</strong> and then <strong>DNS</strong></p>
+</dd>
+</dl>
+<p><a class="reference internal" href="_images/image3.png"><img alt="image2" src="_images/image3.png" style="width: 4.92690in; height: 4.82450in;" /></a></p>
+</li>
+<li><p class="first">Double click on <strong>EXAMPLE.COM</strong> and examine DNS records</p>
+</li>
+<li><dl class="first docutils">
+<dt>Connect to <strong>bigip2.site2</strong>, examine configuration of virtual server</dt>
+<dd><p class="first last">(<strong>198.51.100.41</strong>) and corresponding pool</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Try to open <a class="reference external" href="http://www.example.com">www.example.com</a> from web</dt>
+<dd><p class="first last">browser on the Windows Jumpbox</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>You are going to configure DNS query and response logging. To do</dt>
+<dd>this, you must tell GTM where to send logs to (a log publisher)
+and what specifically to log (DNS logging profile).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>For lab purposes, we are going to use local-syslog as our logging</dt>
+<dd>destination. <em>Note that remote high speed logging is the
+recommendation for production environments.</em></dd>
+</dl>
+</li>
+<li>Open Internet Explorer and go to <strong>gtm1.site1 (10.1.10.13)</strong></li>
+<li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; Other &gt; DNS Logging: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create a new DNS logging profile as shown in the table below. Keep</dt>
+<dd>the defaults if not noted in the table.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">example_dns_logging_profile</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Log Publisher</strong></td>
+<td>Select sys-db-access-publisher</td>
+</tr>
+<tr class="row-odd"><td><strong>Log Responses</strong></td>
+<td>Enabled</td>
+</tr>
+<tr class="row-even"><td><strong>Include Query ID</strong></td>
+<td>Enabled</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Your new dns-logging profile should now have all options enabled.</li>
+</ul>
+</div>
+<div class="section" id="dns-profile">
+<h2>DNS Profile<a class="headerlink" href="#dns-profile" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>A DNS profile tells the DNS Listener how to process DNS traffic.</dt>
+<dd>We’re going to make some basic tweaks.</dd>
+</dl>
+</li>
+<li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create a new DNS profile as shown in the following table. Keep the</dt>
+<dd>defaults if not noted in the table.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">example.com_dns_profile</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Unhandled Query Action</strong></td>
+<td>Drop</td>
+</tr>
+<tr class="row-odd"><td><strong>Use BIND Server on Big-IP</strong></td>
+<td>Disabled</td>
+</tr>
+<tr class="row-even"><td><strong>Logging</strong></td>
+<td>Enabled</td>
+</tr>
+<tr class="row-odd"><td><strong>Logging Profile</strong></td>
+<td>example_dns_logging_profile</td>
+</tr>
+<tr class="row-even"><td><strong>AVR statistics Sample Rate</strong></td>
+<td>Enabled, 1/1 queries sampled</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="listener">
+<h2>Listener<a class="headerlink" href="#listener" title="Permalink to this headline">¶</a></h2>
+<p>We are going to create UDP/TCP external Listeners. You will use this IP
+as a target address when querying GTM.</p>
+<p>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List:
+Create</strong></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Create two external Listeners as shown in the tables below. Keep the</dt>
+<dd>defaults if not noted in the table.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">isp2_site1_ns1.example.com_udp_53_virtual</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Destination</strong></td>
+<td>Host: 203.0.113.8</td>
+</tr>
+<tr class="row-odd"><td><strong>Protocol Profile (Client)</strong></td>
+<td>example.com_dns_profile</td>
+</tr>
+<tr class="row-even"><td><strong>DNS Profile</strong></td>
+<td>example.com_dns_profile</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="data-centers">
+<h2>Data Centers<a class="headerlink" href="#data-centers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Data Centers &gt; Data Center List: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create two Data Centers as shown below. Leave all defaults unless</dt>
+<dd>otherwise noted:</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site1_datacenter</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site2_datacenter</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><dl class="first docutils">
+<dt>Your Data Center list should look like the diagram below. Why is the</dt>
+<dd><p class="first last">status blue?</p>
+</dd>
+</dl>
+<p><a class="reference internal" href="_images/image4.png"><img alt="image3" src="_images/image4.png" style="width: 5.69764in; height: 1.06915in;" /></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="server-object">
+<h2>Server Object<a class="headerlink" href="#server-object" title="Permalink to this headline">¶</a></h2>
+<p>By default, GTM is not self-aware. You will need to configure your BigIP
+as a server object.</p>
+<ul class="simple">
+<li>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers &gt; Server List: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create a Server Object as defined in the table and diagram below.</dt>
+<dd>Leave default values unless otherwise noted:</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site1-gtm</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Data Center</strong></td>
+<td>site1_datacenter</td>
+</tr>
+<tr class="row-odd"><td><strong>Devices</strong></td>
+<td>Click add and specify 203.0.113.7; click add and OK</td>
+</tr>
+<tr class="row-even"><td><strong>Health Monitors</strong></td>
+<td>BIGIP</td>
+</tr>
+<tr class="row-odd"><td><strong>Virtual Server Discovery</strong></td>
+<td>Disabled</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="_images/image5.png"><img alt="image4" src="_images/image5.png" style="width: 5.96516in; height: 4.69950in;" /></a></p>
+<ul>
+<li><p class="first">Click on the “Server List” tab at the top menu bar to refresh the
+page. You should see the Server object as green.</p>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="_images/image6.png"><img alt="image5" src="_images/image6.png" style="width: 5.70994in; height: 1.46461in;" /></a></div>
+<div class="line">What is the status of the site1_datacenter object now?</div>
+</div>
+</li>
+</ul>
+<p>Students will be using an LTM objects to on both site1 and site2
+datacenters. You will need to create another BigIP objects to do this.
+Prior to configuring the Server object, we need to establish trust
+between the GTM and LTM. The bigip_add script will exchange device
+certificates to establish a trust relationship.</p>
+<ul>
+<li><p class="first">Login via SSH using putty to your gtm1.site1 (10.1.10.13) using
+username: <strong>root</strong> password: <strong>default</strong></p>
+</li>
+<li><div class="first line-block">
+<div class="line">Issue the following commands:</div>
+<div class="line"><strong>bigip_add 203.0.113.5</strong></div>
+</div>
+<p>Type ‘<strong>yes</strong>’ to proceed and enter ‘<strong>default</strong> as the
+password.</p>
+<div class="line-block">
+<div class="line">Now type:</div>
+<div class="line"><strong>big3d_install 203.0.113.5</strong></div>
+</div>
+<p>Note that this script likely won’t need to install a new version of
+the big3d agent… this is just for you to be familiar with the script.</p>
+<p>Repeat same operations (bigip_add and big3d_install) for the
+following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</p>
+</li>
+<li><p class="first">From the gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers&gt; Server List: Create</strong></p>
+</li>
+<li><dl class="first docutils">
+<dt>Create a Server Object as defined in the tables and diagram below.</dt>
+<dd><p class="first last">Leave default values unless otherwise noted:</p>
+</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site1_ha_pair</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Product</strong></td>
+<td>BIG-IP System</td>
+</tr>
+<tr class="row-odd"><td><strong>Data Center</strong></td>
+<td>site1.datacenter</td>
+</tr>
+<tr class="row-even"><td><strong>Devices</strong></td>
+<td><p class="first">Click add and specify</p>
+<p>Name: bigip1.site1</p>
+<p>Address: 203.0.113.5; click add and then OK</p>
+<p>Click add and specify</p>
+<p>Name: bigip2.site1</p>
+<p class="last">Address: 203.0.113.6; click add and then OK</p>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>Health Monitors</strong></td>
+<td>bigip</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Server Discovery</strong></td>
+<td>Enabled</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="_images/image7.png"><img alt="image6" src="_images/image7.png" style="width: 5.71210in; height: 4.44950in;" /></a></p>
+<ul>
+<li><dl class="first docutils">
+<dt>After a few moments, click on the “Server List” tab at the top menu</dt>
+<dd><p class="first last">bar to refresh the page. You should see the Server object as
+green and number of discovered virtual servers. Below is a sample
+of what your screen should look like:</p>
+</dd>
+</dl>
+<p><a class="reference internal" href="_images/image8.png"><img alt="image7" src="_images/image8.png" style="width: 5.70755in; height: 1.55844in;" /></a></p>
+</li>
+<li><p class="first">Create server objects for site2.datacenters based on the tabled below</p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site2_ha_pair</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Product</strong></td>
+<td>BIG-IP System</td>
+</tr>
+<tr class="row-odd"><td><strong>Data Center</strong></td>
+<td>site2.datacenter</td>
+</tr>
+<tr class="row-even"><td><strong>Devices</strong></td>
+<td><p class="first">Click add and specify</p>
+<p>Name: bigip1.site2</p>
+<p>Address: 198.51.100.37; click add and then OK</p>
+<p>Click add and specify</p>
+<p>Name: bigip2.site2</p>
+<p class="last">Address: 198.51.100.38; click add and then OK</p>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>Health Monitors</strong></td>
+<td>bigip</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Server Discovery</strong></td>
+<td>Enabled</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Go to your SSH session on GTM1 and take a look at the /var/log/gtm
+file to see what kinds of logs are generated after a server is
+created.
+<strong>tail -100 /var/log/gtm</strong></li>
+</ul>
+</div>
+<div class="section" id="generic-host">
+<h2>Generic Host<a class="headerlink" href="#generic-host" title="Permalink to this headline">¶</a></h2>
+<p>GTM can handle virtual servers that do not reside on a BigIP. The most
+common way of incorporating non-F5 virtual server is using a Server type
+of Generic Host.</p>
+<ul class="simple">
+<li>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers &gt; Server List: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create a Server Objects as defined in the table below. Note that the</dt>
+<dd>web virtual server is manually configured here and happens to be
+the same IP address as the physical host.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="57%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">lamp1.site1</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Product</strong></td>
+<td>Generic Host</td>
+</tr>
+<tr class="row-odd"><td><strong>Address</strong></td>
+<td>203.0.113.15 (tap Add)</td>
+</tr>
+<tr class="row-even"><td><strong>Data Center</strong></td>
+<td>site1_datacenter</td>
+</tr>
+<tr class="row-odd"><td><strong>Health Monitors</strong></td>
+<td>Gateway_icmp</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Server List Name</strong></td>
+<td>lamp1.site1</td>
+</tr>
+<tr class="row-odd"><td><strong>Virtual Server List Address</strong></td>
+<td>203.0.113.15 (tap Add)</td>
+</tr>
+<tr class="row-even"><td><strong>Service Port</strong></td>
+<td>80</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">lamp1.site2</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Product</strong></td>
+<td>Generic Host</td>
+</tr>
+<tr class="row-odd"><td><strong>Address</strong></td>
+<td>198.51.100.47 (tap Add)</td>
+</tr>
+<tr class="row-even"><td><strong>Data Center</strong></td>
+<td>site2_datacenter</td>
+</tr>
+<tr class="row-odd"><td><strong>Health Monitors</strong></td>
+<td>Gateway_icmp</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Server List Name</strong></td>
+<td>lamp2.site1</td>
+</tr>
+<tr class="row-odd"><td><strong>Virtual Server List Address</strong></td>
+<td>198.51.100.47 (tap Add)</td>
+</tr>
+<tr class="row-even"><td><strong>Service Port</strong></td>
+<td>80</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="_images/image9.png"><img alt="image8" src="_images/image9.png" style="width: 5.81667in; height: 7.57450in;" /></a></p>
+<p><a class="reference internal" href="_images/image10.png"><img alt="image9" src="_images/image10.png" style="width: 5.45755in; height: 3.09756in;" /></a></p>
+<ul>
+<li><p class="first">Make sure all server objects are available</p>
+<p><a class="reference internal" href="_images/image11.png"><img alt="image10" src="_images/image11.png" style="width: 5.42339in; height: 1.81474in;" /></a></p>
+<p>STOP – You have completed lab 1</p>
+</li>
+</ul>
+<div class="section" id="exercise-2-1-gslb-active-standby-data-centers">
+<h3>Exercise 2.1 – GSLB Active/Standby Data Centers<a class="headerlink" href="#exercise-2-1-gslb-active-standby-data-centers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In this use-case, you will complete GSLB configuration for a disaster
+recovery scenario. In this case, site1 will always be preferred while
+site2 is only used if East is down.</li>
+<li>Estimated completion time: 10 minutes</li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-create-a-gtm-pool">
+<h2>TASK 1 – Create a GTM Pool<a class="headerlink" href="#task-1-create-a-gtm-pool" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>From the gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Pools &gt; Pool List: Create</strong></li>
+<li>Create a new Pool as shown in the table and
+diagram below. Keep the defaults if not noted in the table.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">www_https_pool</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Type</strong></td>
+<td>A</td>
+</tr>
+<tr class="row-odd"><td><strong>Load Balancing Method</strong></td>
+<td>Preferred: Global Availability</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Servers</strong></td>
+<td><p class="first">isp1_site1_www.example.com_tcp_https_virtual 203.0.113.9:443</p>
+<p class="last">ips2_site2_www.example.com_tcp_https_virtual 198.51.100.41:443</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Make sure that the east VS is at the top of the Member List as shown
+below. This is an ordered failover from top to bottom.</p>
+<p><a class="reference internal" href="_images/image12.png"><img alt="image11" src="_images/image12.png" style="width: 5.88788in; height: 2.07456in;" /></a></p>
+<p>Click Finished</p>
+</div>
+<div class="section" id="task-2-create-a-wideip">
+<h2>TASK 2 – Create a WideIP<a class="headerlink" href="#task-2-create-a-wideip" title="Permalink to this headline">¶</a></h2>
+<p>We will create a hostname to use as a Wide IP.</p>
+<ul class="simple">
+<li>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Wide IPs &gt; Wide IP List: Create</strong></li>
+<li><dl class="first docutils">
+<dt>Create a new Wide IP as shown in the table below. Keep</dt>
+<dd>the defaults if not noted in the table.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">www.example.com</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Type</strong></td>
+<td>A</td>
+</tr>
+<tr class="row-odd"><td><strong>Alias</strong></td>
+<td><a class="reference external" href="http://www.gslb.example.com">www.gslb.example.com</a> (Add)</td>
+</tr>
+<tr class="row-even"><td><strong>Pools – Pool List</strong></td>
+<td>www_https_pool (Add)</td>
+</tr>
+</tbody>
+</table>
+<p>Click Finished</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Open a Command Prompt window on your Windows jump box and query your</dt>
+<dd><p class="first last">Listener for the Wide IP. You may wish to issue this command
+several times:</p>
+</dd>
+</dl>
+<p><strong>dig www.gslb.example.com &#64;203.0.113.98</strong></p>
+<p>Your results should look like the following example:</p>
+<p><a class="reference internal" href="_images/image13.png"><img alt="image12" src="_images/image13.png" style="width: 5.87421in; height: 2.90181in;" /></a></p>
+<p>Try hitting <a class="reference external" href="https://www.example.com">**https://www.example.com**</a>
+in a browser. Does the page open? Why?</p>
+<div class="line-block">
+<div class="line">Now is a good time to view query logging. In the SSH shell on the
+<strong>gtm1</strong>, view the logs in /var/log/ltm:</div>
+<div class="line"><strong>tail –f /var/log/ltm</strong></div>
+</div>
+<p>Can you see DNS query logs originated from CLI? From the Web-browser?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="task-3-configure-zone-delegation">
+<h2>TASK 3 – Configure zone delegation<a class="headerlink" href="#task-3-configure-zone-delegation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Open RDP and connect to domain controller at <strong>10.1.70.20</strong></dt>
+<dd><p class="first last">(EXAMPLE\user; Agility1). Open DNS Manager.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>We are going to replace A record for</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.example.com">www.example.com</a> with CNAME record
+<a class="reference external" href="http://www.gslb.example.com">www.gslb.example.com</a>. This will
+enable local resolution by AD and dynamic scaling for
+<a class="reference external" href="http://www.example.com">www.example.com</a> application</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Delete exisiting A record for</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.example.com">www.example.com</a></p>
+</dd>
+</dl>
+<p><a class="reference internal" href="_images/image14.png"><img alt="image13" src="_images/image14.png" style="width: 5.79088in; height: 1.30569in;" /></a></p>
+</li>
+<li><dl class="first docutils">
+<dt>Click on the menu Action – New Alias (CNAME). Confgure according to</dt>
+<dd><p class="first last">the table</p>
+</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="68%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Alias Name</strong></th>
+<th class="head">www</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Fully Qualified Domain Name (FQDN)</strong></td>
+<td>www.EXAMPLE.COM</td>
+</tr>
+<tr class="row-odd"><td><strong>Fully Qualified Domain Name for target host</strong></td>
+<td>www.gslb.example.com</td>
+</tr>
+</tbody>
+</table>
+<p>Click OK</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Click on the menu Action – New Delegation - Next. In the “Delegeted</dt>
+<dd><p class="first last">domain” specify “gslb” and clock Next. Tap Add and in the form
+Server fully qualified domain name (FQDN) define ns1.EXAMPLE.com.
+Tap OK</p>
+</dd>
+</dl>
+<p><a class="reference internal" href="_images/image15.png"><img alt="image14" src="_images/image15.png" style="width: 5.95755in; height: 4.65888in;" /></a></p>
+</li>
+<li><p class="first">Tap Next and Finish</p>
+</li>
+<li><p class="first">Run the command on Windows Jumpbox:</p>
+<p><strong>dig www.example.com</strong></p>
+<p>The output should look like below.</p>
+<p>Hit the command multiple times. Are you getting the same response?
+Why?</p>
+<p><a class="reference internal" href="_images/image16.png"><img alt="image15" src="_images/image16.png" style="width: 5.83158in; height: 2.91579in;" /></a></p>
+</li>
+<li><dl class="first docutils">
+<dt>Open web-browser and try to connect to</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.example.com">www.example.com</a>. Try refreshing the
+web page multiple times.</p>
+</dd>
+</dl>
+</li>
+<li><div class="first line-block">
+<div class="line">Now we are going to disable the site1.datacenter. Before we do
+this, open an SSH session to your GTM1 and tail the log file:</div>
+<div class="line"><strong>tail –f /var/log/gtm</strong></div>
+</div>
+</li>
+<li><p class="first">While the log is updating, navigate in the <strong>gtm1</strong> to <strong>DNS &gt; GSLB &gt;
+Pools &gt; Pools List.</strong> Tap on www_https_pool and choose “members”.
+Set checkbox for site1_ha_pair and tap Disable</p>
+<p><a class="reference internal" href="_images/image17.png"><img alt="image16" src="_images/image17.png" style="width: 5.84006in; height: 2.62320in;" /></a></p>
+</li>
+<li><div class="first line-block">
+<div class="line">Query the WideIP again from the Command Prompt and note the
+results. The site2.datacenter server IP should be returned.</div>
+<div class="line"><strong>dig www.example.com</strong></div>
+</div>
+</li>
+<li><p class="first">You can also try refreshing the web page from a browser – you should
+be directed to the applicatiom hosted in site2.datacenter (green
+headline)</p>
+</li>
+<li><p class="first">Now go back and re-enable site1_ha_pair pool memeber. Note the log
+messages in /var/log/gtm.</p>
+</li>
+<li><p class="first">Query the WideIP again and note your results. Did it fail back?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="task-4-configure-fallback">
+<h2>TASK 4 – Configure Fallback<a class="headerlink" href="#task-4-configure-fallback" title="Permalink to this headline">¶</a></h2>
+<p>We will create a scenario for a fallback option when both east and west
+Virtual Servers are unavailable.</p>
+<ul class="simple">
+<li>In the gtm1 GUI, navigate to : <strong>DNS &gt; GSLB &gt; Pools &gt; Pool List.</strong>
+Select the pool <strong>www_https_pool</strong>. Select the <strong>Members</strong> tab in
+the middle menu bar. Make the following changes as noted in the
+table.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Load Balancing Method</strong></th>
+<th class="head"><div class="first line-block">
+<div class="line">Preferred: Global Availability</div>
+<div class="line">Alternate: None</div>
+</div>
+<p class="last">Fallback: Fallback IP</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Fallback IPv4</strong></td>
+<td>1.1.1.1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">Click <strong>Update</strong></p>
+</li>
+<li><div class="first line-block">
+<div class="line">Now highlight both members in the checkboxes to the left and click
+<strong>Disable</strong>. Your GUI should look similar to the following diagram:</div>
+<div class="line"><a class="reference internal" href="_images/image18.png"><img alt="image17" src="_images/image18.png" style="width: 5.78342in; height: 3.81630in;" /></a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line">In the Command Prompt window, query the WideIP again and note the
+results. They should look similar to below and show fallback:</div>
+<div class="line"><strong>dig `www.example.com &lt;http://www.example.com&gt;`__</strong></div>
+</div>
+<p><a class="reference internal" href="_images/image19.png"><img alt="image18" src="_images/image19.png" style="width: 5.75673in; height: 2.85228in;" /></a></p>
+<ol class="arabic simple">
+<li>Fallback IP address which can be a sorry server for maintenance</li>
+</ol>
+</li>
+<li><p class="first">Return to the GTM1 GUI go to <strong>Statistics &gt; Module Statistics &gt; DNS &gt;
+GSLB.</strong> Under ‘Statistics Type’, select <strong>Pools.</strong> You should see
+statistics for Preferred, Alternate, and Fallback algorithms. You
+should see Fallback statistics updated</p>
+</li>
+<li><p class="first">Go back and re-enable your pool members.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="task-5-load-balancing-across-pools">
+<h2>TASK 5 – Load balancing across pools<a class="headerlink" href="#task-5-load-balancing-across-pools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>From the gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Pools &gt; Pool List: Create.</strong></dt>
+<dd>Create a new Pool as shown in the table and
+diagram below. Keep the defaults if not noted in the table.</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">www_https_pool_generic_host</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Type</strong></td>
+<td>A</td>
+</tr>
+<tr class="row-odd"><td><strong>Load Balancing Method</strong></td>
+<td>Preferred: Round Robin</td>
+</tr>
+<tr class="row-even"><td><strong>Virtual Servers</strong></td>
+<td><p class="first">lamp1_site1 203.0.113.15:80</p>
+<p class="last">lamp1_site2 198.51.100.47:80</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">Tap Finished</p>
+</li>
+<li><p class="first">Make sure that the east VS is at the top of the Member List as shown
+below. This is an ordered failover from top to bottom.</p>
+</li>
+<li><p class="first">From the gtm1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Wide IPs &gt; Wide IP
+List.</strong> Select <strong>*www.example.com*</strong>. Select <strong>Pools</strong> from the
+middle menu bar. Tap Manage, choose
+<strong>www_https_pool_generic_host</strong> from dropdown menu and tap Add</p>
+<p><a class="reference internal" href="_images/image20.png"><img alt="image19" src="_images/image20.png" style="width: 5.46340in; height: 3.82040in;" /></a></p>
+</li>
+<li><p class="first">Tap Finished</p>
+</li>
+<li><p class="first">Change Load Balancing Method to Global Availability</p>
+</li>
+<li><p class="first">Tap Update</p>
+</li>
+<li><p class="first">In the gtm1 GUI, navigate to : <strong>DNS &gt; GSLB &gt; Pools &gt; Pool List.</strong>
+Select the pool <strong>www_https_pool</strong>. Select the <strong>Members</strong> tab in
+the middle menu bar. Highlight both members in the checkboxes to the
+left and click <strong>Disable</strong>.</p>
+</li>
+<li><p class="first">In the Command Prompt window, query the WideIP a few again and note
+the results</p>
+<p><strong>dig `www.example.com &lt;http://www.example.com&gt;`__</strong></p>
+</li>
+<li><p class="first">Why you are getting 1.1.1.1 response sometimes?</p>
+</li>
+<li><p class="first">What is the best way to fix it?</p>
+</li>
+<li><p class="first">Try to fix it, query the WideIP again and make sure 1.1.1.1 response
+is not coming</p>
+</li>
+<li><p class="first">Re-enable pool memebers in pool www_https_pool and deassociate pool
+www_https_pool_generic_host from WideIP</p>
+</li>
+</ul>
+<div class="section" id="exercise-2-2-gslb-active-active-data-centers">
+<h3>Exercise 2.2 – GSLB Active/Active Data Centers<a class="headerlink" href="#exercise-2-2-gslb-active-active-data-centers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In this use-case, you will configure a WideIP that sends clients to
+both site1 and site2 Data Centers. This will involve scenarios with
+and without persistence.</li>
+<li>Estimated completion time: 15 minutes</li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-configure-active-active-traffic-distribution">
+<h2>TASK 1 – Configure Active/Active traffic distribution<a class="headerlink" href="#task-1-configure-active-active-traffic-distribution" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>In the GUI on your GTM, navigate to: <strong>DNS &gt; GSLB &gt; Pools &gt; Pool List &gt; www_https_pool &gt; Members.</strong></dt>
+<dd><p class="first last">Set preferred Load Balancing
+method to Round Robin and click Update</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>From Command Prompt on your Windows machine, query your Listener for</dt>
+<dd><p class="first last">the Wide IP. You may wish to issue this command several times:</p>
+</dd>
+</dl>
+<p><strong>dig `www.gslb.example.com &lt;http://www.gslb.example.com&gt;`__&#64;203.0.113.8</strong></p>
+<p>You should see the site1 and site2 IPs returned in a round robin
+fashion - sometimes 2 in a row for each due to the multiple instances
+of TMM running on the virtual appliance.</p>
+<p>You can also see the results in a browser by going to
+<a class="reference external" href="http://rr.webapp1.com">**http://example.com**</a></p>
+<p>Refresh the page several times and you should see the round robin
+behavior in the browser.</p>
+</li>
+<li><p class="first">Your results should have round robin of answers going between site1
+and site2 Virtual Servers.</p>
+</li>
+<li><div class="first line-block">
+<div class="line">From GTM1 GUI to <strong>Statistics &gt; Module Statistics &gt; DNS &gt; GSLB.</strong>
+Under ‘Statistics Type’, select <strong>Pools.</strong> Click on <strong>View</strong> under
+the ‘Members’ column for <strong>www_https_pool</strong>. You should see an
+even distribution between members similar to the diagram below:</div>
+<div class="line"><a class="reference internal" href="_images/image21.png"><img alt="image20" src="_images/image21.png" style="width: 5.92339in; height: 1.95871in;" /></a></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="task-2-adding-persistence">
+<h2>TASK 2 – Adding Persistence<a class="headerlink" href="#task-2-adding-persistence" title="Permalink to this headline">¶</a></h2>
+<p>Many applications require session persistence. As a result, GTM needs to
+send clients to the same Data Center via GSLB-level persistence.</p>
+<ul>
+<li><p class="first">From the gtm1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Wide IPs &gt; Wide IP
+List.</strong> Select <strong>*gslb.example.com*</strong>. Select <strong>Pools</strong> from the
+middle menu bar. Make the following changes</p>
+</li>
+<li><p class="first">Enable Persistence</p>
+</li>
+<li><p class="first">Change the Persistence TTL to 30 seconds</p>
+</li>
+<li><p class="first">Click Update</p>
+<p><a class="reference internal" href="_images/image22.png"><img alt="image21" src="_images/image22.png" style="width: 5.84006in; height: 2.72214in;" /></a></p>
+</li>
+<li><p class="first">From Command Prompt, query the WideIP <strong>*www.gslb.example.com*</strong>
+several times and note the results. Do you see the same response each
+time?</p>
+</li>
+<li><p class="first">In the GUI, navigate to: <strong>Statistics &gt; Module Statistics &gt; DNS &gt;
+GSLB.</strong> Under ‘Statistics Type’, select <strong>Persistence Records.</strong> Note
+that because the Persistence TTL is only 30 seconds, you may need to
+send another query to generate a record. After 30 seconds expires,
+you should note the record disappearing.</p>
+</li>
+<li><p class="first"><strong>**NOTE:</strong> As of v12, persistence record statistics and logging is
+disabled. If you get the error message in the GUI, follow the
+directions and run the following from the CLI on GTM1. This will
+change the DB variable to allow you to view the persistence records
+in the GUI:</p>
+<p><strong>tmsh</strong></p>
+<p><strong>modify sys db
+ui.statistics.modulestatistics.dnsgslb.persistencerecords value
+true</strong></p>
+</li>
+<li><div class="first line-block">
+<div class="line">Query the Wide IP again and then refresh the persistence record
+screen in the GUI</div>
+<div class="line"><a class="reference internal" href="_images/image23.png"><img alt="image22" src="_images/image23.png" style="width: 6.00673in; height: 1.21945in;" /></a></div>
+</div>
+</li>
+</ul>
+<div class="section" id="exercise-2-3-gslb-with-topology">
+<h3>Exercise 2.3 – GSLB with Topology<a class="headerlink" href="#exercise-2-3-gslb-with-topology" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In this use-case, you will send clients to a preferred geographic
+location using Topology. We are also going to incorporate the use of
+multiple pools in this lab to introduce WideIP-level load balancing.</li>
+<li>Estimated completion time: 10 minutes</li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-create-topology-records">
+<h2>TASK 1 – Create Topology Records<a class="headerlink" href="#task-1-create-topology-records" title="Permalink to this headline">¶</a></h2>
+<p>We will create topology records to define source IPs that will prefer
+either www_https_pool or generic hosts pool. We are going to have your
+workstation prefer www_https_ pool pool, while bigip1.site1 host will
+prefer www_https_pool_generic hosts.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Topology &gt; Records: Create.</strong></dt>
+<dd><p class="first last">Create two new records as shown in the tables below:</p>
+</dd>
+</dl>
+<p><strong>Topology Record 1</strong></p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Request Source</strong></th>
+<th class="head">IP Subnet is 203.0.113.1/32</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Destination - Pools – Pool List</strong></td>
+<td>www_https_pool</td>
+</tr>
+<tr class="row-odd"><td><strong>Weight</strong></td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Topology Record 2</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Request Source</strong></th>
+<th class="head">IP Subnet is 203.0.113.5/32</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Destination - Pools – Pool List</strong></td>
+<td>www_https_pool_generic_hosts</td>
+</tr>
+<tr class="row-odd"><td><strong>Weight</strong></td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="_images/image24.png"><img alt="image23" src="_images/image24.png" style="width: 5.72121in; height: 1.01834in;" /></a></p>
+</div>
+<div class="section" id="task-3-configure-wideip">
+<h2>TASK 3 – Configure WideIP<a class="headerlink" href="#task-3-configure-wideip" title="Permalink to this headline">¶</a></h2>
+<p>We will modify Wide IP configuration to use topology records</p>
+<ul>
+<li><p class="first">From the GTM1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Wide IPs &gt; Wide IP
+List &gt; www.example.com.</strong> Select <strong>Pools</strong> from the middle menu bar.
+Change Load Balancing methog to Topology and tap Update</p>
+</li>
+<li><p class="first">Tap Manage, choose <strong>www_https_pool_generic_host</strong> from dropdown
+menu and tap Add.</p>
+<p><a class="reference internal" href="_images/image25.png"><img alt="image24" src="_images/image25.png" style="width: 5.87421in; height: 2.87924in;" /></a></p>
+</li>
+<li><p class="first">Issue the following DNS query multiple times from a command prompt on
+your Windows workstation:</p>
+<p><strong>dig `www.gslb.example.com &lt;http://www.gslb.example.com&gt;`__
+&#64;203.0.113.8</strong></p>
+<p>You should see the IP addresses from web_https_pool because you are
+coming from 203.0.113.1 which falls under Topology Record #1 that you
+created above.</p>
+</li>
+<li><p class="first">Open an SSH session to the bigip1.site1 if you don’t have one open
+already.</p>
+<p><strong>dig `www.gslb.example.com &lt;http://www.gslb.example.com&gt;`__
+&#64;203.0.113.8</strong></p>
+<p>You should see the IP address for the generic web server in the
+www-_https_pool_generic_host center returned.</p>
+<p><a class="reference internal" href="_images/image26.png"><img alt="image25" src="_images/image26.png" style="width: 5.32640in; height: 3.29175in;" /></a></p>
+</li>
+</ul>
+<div class="section" id="exercise-3-1-creating-a-synchronization-group">
+<h3>Exercise 3.1 – Creating a Synchronization Group<a class="headerlink" href="#exercise-3-1-creating-a-synchronization-group" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In this use-case, you will create a sync group to be used between
+gtm1.site1 and gtm1.site2<ul>
+<li>gtm1.site1 will be used as the “existing GTM”.</li>
+<li>gtm1.site2 will be used as the “new GTM”. This unit will end up
+consuming and having a copy of the config from the “existing GTM”.</li>
+</ul>
+</li>
+<li>Estimated completion time: 15 minutes</li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-create-server-object-on-gtm1">
+<h2>TASK 1 – Create Server Object on GTM1<a class="headerlink" href="#task-1-create-server-object-on-gtm1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Log in to <strong>gtm1.site2 (10.1.10.23)</strong> using admin\admin and notice</dt>
+<dd>there is no DNS WideIPs, servers, or data centers configured</dd>
+</dl>
+</li>
+<li>From gtm1.site1 we will need to add GTM2 as a Server object.</li>
+<li>From gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers &gt; Server List: Create</strong></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head">site2-gtm</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Data Center</strong></td>
+<td>site2_datacenter</td>
+</tr>
+<tr class="row-odd"><td><strong>Devices</strong></td>
+<td>Click add and specify Device name: site2-gtm and IP 198.51.100.39; click add and OK</td>
+</tr>
+<tr class="row-even"><td><strong>Health Monitors</strong></td>
+<td>BIGIP</td>
+</tr>
+<tr class="row-odd"><td><strong>Virtual Server Discovery</strong></td>
+<td>Disabled</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>Click Finished</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><div class="first admonition note" id="notice-the-gtm2-west-server-object-stays-blue-on-the-server-list-screen-this-is-because-we-havent-created-the-trust-between-the-devices-yet">
+<p class="first admonition-title">Note</p>
+<p class="last">Notice the gtm2-west server object stays blue on the
+server list screen. This is because we haven’t created the trust
+between the devices yet.</p>
+</div>
+</li>
+<li><p class="first">From GTM1 SSH session, issue the following command.
+:name: from-gtm1-ssh-session-issue-the-following-command.</p>
+<blockquote>
+<div><p><strong>bigip_add 198.51.100.39</strong></p>
+<p>Type ‘yes’ to proceed and enter ‘default’ as the password.</p>
+<p>**Notice gtm1.site2 should have turned green in the server list</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="task-2-create-a-synchronization-group">
+<h2>TASK 2 – Create a Synchronization Group<a class="headerlink" href="#task-2-create-a-synchronization-group" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>*On GTM1*</strong> in the GUI, navigate to: <strong>DNS &gt; Settings &gt; GSLB &gt; General.</strong></p>
+</li>
+<li><p class="first">Enable the <strong>Synchronize</strong> checkbox.</p>
+</li>
+<li><p class="first">Change the Group Name as <strong>EXAMPLE_group</strong></p>
+</li>
+<li><p class="first">Enable the <strong>Synchronize DNS Zone Files</strong> checkbox.</p>
+<p><a class="reference internal" href="_images/image27.png"><img alt="image26" src="_images/image27.png" style="width: 4.06103in; height: 1.86535in;" /></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="task-3-add-new-gtm-to-synchronization-group">
+<h2>TASK 3 – Add New GTM to Synchronization Group<a class="headerlink" href="#task-3-add-new-gtm-to-synchronization-group" title="Permalink to this headline">¶</a></h2>
+<p>We will run the <strong>gtm_add</strong> script to add the “new GTM” to the
+synchronization group with the “existing GTM”. Note, <strong>always run this
+script on the NEW GTM device</strong>. Running this script on the configured
+GTM device will sync to the new device and erase the current
+configuration! So be very careful!</p>
+<ul>
+<li><p class="first">Use PUTTY to log in to the new <strong>gtm2 (10.128.1.247)</strong> with
+root\agility and run the following command:</p>
+<p><strong>gtm_add 203.0.113.7</strong></p>
+<p>Type ‘<strong>y</strong>’ to proceed. If prompted for a password use
+‘agility’.</p>
+</li>
+<li><p class="first">To validate the sync group is setup properly, navigate through the
+GUI to see if the configurations are the same. You may want to look
+at the Server definitions, Wide IPs, etc.</p>
+</li>
+<li><p class="first">If the configs look equal, make a change on one GTM and see if it
+shows up on the other. Repeat in the reverse direction. **<strong>Note
+- There is NO MASTER! Any change on any GTM in a sync group is
+automatically replicated to all other GTMs in the group</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dns201_agility2017.html" class="btn btn-neutral float-right" title="F5 DNS 201" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lab_topology/index.html" class="btn btn-neutral" title="Lab Topology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Agility DNS team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
