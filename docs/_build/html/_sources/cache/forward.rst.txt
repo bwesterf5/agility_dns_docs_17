@@ -1,5 +1,5 @@
 ================================
-Resolver
+Forward Zones
 ================================
 
-Resolver cache.
+Forward zones are available on a resolver cache.
