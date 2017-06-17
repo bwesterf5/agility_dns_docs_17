@@ -1,0 +1,24 @@
+===============================================
+F5 DNS Agility Labs Documentation
+===============================================
+
+https://github.com/bwesterf5/agility_dns_docs_17
+
+http://agility-dns-docs-17.readthedocs.io/en/latest/
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :name: mastertoc
+
+   lab_access/index
+   lab_topology/index
+   gslb/index
+   cache/index
+   rpz/index
+   dnsx/index
+   dns201_agility2017
+   ipi/index
+   irules/index
+   routing/index
+   big-iq/index

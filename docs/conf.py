@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'agility_dns_docs_17'
+project = u'Agility 2017 - DNS'
 copyright = u'2017, Agility DNS team'
 author = u'Agility DNS team'
 
@@ -153,4 +153,4 @@ texinfo_documents = [
 ]
 
 html_theme = 'sphinx_rtd_theme'
-#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]  
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
