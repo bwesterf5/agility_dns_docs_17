@@ -1,5 +1,5 @@
 ===================================
-Firewall
+RPZ
 ===================================
 
-DNS firewall
+Response Policy Zone
