@@ -1,5 +1,5 @@
 ==================================
-Cluster Properties
+iRules
 ==================================
 
-Configure the global settings for GSLB
+DNS iRules
