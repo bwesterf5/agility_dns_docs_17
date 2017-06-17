@@ -1,5 +1,0 @@
-==============================
-Servers - HA Clusters
-==============================
-
-Create Server objectes that are HA pairs of F5 devices.
