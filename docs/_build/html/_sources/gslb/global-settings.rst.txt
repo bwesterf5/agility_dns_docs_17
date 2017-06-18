@@ -1,0 +1,7 @@
+==================================
+Cluster Properties
+==================================
+
+Configure the global settings for GSLB
+
+  .. figure:: ./images/gtm_global_settings.png

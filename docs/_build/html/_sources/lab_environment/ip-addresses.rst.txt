@@ -1,14 +1,6 @@
 ##################
-Diagrams
+IPv4 Addresses
 ##################
-
-.. figure:: ./images/Agility_DNS.png
-
-
-Use Internet Explorer Browser on the jumpbox to log in via the GUI, or use Putty for SSH to get a shell.
-
-GUI username = **admin/admin**\s\s
-CLI username = **root/default**
 
 Management IP Addresses:
 
