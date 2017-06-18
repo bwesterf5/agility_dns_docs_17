@@ -4,22 +4,16 @@ Cluster Properties
 
 Configure the global settings for GSLB according to the following table:
 
-+----------------------------+---------------+------------------------+
-| **Setting**                | **Value**     | **Description**        |
-+============================+===============+========================+
-| Synchronize                | checked       | Not on by default      |
-+----------------------------+---------------+------------------------+
-| Group Name                 | EXAMPLE_group | Org specific           |
-+----------------------------+---------------+------------------------+
-| Synchronize DNS Zone Files | checked       | BIND zone file updates |
-+----------------------------+---------------+------------------------+
+.. csv-table::
+   :header: "Setting", "Value", "Description"
+   :widths: 15, 15, 30
 
+   "Synchronize", "checked", "Not on by default"
+   "Group Name", "EXAMPLE_group", "Org specific"
+   "Synchronize DNS Zone Files", "checked", "BIND zone file updates"
 
-.. csv-table:: a title
-   :header: "name", "firstname", "age"
-   :widths: 20, 20, 10
+.. figure:: ./images/gtm_global_settings.png
 
-   "Smith", "John", 40
-   "Smith", "John, Junior", 20
+https://support.f5.com/csp/article/K13734
 
-  .. figure:: ./images/gtm_global_settings.png
+https://support.f5.com/kb/en-us/products/big-ip-dns/manuals/product/bigip-dns-implementations-12-0-0/4.html
