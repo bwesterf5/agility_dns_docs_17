@@ -241,12 +241,12 @@
 								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
 									<HLURL:Hyperlink ID="1">
 										<HLURL:Description>Product Support Site</HLURL:Description>
-										<HLURL:Address>http://askf5.com</HLURL:Address>
+										<HLURL:Address>https://gtm1.site2.example.com</HLURL:Address>
 										<HLURL:SubAddress></HLURL:SubAddress>
 										<HLURL:ExtraInfo></HLURL:ExtraInfo>
 										<HLURL:Default>0</HLURL:Default>
 										<HLURL:NewWindow>1</HLURL:NewWindow>
-										<HLURL:AbsoluteURL>http://askf5.com</HLURL:AbsoluteURL>
+										<HLURL:AbsoluteURL>https://gtm1.site2.example.com</HLURL:AbsoluteURL>
 									</HLURL:Hyperlink>
 									<HLURL:Hyperlink ID="2">
 										<HLURL:Description>Product Page</HLURL:Description>
@@ -758,12 +758,12 @@
 								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
 									<HLURL:Hyperlink ID="1">
 										<HLURL:Description>Product Support Site</HLURL:Description>
-										<HLURL:Address>http://askf5.com</HLURL:Address>
+										<HLURL:Address>https://bigip2.site1.example.com</HLURL:Address>
 										<HLURL:SubAddress></HLURL:SubAddress>
 										<HLURL:ExtraInfo></HLURL:ExtraInfo>
 										<HLURL:Default>0</HLURL:Default>
 										<HLURL:NewWindow>1</HLURL:NewWindow>
-										<HLURL:AbsoluteURL>http://askf5.com</HLURL:AbsoluteURL>
+										<HLURL:AbsoluteURL>https://bigip2.site1.example.com</HLURL:AbsoluteURL>
 									</HLURL:Hyperlink>
 									<HLURL:Hyperlink ID="2">
 										<HLURL:Description>Product Page</HLURL:Description>
@@ -2709,12 +2709,12 @@
 								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
 									<HLURL:Hyperlink ID="1">
 										<HLURL:Description>Product Support Site</HLURL:Description>
-										<HLURL:Address>http://askf5.com</HLURL:Address>
+										<HLURL:Address>https://gtm1.site1.example.com</HLURL:Address>
 										<HLURL:SubAddress></HLURL:SubAddress>
 										<HLURL:ExtraInfo></HLURL:ExtraInfo>
 										<HLURL:Default>0</HLURL:Default>
 										<HLURL:NewWindow>1</HLURL:NewWindow>
-										<HLURL:AbsoluteURL>http://askf5.com</HLURL:AbsoluteURL>
+										<HLURL:AbsoluteURL>https://gtm1.site1.example.com</HLURL:AbsoluteURL>
 									</HLURL:Hyperlink>
 									<HLURL:Hyperlink ID="2">
 										<HLURL:Description>Product Page</HLURL:Description>
@@ -3145,12 +3145,12 @@
 								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
 									<HLURL:Hyperlink ID="1">
 										<HLURL:Description>Product Support Site</HLURL:Description>
-										<HLURL:Address>http://askf5.com</HLURL:Address>
+										<HLURL:Address>https://bigip1.site2.example.com</HLURL:Address>
 										<HLURL:SubAddress></HLURL:SubAddress>
 										<HLURL:ExtraInfo></HLURL:ExtraInfo>
 										<HLURL:Default>0</HLURL:Default>
 										<HLURL:NewWindow>1</HLURL:NewWindow>
-										<HLURL:AbsoluteURL>http://askf5.com</HLURL:AbsoluteURL>
+										<HLURL:AbsoluteURL>https://bigip1.site2.example.com</HLURL:AbsoluteURL>
 									</HLURL:Hyperlink>
 									<HLURL:Hyperlink ID="2">
 										<HLURL:Description>Product Page</HLURL:Description>
