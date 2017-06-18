@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.4. Orientation &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="1. Lab Environment" href="index.html"/>
+        <link rel="next" title="2. GSLB" href="../gslb/index.html"/>
+        <link rel="prev" title="1.3. IPv6" href="ipv6-addresses.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Agility 2017 - DNS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. Lab Environment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="diagram.html">1.1. Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4-addresses.html">1.2. IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6-addresses.html">1.3. IPv6</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.4. Orientation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gslb/index.html">2. GSLB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache/index.html">3. Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dnsx/index.html">4. Authoritative Slave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../irules/index.html">5. iRules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../firewall/index.html">6. Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dnssec/index.html">7. DNS Sec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/index.html">8. Route Health Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big-iq/index.html">9. BIG-IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns201_agility2017.html">10. F5 DNS 201</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Agility 2017 - DNS</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. Lab Environment</a> &raquo;</li>
+        
+      <li>1.4. Orientation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lab_environment/orientation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="orientation">
+<h1>1.4. Orientation<a class="headerlink" href="#orientation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Open the command prompt on the Windows jumpbox execute and the following command:</p>
+<p><strong>dig www.example.com</strong>. Examine the output, and notice that an A record exists.</p>
+<div class="figure">
+<img alt="../_images/dig_www.example.com_static.png" src="../_images/dig_www.example.com_static.png" />
+</div>
+</li>
+<li><p class="first">Open Internet Explorer and access <a class="reference external" href="https://www.example.com">www.example.com</a>. Note that you accessed a web server in site1.</p>
+<p><strong>TODO Create content server page and add screenshot</strong></p>
+</li>
+<li><p class="first">RDP to the domain controller using: <strong>EXAMPLE\user</strong>, password <strong>Agility1</strong>.</p>
+<p><strong>Start</strong> –&gt; <strong>Remote Desktop Connection</strong> –&gt; <strong>10.1.70.200</strong>.</p>
+<div class="figure">
+<img alt="../_images/start-rdp-dco1.png" src="../_images/start-rdp-dco1.png" />
+</div>
+<div class="figure">
+<img alt="../_images/logon_screen.png" src="../_images/logon_screen.png" />
+</div>
+</li>
+<li><p class="first">Click on <strong>Server Manager</strong>, and in the top right corner choose <strong>Tools</strong> and then <strong>DNS</strong>.</p>
+<div class="figure">
+<img alt="../_images/AD_tools.png" src="../_images/AD_tools.png" />
+</div>
+</li>
+<li><p class="first">Double click on <strong>EXAMPLE.COM</strong> and examine DNS records.</p>
+<div class="figure">
+<img alt="../_images/DNS_Manager.png" src="../_images/DNS_Manager.png" />
+</div>
+<div class="figure">
+<img alt="../_images/www_properties.png" src="../_images/www_properties.png" />
+</div>
+</li>
+<li><p class="first">Connect to <a class="reference external" href="https://bigip1.site1.example.com">https://bigip1.site1.example.com</a> and list the virtual server (<strong>203.0.113.9</strong>).
+Use Internet Explorer Browser on the jumpbox to log in via the GUI, or use Putty for SSH to get a shell.</p>
+</li>
+</ol>
+<p>GUI username = <strong>admin/admin</strong></p>
+<p>CLI username = <strong>root/default</strong></p>
+<blockquote>
+<div><div class="figure">
+<img alt="../_images/bigip1.site1_virtuals.png" src="../_images/bigip1.site1_virtuals.png" />
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Connect to <a class="reference external" href="https://bigip1.site2.example.com">https://bigip1.site2.example.com</a> and list the virtual servers (<strong>198.51.100.41</strong>).
+Use Internet Explorer Browser on the jumpbox to log in via the GUI, or use Putty for SSH to get a shell.</li>
+</ol>
+<p>GUI username = <strong>admin/admin</strong></p>
+<p>CLI username = <strong>root/default</strong></p>
+<blockquote>
+<div><div class="figure">
+<img alt="../_images/bigip1.site2_virtuals.png" src="../_images/bigip1.site2_virtuals.png" />
+</div>
+</div></blockquote>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../gslb/index.html" class="btn btn-neutral float-right" title="2. GSLB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ipv6-addresses.html" class="btn btn-neutral" title="1.3. IPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Agility DNS team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
