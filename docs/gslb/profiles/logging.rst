@@ -1,5 +1,5 @@
 ############################################
-Logging
+Create a Logging Profile
 ############################################
 
 Configure DNS query and response logging.
