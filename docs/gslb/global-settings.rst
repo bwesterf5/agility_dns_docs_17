@@ -1,8 +1,12 @@
 ==================================
-Cluster Properties
+Settings
 ==================================
 
 Configure the global settings for GSLB according to the following table:
+
+Navigate to: **DNS  ››  Settings : GSLB : General**
+
+https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/settings/gslb/properties_general.jsp
 
 .. csv-table::
    :header: "Setting", "Value", "Description"

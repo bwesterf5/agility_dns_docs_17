@@ -94,7 +94,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. GSLB</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Cluster Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Settings</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">2.2. Profiles</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2.2.1. Logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dns.html">2.2.2. DNS</a></li>
@@ -102,18 +102,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../datacenters.html">2.4. Datacenters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_standalone.html">2.5. Servers - Standalone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_hapairs.html">2.6. Servers - HA Clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../trust.html">2.7. Device Cluster Trust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../virtuals.html">2.8. LTM Virtuals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../links.html">2.9. Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.10. Pools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.11. FQDN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.12. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.13. L4 ACL&#8217;s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../autodiscover.html">2.14. Auto Discover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.15. Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datacenters/index.html">2.4. Datacenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.5. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.6. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.7. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.8. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.9. Use Cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
@@ -194,19 +188,9 @@
   <div class="section" id="logging">
 <h1>2.2.1. Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
 <p>Configure DNS query and response logging.</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>For lab purposes, we are going to use local-syslog as our logging</dt>
-<dd>destination. <em>Note that remote high speed logging is the
-recommendation for production environments.</em></dd>
-</dl>
-</li>
-</ul>
-<ol class="arabic simple">
-<li>Using Internet Explorer, login to <a class="reference external" href="https://gtm1.site1.example.com">https://gtm1.site1.example.com</a></li>
-<li>Navigate to <strong>DNS &gt; Delivery &gt; Profiles &gt; Other &gt; DNS Logging: Create</strong></li>
-<li>Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.</li>
-</ol>
+<p>Navigate to <strong>DNS &gt; Delivery &gt; Profiles &gt; Other &gt; DNS Logging: Create</strong></p>
+<p><a class="reference external" href="https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp">https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp</a></p>
+<p>Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="50%" />

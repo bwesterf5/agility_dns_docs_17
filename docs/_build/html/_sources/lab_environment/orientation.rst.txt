@@ -2,9 +2,9 @@
 Orientation
 ############################################
 
-#. Open the command prompt on the Windows jumpbox execute and the following command:
+#. Open the command prompt on the Windows jumpbox and execute the following command:
 
-   **dig www.example.com**. Examine the output, and notice that an A record exists.
+   **dig www.example.com**. Examine the output, and observe that an A record exists.
 
    .. figure:: ./images/dig_www.example.com_static.png
 

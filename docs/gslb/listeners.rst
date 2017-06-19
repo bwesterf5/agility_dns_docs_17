@@ -4,10 +4,11 @@ Listeners
 
 A listener object is an spcialized virtual server that is configured to respond to DNS queries.
 
-In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List:
-Create**
+In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List: Create**
 
-Create a listeners with the values from the table below. Use defaults if not noted in the table.
+https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp
+
+Create a listener with the values from the table below. Use defaults if not noted in the table.
 
 .. csv-table::
    :header: "Setting", "Value"
@@ -18,7 +19,9 @@ Create a listeners with the values from the table below. Use defaults if not not
    "Protocol Profile (Client)", "example.com_udp-dns_profile"
    "DNS Profile", "example.com_dns_profile"
 
-.. figure:: ./images/udp-dns_profile.png
+.. figure:: images/listener_flyout.png
+
+.. figure:: images/listener_settings.png
 
 
 .. rubric:: References

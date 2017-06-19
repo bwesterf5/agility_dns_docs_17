@@ -11,15 +11,9 @@ GSLB
    global-settings.rst
    profiles/index
    listeners.rst
-   datacenters.rst
-   servers_standalone.rst
-   servers_hapairs.rst
-   trust.rst
-   virtuals.rst
-   links.rst
+   datacenters/index
    pools.rst
    wip.rst
    delegation.rst
    l4_acl.rst
-   autodiscover.rst
    usecases/index.rst

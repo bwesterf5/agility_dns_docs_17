@@ -94,7 +94,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. GSLB</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Cluster Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Settings</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">2.2. Profiles</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="logging.html">2.2.1. Logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dns.html">2.2.2. DNS</a></li>
@@ -102,18 +102,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../datacenters.html">2.4. Datacenters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_standalone.html">2.5. Servers - Standalone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_hapairs.html">2.6. Servers - HA Clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../trust.html">2.7. Device Cluster Trust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../virtuals.html">2.8. LTM Virtuals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../links.html">2.9. Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.10. Pools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.11. FQDN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.12. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.13. L4 ACL&#8217;s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../autodiscover.html">2.14. Auto Discover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.15. Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datacenters/index.html">2.4. Datacenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.5. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.6. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.7. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.8. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.9. Use Cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
@@ -193,7 +187,38 @@
             
   <div class="section" id="udp">
 <h1>2.2.3. UDP<a class="headerlink" href="#udp" title="Permalink to this headline">¶</a></h1>
-<p>Create a UDP profile</p>
+<p>A UDP profile is associated with a listener.</p>
+<p>In the GUI, navigate to: <strong>DNS  ››  Delivery : Profiles : Protocol : UDP</strong></p>
+<p>Create a new UDP profile as shown in the following table. Retain the defaults if the setting is not noted in the table.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Name</td>
+<td>example.com_udp-dns_profile</td>
+</tr>
+<tr class="row-odd"><td>Parent Profile</td>
+<td>udp_gtm_dns</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img alt="../../_images/udp-dns_profile.png" src="../../_images/udp-dns_profile.png" />
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Share cool links here</td></tr>
+</tbody>
+</table>
 </div>
 
 

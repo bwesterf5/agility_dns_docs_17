@@ -2,14 +2,11 @@
 DNS
 ############################################
 
--  A DNS profile tells the DNS Listener how to process DNS traffic.
-       We’re going to make some basic tweaks.
+A DNS profile controls the DNS functionality. A listener object will refernce the DNS profile.
 
--  In the GUI, navigate to: **DNS > Delivery > Profiles > DNS: Create**
+Navigate to: **DNS > Delivery > Profiles > DNS: Create**
 
--  Create a new DNS profile as shown in the following table. Keep the
-       defaults if not noted in the table.
-
+Create a new DNS profile as shown in the following table.
 
 .. csv-table::
    :header: "Setting", "Value"

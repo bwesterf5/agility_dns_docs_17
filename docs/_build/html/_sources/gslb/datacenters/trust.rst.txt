@@ -1,5 +1,5 @@
 ====================================
-Device Cluster Trust
+Device Trust
 ====================================
 
 Establish trust across F5 devices.

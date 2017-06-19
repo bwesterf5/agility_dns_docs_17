@@ -4,15 +4,11 @@ Logging
 
 Configure DNS query and response logging.
 
--  For lab purposes, we are going to use local-syslog as our logging
-       destination. *Note that remote high speed logging is the
-       recommendation for production environments.*
+Navigate to **DNS > Delivery > Profiles > Other > DNS Logging: Create**
 
-#. Using Internet Explorer, login to https://gtm1.site1.example.com
+https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp
 
-#. Navigate to **DNS > Delivery > Profiles > Other > DNS Logging: Create**
-
-#. Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.
+Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.
 
 .. csv-table::
    :header: "Setting", "Value"

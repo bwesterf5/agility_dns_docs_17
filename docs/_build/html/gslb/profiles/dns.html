@@ -94,7 +94,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. GSLB</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Cluster Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Settings</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">2.2. Profiles</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="logging.html">2.2.1. Logging</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2.2.2. DNS</a></li>
@@ -102,18 +102,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../datacenters.html">2.4. Datacenters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_standalone.html">2.5. Servers - Standalone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../servers_hapairs.html">2.6. Servers - HA Clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../trust.html">2.7. Device Cluster Trust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../virtuals.html">2.8. LTM Virtuals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../links.html">2.9. Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.10. Pools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.11. FQDN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.12. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.13. L4 ACL&#8217;s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../autodiscover.html">2.14. Auto Discover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.15. Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datacenters/index.html">2.4. Datacenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.5. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.6. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.7. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.8. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.9. Use Cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
@@ -193,19 +187,9 @@
             
   <div class="section" id="dns">
 <h1>2.2.2. DNS<a class="headerlink" href="#dns" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>A DNS profile tells the DNS Listener how to process DNS traffic.</dt>
-<dd>We’re going to make some basic tweaks.</dd>
-</dl>
-</li>
-<li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong></li>
-<li><dl class="first docutils">
-<dt>Create a new DNS profile as shown in the following table. Keep the</dt>
-<dd>defaults if not noted in the table.</dd>
-</dl>
-</li>
-</ul>
+<p>A DNS profile controls the DNS functionality. A listener object will refernce the DNS profile.</p>
+<p>Navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong></p>
+<p>Create a new DNS profile as shown in the following table.</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="50%" />
