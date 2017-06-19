@@ -9,8 +9,7 @@ GSLB
    :maxdepth: 1
 
    global-settings.rst
-   logging.rst
-   profiles.rst
+   profiles/index
    listeners.rst
    datacenters.rst
    servers_standalone.rst

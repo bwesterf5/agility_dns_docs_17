@@ -2,23 +2,24 @@
 Listeners
 ############################################
 
-We are going to create UDP/TCP external Listeners. You will use this IP
-as a target address when querying GTM.
+A listener object is an spcialized virtual server that is configured to respond to DNS queries.
 
 In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List:
 Create**
 
--  Create two external Listeners as shown in the tables below. Keep the
-       defaults if not noted in the table.
+Create a listeners with the values from the table below. Use defaults if not noted in the table.
 
-+---------------------------------+--------------------------------------------------+
-| **Name**                        | isp2\_site1\_ns1.example.com\_udp\_53\_virtual   |
-+=================================+==================================================+
-| **Destination**                 | Host: 203.0.113.8                                |
-+---------------------------------+--------------------------------------------------+
-| **Protocol Profile (Client)**   | example.com\_dns\_profile                        |
-+---------------------------------+--------------------------------------------------+
-| **DNS Profile**                 | example.com\_dns\_profile                        |
-+---------------------------------+--------------------------------------------------+
-|                                 | Click Finished                                   |
-+---------------------------------+--------------------------------------------------+
+.. csv-table::
+   :header: "Setting", "Value"
+   :widths: 15, 15
+
+   "Name", "isp1_site1_ns1.example.com_udp_53_virtual"
+   "Destination", "203.0.113.8"
+   "Protocol Profile (Client)", "example.com_udp-dns_profile"
+   "DNS Profile", "example.com_dns_profile"
+
+.. figure:: ./images/udp-dns_profile.png
+
+
+.. rubric:: References
+.. [#f1] Find a cool link to share

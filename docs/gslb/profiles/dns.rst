@@ -1,5 +1,5 @@
 ############################################
-Profiles
+DNS
 ############################################
 
 -  A DNS profile tells the DNS Listener how to process DNS traffic.
@@ -25,3 +25,6 @@ Profiles
 .. figure:: ./images/dns_profile_flyout.png
 
 .. figure:: ./images/dns_profile_settings.png
+
+.. rubric:: References
+.. [#f1] https://support.f5.com/csp/article/K14510
