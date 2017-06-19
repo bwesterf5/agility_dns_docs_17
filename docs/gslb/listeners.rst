@@ -27,8 +27,7 @@ Create two listeners, one for UDP and the other for TCP with the values from the
 
 .. figure:: images/listener_settings.png
 
-TMSH command for adding a listener
-
+TMSH command for adding a listener::
    ``create /gtm listener <name of listener> address <IP address on which you want the listener to alert GTM to DNS traffic> ip-protocol udp pool <name of pool> translate-address enabled ``
 
 
