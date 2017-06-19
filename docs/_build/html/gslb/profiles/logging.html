@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2.1. Logging &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="2.2. Profiles" href="index.html"/>
+        <link rel="next" title="2.2.2. DNS" href="dns.html"/>
+        <link rel="prev" title="2.2. Profiles" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Agility 2017 - DNS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lab_environment/index.html">1. Lab Environment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. GSLB</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Settings</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.2. Profiles</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.2.1. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns.html">2.2.2. DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udp.html">2.2.3. UDP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datacenters/index.html">2.4. Datacenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.5. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.6. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.7. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.8. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.9. Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dnsx/index.html">4. Authoritative Slave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irules/index.html">5. iRules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../firewall/index.html">6. Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dnssec/index.html">7. DNS Sec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../routing/index.html">8. Route Health Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../big-iq/index.html">9. BIG-IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dns201_agility2017.html">10. F5 DNS 201</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Agility 2017 - DNS</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. GSLB</a> &raquo;</li>
+        
+          <li><a href="index.html">2.2. Profiles</a> &raquo;</li>
+        
+      <li>2.2.1. Logging</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/gslb/profiles/logging.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logging">
+<h1>2.2.1. Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<p>Configure DNS query and response logging.</p>
+<p>Navigate to <strong>DNS &gt; Delivery &gt; Profiles &gt; Other &gt; DNS Logging: Create</strong></p>
+<p><a class="reference external" href="https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp">https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp</a></p>
+<p><a class="reference external" href="https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp">https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/profile/dns_log/list.jsp</a></p>
+<p><strong>Note - It is required to complete the following task on both gtm1.site and gtm1.site2</strong></p>
+<p>Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Name</td>
+<td>example_dns_logging_profile</td>
+</tr>
+<tr class="row-odd"><td>Log Publisher</td>
+<td>sys-db-access-publisher</td>
+</tr>
+<tr class="row-even"><td>Log Responses</td>
+<td>enabled</td>
+</tr>
+<tr class="row-odd"><td>Include Query ID</td>
+<td>enabled</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img alt="../../_images/dns_logging_profile_flyout.png" src="../../_images/dns_logging_profile_flyout.png" />
+</div>
+<div class="figure">
+<img alt="../../_images/dns_logging_profile_create.png" src="../../_images/dns_logging_profile_create.png" />
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><a class="reference external" href="https://support.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-external-monitoring-implementations-12-0-0/5.html">https://support.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-external-monitoring-implementations-12-0-0/5.html</a></td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dns.html" class="btn btn-neutral float-right" title="2.2.2. DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2.2. Profiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Agility DNS team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
