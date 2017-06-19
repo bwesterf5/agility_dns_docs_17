@@ -10,6 +10,7 @@ http://agility-dns-docs-17.readthedocs.io/en/latest/
    :maxdepth: 2
    :numbered:
    :name: mastertoc
+   :hidden:
 
    lab_environment/index
    gslb/index

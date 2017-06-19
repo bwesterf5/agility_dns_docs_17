@@ -6,6 +6,7 @@ Connect to a Windows jumpbox in the cloud. From the Windows jumpbox students wil
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    ravello.rst
    diagram.rst

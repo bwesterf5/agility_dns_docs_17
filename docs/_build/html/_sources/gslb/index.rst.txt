@@ -7,6 +7,7 @@ GSLB
   
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    global-settings.rst
    profiles/index
