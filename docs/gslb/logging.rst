@@ -2,32 +2,27 @@
 Logging
 ############################################
 
--  You are going to configure DNS query and response logging. To do
-       this, you must tell GTM where to send logs to (a log publisher)
-       and what specifically to log (DNS logging profile).
+Configure DNS query and response logging.
 
 -  For lab purposes, we are going to use local-syslog as our logging
        destination. *Note that remote high speed logging is the
        recommendation for production environments.*
 
-#. Open Internet Explorer and login to https://gtm1.site1.example.com https://10.1.10.13
+#. Using Internet Explorer, login to https://gtm1.site1.example.com
 
-#. In the GUI, navigate to: **DNS > Delivery > Profiles > Other > DNS Logging: Create**
+#. Navigate to **DNS > Delivery > Profiles > Other > DNS Logging: Create**
 
-#. Create a new DNS logging profile as shown in the table below. Keep
-       the defaults if not noted in the table.
+#. Create a new DNS logging profile as shown in the table below. Retain the defaults if not noted in the table.
 
-+------------------------+----------------------------------+
-| **Name**               | example\_dns\_logging\_profile   |
-+========================+==================================+
-| **Log Publisher**      | Select sys-db-access-publisher   |
-+------------------------+----------------------------------+
-| **Log Responses**      | Enabled                          |
-+------------------------+----------------------------------+
-| **Include Query ID**   | Enabled                          |
-+------------------------+----------------------------------+
-|                        | Click Finished                   |
-+------------------------+----------------------------------+
+.. csv-table::
+   :header: "Setting", "Value"
+   :widths: 15, 15
 
--  Your new dns-logging profile should now have all options enabled.
+   "Name", "example_dns_logging_profile"
+   "Log Publisher", "sys-db-access-publisher"
+   "Log Responses", "enabled"
+   "Include Query ID", "enabled"
 
+.. figure:: ./images/dns_logging_profile_flyout.png
+
+.. figure:: ./images/dns_logging_profile_create.png

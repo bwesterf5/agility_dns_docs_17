@@ -14,6 +14,7 @@ Configure the global settings for GSLB according to the following table:
 
 .. figure:: ./images/gtm_global_settings.png
 
-https://support.f5.com/csp/article/K13734
 
-https://support.f5.com/kb/en-us/products/big-ip-dns/manuals/product/bigip-dns-implementations-12-0-0/4.html
+.. rubric:: References
+.. [#f1] https://support.f5.com/csp/article/K13734
+.. [#f2] https://support.f5.com/kb/en-us/products/big-ip-dns/manuals/product/bigip-dns-implementations-12-0-0/4.html
