@@ -27,8 +27,8 @@ Create two listeners, one for UDP and the other for TCP with the values from the
 
 .. figure:: images/listener_settings.png
 
-TMSH command for adding a listener?  Yes::
-   create gtm listener self_isp1 address
+TMSH command for adding a listener?  Yes
+   ``create gtm listener self_isp1 address``
 
 
 .. note:: Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?
