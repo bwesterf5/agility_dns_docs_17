@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. GSLB &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../index.html"/>
+        <link rel="next" title="2.1. Cluster Properties" href="global-settings.html"/>
+        <link rel="prev" title="1.5. Orientation" href="../lab_environment/orientation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Agility 2017 - DNS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab_environment/index.html">1. Lab Environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. GSLB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="global-settings.html">2.1. Cluster Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles/index.html">2.2. Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="listeners.html">2.3. Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datacenters.html">2.4. Datacenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers_standalone.html">2.5. Servers - Standalone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers_hapairs.html">2.6. Servers - HA Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trust.html">2.7. Device Cluster Trust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtuals.html">2.8. LTM Virtuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">2.9. Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pools.html">2.10. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wip.html">2.11. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delegation.html">2.12. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l4_acl.html">2.13. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autodiscover.html">2.14. Auto Discover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/index.html">2.15. Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cache/index.html">3. Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dnsx/index.html">4. Authoritative Slave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../irules/index.html">5. iRules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../firewall/index.html">6. Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dnssec/index.html">7. DNS Sec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/index.html">8. Route Health Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big-iq/index.html">9. BIG-IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns201_agility2017.html">10. F5 DNS 201</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Agility 2017 - DNS</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. GSLB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gslb/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gslb">
+<h1>2. GSLB<a class="headerlink" href="#gslb" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Students will configure an F5 DNS server to support GSLB services on a single device in site1, and subsequently join an additional F5 DNS server in site2 to the GSLB cluster. A Windows AD DNS server is authoritative for the zone example.com and contains a static A record for &#8220;www.example.com&#8221;, which resolves to 203.0.113.9. Students will add glue records and delegate gslb.example.com to the F5 GSLB DNS servers, and convert the A record &#8220;www.example.com&#8221; to be a CNAME record pointing
+to &#8220;www.gslb.example.com&#8221;. At the end of the lab students will observe that the F5 GSLB DNS servers will alternately resolve www.example.com to 203.0.113.9 and 198.51.100.41.</div></blockquote>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="global-settings.html">2.1. Cluster Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiles/index.html">2.2. Profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listeners.html">2.3. Listeners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datacenters.html">2.4. Datacenters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers_standalone.html">2.5. Servers - Standalone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers_hapairs.html">2.6. Servers - HA Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">2.7. Device Cluster Trust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtuals.html">2.8. LTM Virtuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">2.9. Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pools.html">2.10. Pools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip.html">2.11. FQDN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delegation.html">2.12. Delegation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l4_acl.html">2.13. L4 ACL&#8217;s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodiscover.html">2.14. Auto Discover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usecases/index.html">2.15. Use Cases</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="global-settings.html" class="btn btn-neutral float-right" title="2.1. Cluster Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../lab_environment/orientation.html" class="btn btn-neutral" title="1.5. Orientation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Agility DNS team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
