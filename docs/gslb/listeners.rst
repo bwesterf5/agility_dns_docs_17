@@ -27,7 +27,7 @@ Create two listeners, one for UDP and the other for TCP with the values from the
 
 .. figure:: images/listener_settings.png
 
-TMSH command for adding a listener?  Yes
+TMSH command for adding a listener?  Yes::
    ``create gtm listener self_isp1 address``
 
 
