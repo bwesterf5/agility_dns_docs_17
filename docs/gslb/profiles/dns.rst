@@ -2,7 +2,7 @@
 Create a DNS Profile
 ############################################
 
-A DNS profile controls the DNS functionality. A listener object will reference the DNS profile.
+A DNS profile controls the DNS functionality. A listener object will use DNS profiles to respond to DNS queries.
 
 Navigate to: **DNS > Delivery > Profiles > DNS: Create**
 
