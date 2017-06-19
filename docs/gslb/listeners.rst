@@ -12,7 +12,7 @@ https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp
 
 **Note - It is required to complete the following task on both gtm1.site and gtm1.site2**
 
-Create a listener with the values from the table below. Use defaults if not noted in the table.
+Create two listeners, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.
 
 .. csv-table::
    :header: "Setting", "gtm1.site1", "gtm1.site2"
@@ -27,6 +27,12 @@ Create a listener with the values from the table below. Use defaults if not note
 
 .. figure:: images/listener_settings.png
 
+TMSH command for adding a listener?  Yes::
+   create gtm listener self_isp1 address
+
+
+.. note:: Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?
 
 .. rubric:: References
-.. [#f1] Find a cool link to share
+
+.. [#f1] https://support.f5.com/csp/article/K14923
