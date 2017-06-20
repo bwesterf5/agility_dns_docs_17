@@ -20,10 +20,10 @@ Create two Data Centers as shown below. Retain defaults unless otherwise noted:
 .. image:: images/create_datacenters.png
    :width: 700px
 
-TMSH command to insert a data center.. code-block:: 
+TMSH command to insert a data center..
+::
   create gtm datacenter <dc_name>
 
-  <code>
 
 .. toctree::
    :maxdepth: 1
