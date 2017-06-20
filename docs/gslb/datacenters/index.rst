@@ -6,7 +6,7 @@ Navigate to: **DNS > GSLB > Data Centers > Data Center List: Create**
 
 https://gtm1.site1.example.com/tmui/Control/jspmap/xsl/gtm_dc/list
 
-**Note - This task is only completed on gtm1.site1**
+.. note::   This task is only completed on gtm1.site1
 
 Create two Data Centers as shown below. Retain defaults unless otherwise noted:
 
@@ -17,7 +17,8 @@ Create two Data Centers as shown below. Retain defaults unless otherwise noted:
    "Name", "site1_datacenter"
    "Name", "site2_datacenter"
 
-.. figure:: images/create_datacenters.png
+.. image:: images/create_datacenters.png
+   :width: 700px
 
 .. toctree::
    :maxdepth: 1
@@ -30,5 +31,3 @@ Create two Data Centers as shown below. Retain defaults unless otherwise noted:
    virtuals.rst
    links.rst
    autodiscover.rst
-
-   
