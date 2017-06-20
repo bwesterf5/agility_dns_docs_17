@@ -12,7 +12,7 @@ https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp
 
 .. note:: It is required to complete the following task on both gtm1.site and gtm1.site2
 
-Create two listeners, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.
+Create two listeners[#f1]_, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.
 
 .. csv-table::
    :header: "Setting", "gtm1.site1", "gtm1.site2"
