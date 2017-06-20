@@ -24,10 +24,10 @@ Create two listeners [#f1]_, one for UDP and the other for TCP with the values f
    "DNS Profile", "example.com_dns_profile", "example.com_dns_profile"
 
 .. image:: images/listener_flyout.png
-    :width: 300px
+    :width: 500px
 
 .. image:: images/listener_settings.png
-    :width: 300px
+    :width: 500px
 
 TMSH command for adding a listener:
 ::
