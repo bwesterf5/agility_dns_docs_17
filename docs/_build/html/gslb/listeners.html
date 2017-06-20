@@ -38,7 +38,7 @@
     <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../index.html"/>
         <link rel="up" title="2. GSLB" href="index.html"/>
         <link rel="next" title="2.4. Datacenters" href="datacenters/index.html"/>
-        <link rel="prev" title="2.2.3. UDP" href="profiles/udp.html"/> 
+        <link rel="prev" title="2.2.3. Create a UDP Profile" href="profiles/udp.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pools.html">2.5. Pools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wip.html">2.6. FQDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="delegation.html">2.7. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="l4_acl.html">2.8. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l4_acl.html">2.8. L4 ACL’s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usecases/index.html">2.9. Use Cases</a></li>
 </ul>
 </li>
@@ -183,8 +183,11 @@
 <p>In the GUI, navigate to: <strong>DNS  ››  Delivery : Listeners : Listener List</strong></p>
 <p><a class="reference external" href="https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp">https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp</a></p>
 <p><a class="reference external" href="https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp">https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp</a></p>
-<p><strong>Note - It is required to complete the following task on both gtm1.site and gtm1.site2</strong></p>
-<p>Create a listener with the values from the table below. Use defaults if not noted in the table.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is required to complete the following task on both gtm1.site and gtm1.site2</p>
+</div>
+<p>Create two listeners, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="33%" />
@@ -222,11 +225,19 @@
 <div class="figure">
 <img alt="../_images/listener_settings.png" src="../_images/listener_settings.png" />
 </div>
+<p>TMSH command for adding a listener:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="o">/</span><span class="n">gtm</span> <span class="n">listener</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">listener</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">&lt;</span><span class="n">IP</span> <span class="n">address</span> <span class="n">on</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">the</span> <span class="n">listener</span> <span class="n">to</span> <span class="n">alert</span> <span class="n">GTM</span> <span class="n">to</span> <span class="n">DNS</span> <span class="n">traffic</span><span class="o">&gt;</span> <span class="n">ip</span><span class="o">-</span><span class="n">protocol</span> <span class="n">udp</span> <span class="n">pool</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">pool</span><span class="o">&gt;</span> <span class="n">translate</span><span class="o">-</span><span class="n">address</span> <span class="n">enabled</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?</p>
+</div>
 <p class="rubric">References</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td>Find a cool link to share</td></tr>
+<tr><td class="label">[1]</td><td><a class="reference external" href="https://support.f5.com/csp/article/K14923">https://support.f5.com/csp/article/K14923</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -244,7 +255,7 @@
         <a href="datacenters/index.html" class="btn btn-neutral float-right" title="2.4. Datacenters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="profiles/udp.html" class="btn btn-neutral" title="2.2.3. UDP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="profiles/udp.html" class="btn btn-neutral" title="2.2.3. Create a UDP Profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -470,7 +470,7 @@ to your F5 BIGIP1. You should have a BIGIP1 putty icon on your
 desktop. Use username: <strong>root</strong> password: <strong>default</strong> and issue the
 following TMSH command once logged in.</p>
 <blockquote>
-<div><p><strong>tmsh modify sys db log.zxfrd.level value &#8220;debug&#8221;</strong></p>
+<div><p><strong>tmsh modify sys db log.zxfrd.level value “debug”</strong></p>
 <p>Now, view the log file real-time by issuing this command at the SSH
 prompt:</p>
 <p><strong>tail –f /var/log/ltm</strong></p>
@@ -1467,7 +1467,7 @@ reference.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Get the root name servers in DNSKEY format and output to the file</dt>
-<dd><p class="first last">&#8220;root-dnskey&#8221;</p>
+<dd><p class="first last">“root-dnskey”</p>
 </dd>
 </dl>
 <p>&gt;dig +multi +noall +answer DNSKEY . &gt;root-dnskey</p>
