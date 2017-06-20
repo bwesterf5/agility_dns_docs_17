@@ -38,4 +38,4 @@ TMSH command for adding a listener:
 
 .. rubric:: References
 
-.. [#f1] https://support.f5.com/csp/article/K14923
+ https://support.f5.com/csp/article/K14923

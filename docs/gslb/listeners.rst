@@ -28,14 +28,12 @@ Create two listeners, one for UDP and the other for TCP with the values from the
 .. figure:: images/listener_settings.png
 
 TMSH command for adding a listener:
-
-.. code-block:: python
-
-     create /gtm listener <name of listener> address <IP address on which you want the listener to alert GTM to DNS traffic> ip-protocol udp pool <name of pool> translate-address enabled
+::
+ create /gtm listener <name of listener> address <IP address on which you want the listener to alert GTM to DNS traffic> ip-protocol udp pool <name of pool> translate-address enabled
 
 
 .. note:: Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?
 
 .. rubric:: References
 
- https://support.f5.com/csp/article/K14923
+.. [#f1] https://support.f5.com/csp/article/K14923
