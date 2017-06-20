@@ -41,9 +41,9 @@ certificates to establish a trust relationship.
 -  Login via SSH using putty to your gtm1.site1 (10.1.10.13) using
    username: **root** password: **default**
 
--  | Issue the following commands::
-
-   bigip\_add 203.0.113.5
+-  Issue the following commands
+  ::
+    bigip\_add 203.0.113.5
 
 
 Type ‘\ **yes**\ ’ to proceed and enter ‘\ **default** as the
