@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.4.2. Servers - Standalone &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  <title>2.4.2. Servers - Add your GTM as a Standalone server &mdash; Agility 2017 - DNS 0.1 documentation</title>
   
 
   
@@ -99,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">2.4. Datacenters</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="servers_hapairs.html">2.4.1. Servers - HA Clusters</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">2.4.2. Servers - Standalone</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.4.2. Servers - Add your GTM as a Standalone server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trust.html">2.4.3. Device Trust</a></li>
 <li class="toctree-l3"><a class="reference internal" href="join-to_sync-group.html">2.4.4. Join Sync Group</a></li>
 <li class="toctree-l3"><a class="reference internal" href="virtuals.html">2.4.5. LTM Virtuals</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">2.4. Datacenters</a> &raquo;</li>
         
-      <li>2.4.2. Servers - Standalone</li>
+      <li>2.4.2. Servers - Add your GTM as a Standalone server</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,18 +188,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="servers-standalone">
-<h1>2.4.2. Servers - Standalone<a class="headerlink" href="#servers-standalone" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="servers-add-your-gtm-as-a-standalone-server">
+<h1>2.4.2. Servers - Add your GTM as a Standalone server<a class="headerlink" href="#servers-add-your-gtm-as-a-standalone-server" title="Permalink to this headline">¶</a></h1>
 <p>By default, GTM is not self-aware. You will need to configure your BigIP
 as a server object.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers &gt; Server List: Create</strong></li>
-<li><dl class="first docutils">
-<dt>Create a Server Object as defined in the table and diagram below.</dt>
-<dd>Leave default values unless otherwise noted:</dd>
-</dl>
-</li>
+<li>Create a Server Object as defined in the table and diagram below.</li>
 </ul>
+<p><em>Leave default values unless otherwise noted:</em></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="37%" />
@@ -229,48 +226,51 @@ as a server object.</p>
 </tbody>
 </table>
 <p><a href="#id1"><span class="problematic" id="id2">|image4|</span></a></p>
-<ul>
-<li><p class="first">Click on the “Server List” tab at the top menu bar to refresh the
-page. You should see the Server object as green.</p>
-<div class="line-block">
-<div class="line"><a href="#id3"><span class="problematic" id="id4">|image5|</span></a></div>
-<div class="line">What is the status of the site1_datacenter object now?</div>
-</div>
-</li>
-</ul>
-<p>Students will be using an LTM objects to on both site1 and site2
-datacenters. You will need to create another BigIP objects to do this.
-Prior to configuring the Server object, we need to establish trust
-between the GTM and LTM. The bigip_add script will exchange device
-certificates to establish a trust relationship.</p>
-<ul>
-<li><p class="first">Login via SSH using putty to your gtm1.site1 (10.1.10.13) using
-username: <strong>root</strong> password: <strong>default</strong></p>
-</li>
-<li><div class="first line-block">
-<div class="line">Issue the following commands:</div>
-<div class="line"><strong>bigip_add 203.0.113.5</strong></div>
-</div>
-<p>Type ‘<strong>yes</strong>’ to proceed and enter ‘<strong>default</strong> as the
-password.</p>
-<div class="line-block">
-<div class="line">Now type:</div>
-<div class="line"><strong>big3d_install 203.0.113.5</strong></div>
-</div>
-<p>Note that this script likely won’t need to install a new version of
-the big3d agent… this is just for you to be familiar with the script.</p>
-<p>Repeat same operations (bigip_add and big3d_install) for the
-following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</p>
-</li>
-<li><p class="first">From the gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers&gt; Server List: Create</strong></p>
-</li>
+<ul class="simple">
 <li><dl class="first docutils">
-<dt>Create a Server Object as defined in the tables and diagram below.</dt>
-<dd><p class="first last">Leave default values unless otherwise noted:</p>
-</dd>
+<dt>Click on the “Server List” tab at the top menu bar to refresh the</dt>
+<dd>page. You should see the Server object as green.</dd>
 </dl>
 </li>
 </ul>
+<p><a href="#id3"><span class="problematic" id="id4">|image5|</span></a>
+* What is the status of the site1_datacenter object now?</p>
+<p>Students will be using LTM server objects which reside in site1 and site2
+datacenters. You will need to create an additional BigIP object to do this.</p>
+<p>Prior to configuring the Server object, we need to establish trust
+between the GTM and LTM. The bigip_add script will exchange device
+certificates to establish a trust relationship.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Login via SSH using putty to your gtm1.site1 (10.1.10.13) using</dt>
+<dd><p class="first last">username: <em>root</em> password: <em>default</em></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Issue the following commands</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bigip_add</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enter ‘<em>yes</em>’ to proceed and enter ‘<em>default</em>’ as the password.</p>
+</li>
+<li><p class="first">Now Enter</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">big3d_install</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.5</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This script likely won’t need to install a new version of the big3d agent… this is just for you to be familiar with the script.</p>
+</div>
+<ul class="simple">
+<li>Repeat the same operations (<code class="docutils literal"><span class="pre">bigip_add</span></code> and <code class="docutils literal"><span class="pre">big3d_install</span></code>) for the
+following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</li>
+<li>From the gtm1.site1 GUI, navigate to: <strong>DNS &gt; GSLB &gt; Servers&gt; Server List: Create</strong></li>
+<li>Create a Server Object as defined in the tables and diagram below.</li>
+</ul>
+<p><em>Leave default values unless otherwise noted:</em></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="41%" />
@@ -310,14 +310,13 @@ following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</p>
 </table>
 <p><a href="#id5"><span class="problematic" id="id6">|image6|</span></a></p>
 <ul>
-<li><dl class="first docutils">
-<dt>After a few moments, click on the “Server List” tab at the top menu</dt>
-<dd><p class="first last">bar to refresh the page. You should see the Server object as
+<li><p class="first">After a few moments, click on the “Server List” tab at the top menu
+bar to refresh the page. You should see the Server object as
 green and number of discovered virtual servers. Below is a sample
 of what your screen should look like:</p>
-</dd>
-</dl>
-<p><a href="#id7"><span class="problematic" id="id8">|image7|</span></a></p>
+<blockquote>
+<div><p><a href="#id7"><span class="problematic" id="id8">|image7|</span></a></p>
+</div></blockquote>
 </li>
 <li><p class="first">Create server objects for site2.datacenters based on the tabled below</p>
 </li>
@@ -359,11 +358,14 @@ of what your screen should look like:</p>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li>Go to your SSH session on GTM1 and take a look at the /var/log/gtm
+<ul>
+<li><p class="first">Go to your SSH session on GTM1 and take a look at the /var/log/gtm
 file to see what kinds of logs are generated after a server is
-created.
-<strong>tail -100 /var/log/gtm</strong></li>
+created.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tail</span> <span class="o">-</span><span class="mi">100</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">gtm</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </div>
 

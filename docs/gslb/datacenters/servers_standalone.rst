@@ -1,14 +1,15 @@
-############################################
+###############################################
 Servers - Add your GTM as a Standalone server
-############################################
+###############################################
 
 By default, GTM is not self-aware. You will need to configure your BigIP
 as a server object.
 
--  In the GUI, navigate to: **DNS > GSLB > Servers > Server List: Create**
+* In the GUI, navigate to: **DNS > GSLB > Servers > Server List: Create**
 
--  Create a Server Object as defined in the table and diagram below.
-       Leave default values unless otherwise noted:
+* Create a Server Object as defined in the table and diagram below.
+
+*Leave default values unless otherwise noted:*
 
 +--------------------------------+-------------------------------------------------------+
 | **Name**                       | site1-gtm                                             |
@@ -26,38 +27,40 @@ as a server object.
 
 |image4|
 
--  Click on the “Server List” tab at the top menu bar to refresh the
+* Click on the “Server List” tab at the top menu bar to refresh the
    page. You should see the Server object as green.
 
-   | |image5|
-   | What is the status of the site1\_datacenter object now?
+|image5|
+* What is the status of the site1\_datacenter object now?
 
-Students will be using an LTM objects to on both site1 and site2
-datacenters. You will need to create another BigIP objects to do this.
+Students will be using LTM server objects which reside in site1 and site2
+datacenters. You will need to create an additional BigIP object to do this.
+
 Prior to configuring the Server object, we need to establish trust
 between the GTM and LTM. The bigip\_add script will exchange device
 certificates to establish a trust relationship.
 
 * Login via SSH using putty to your gtm1.site1 (10.1.10.13) using
-   username: **root** password: **default**
+   username: *root* password: *default*
 * Issue the following commands
   ::
-    bigip\_add 203.0.113.5
-* Enter ‘\ **yes**\ ’ to proceed and enter ‘\ **default** as the
-   password.
-* Now Enter::
-   big3d\_install 203.0.113.5
+   bigip_add 203.0.113.5
 
+* Enter ‘\ *yes*\ ’ to proceed and enter ‘\ *default*\ ' as the password.
+* Now Enter
+  ::
+   big3d_install 203.0.113.5
 
-.. admonition:: Note that this script likely won’t need to install a new version of the big3d agent… this is just for you to be familiar with the script.
+.. note:: This script likely won’t need to install a new version of the big3d agent… this is just for you to be familiar with the script.
 
-* Repeat same operations (bigip\_add and big3d\_install) for the
-following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38
+* Repeat the same operations (``bigip_add`` and ``big3d_install``) for the
+  following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38
 
 * From the gtm1.site1 GUI, navigate to: **DNS > GSLB > Servers> Server List: Create**
 
 * Create a Server Object as defined in the tables and diagram below.
-       Leave default values unless otherwise noted:
+
+*Leave default values unless otherwise noted:*
 
 +--------------------------------+-----------------------------------------------+
 | **Name**                       | site1\_ha\_pair                               |
@@ -88,9 +91,9 @@ following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38
 |image6|
 
 * After a few moments, click on the “Server List” tab at the top menu
-       bar to refresh the page. You should see the Server object as
-       green and number of discovered virtual servers. Below is a sample
-       of what your screen should look like:
+  bar to refresh the page. You should see the Server object as
+  green and number of discovered virtual servers. Below is a sample
+  of what your screen should look like:
 
    |image7|
 
@@ -123,7 +126,7 @@ following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38
 +--------------------------------+-------------------------------------------------+
 
 * Go to your SSH session on GTM1 and take a look at the /var/log/gtm
-   file to see what kinds of logs are generated after a server is
-   created.::
+  file to see what kinds of logs are generated after a server is
+  created.::
 
      tail -100 /var/log/gtm

@@ -187,7 +187,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">It is required to complete the following task on both gtm1.site and gtm1.site2</p>
 </div>
-<p>Create two listeners, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.</p>
+<p>Create two listeners <a class="footnote-reference" href="#f1" id="id1">[1]</a>, one for UDP and the other for TCP with the values from the table below. Use defaults if not noted in the table.</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="33%" />
@@ -219,20 +219,23 @@
 </tr>
 </tbody>
 </table>
-<div class="figure">
-<img alt="../_images/listener_flyout.png" src="../_images/listener_flyout.png" />
-</div>
-<div class="figure">
-<img alt="../_images/listener_settings.png" src="../_images/listener_settings.png" />
-</div>
+<a class="reference internal image-reference" href="../_images/listener_flyout.png"><img alt="../_images/listener_flyout.png" src="../_images/listener_flyout.png" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/listener_settings.png"><img alt="../_images/listener_settings.png" src="../_images/listener_settings.png" style="width: 700px;" /></a>
 <p>TMSH command for adding a listener:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="o">/</span><span class="n">gtm</span> <span class="n">listener</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">listener</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">&lt;</span><span class="n">IP</span> <span class="n">address</span> <span class="n">on</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">the</span> <span class="n">listener</span> <span class="n">to</span> <span class="n">alert</span> <span class="n">GTM</span> <span class="n">to</span> <span class="n">DNS</span> <span class="n">traffic</span><span class="o">&gt;</span> <span class="n">ip</span><span class="o">-</span><span class="n">protocol</span> <span class="n">udp</span> <span class="n">pool</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">pool</span><span class="o">&gt;</span> <span class="n">translate</span><span class="o">-</span><span class="n">address</span> <span class="n">enabled</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="o">/</span><span class="n">gtm</span> <span class="n">listener</span> <span class="o">&lt;</span><span class="n">listener_name</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">&lt;</span><span class="n">listener_IP_address</span><span class="o">&gt;</span> <span class="n">ip</span><span class="o">-</span><span class="n">protocol</span> <span class="n">udp</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?</p>
 </div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://support.f5.com/csp/article/K14923">https://support.f5.com/csp/article/K14923</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
