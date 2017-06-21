@@ -13,7 +13,7 @@ Create a Server Object as defined in the table below:
 
    "Name", "gtm1.site2_server"
    "Data Center", "site2_datacenter"
-   "Devices", "198.51.100.40"
+   "Devices Add:", "gtm1.site2.example.com : 198.51.100.40"
    "Health Monitors", "bigip"
    "Virtual Server Discovery", "Enabled"
 

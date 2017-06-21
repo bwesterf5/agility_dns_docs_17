@@ -18,12 +18,10 @@ Create two darta centers according to the table below:
    "Name", "site2_datacenter"
 
 .. image:: images/create_datacenters.png
-   :width: 700px
 
 TMSH command to insert a data center..
 ::
   create gtm datacenter <dc_name>
-
 
 .. toctree::
    :maxdepth: 1
