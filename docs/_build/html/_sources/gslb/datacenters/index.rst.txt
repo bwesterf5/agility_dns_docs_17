@@ -8,7 +8,7 @@ https://gtm1.site1.example.com/tmui/Control/jspmap/xsl/gtm_dc/list
 
 .. note::   This task is only completed on gtm1.site1
 
-Create two Data Centers as shown below. Retain defaults unless otherwise noted:
+Create two darta centers according to the table below:
 
 .. csv-table::
    :header: "Setting", "Value"
@@ -29,8 +29,7 @@ TMSH command to insert a data center..
    :maxdepth: 1
    :hidden:
 
-   servers_hapairs.rst
-   servers_standalone.rst
+   servers/index
    trust.rst
    join-to_sync-group.rst
    virtuals.rst

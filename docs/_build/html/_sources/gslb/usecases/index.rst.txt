@@ -9,3 +9,4 @@ Use Cases
    vpn.rst
    explicit_proxy.rst
    gtp_director.rst
+   geolocation.rst
