@@ -664,8 +664,8 @@ Add Student2.com zone to DNS Express on BIGIP1
 
 **Close out your browser session to BIGIP2, we will no longer be using it.**
 
-EXERCISE 2.1 – TRANSPARENT CACHING
-----------------------------------
+Transparent Caching
+-------------------
 
 In this use-case, you will configure GTM as a transparent cache to a pool of BIND servers.
 
@@ -850,8 +850,8 @@ requests and load-balance non-cached requests to pool\_resolvers.
 * Set “Statistics Type” to “Caches”.
 * You can select the cache and click “Clear Cache” to empty the cache.
 
-EXERCISE 2.2 – RESOLVER CACHE
------------------------------
+Resolver Cache
+---------------
 
 In this use case, you will configure GTM as a resolver cache which
 eliminates the need for the pool of resolvers.
@@ -941,8 +941,8 @@ In/Out, Packets In/Out and Connections are of particular interest.
 
 |image21|
 
-EXERCISE 2.3 – DNSSEC VALIDATING RESOLVER
------------------------------------------
+ DNSSEC Validating Resolver
+---------------------------
 
 In this use case, you will configure GTM as a DNSSEC validating
 resolver which offloads heavy CPU computation to traditional
@@ -1044,12 +1044,10 @@ Edit DNS Listener
 We will now apply the new profile to the existing DNS Listener.
 
 * In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List**
-* Select ‘\ **resolver-listener**\ ’ and modify the DNS Profile to use
-   “\ **validating**\ ”.
+* Select ‘\ **resolver-listener**\ ’ and modify the DNS Profile to use “\ **validating**\ ”.
 * Your Listener should now be setup as a validating resolver.
 * **Use-Case: Valid Signed Zone.** From your workstation, perform
-  several recursive
-  queries to your external Listener to test. Perform the following command
+  several recursive queries to your external Listener to test. Perform the following command
   2 or 3 times:
 
 ::
@@ -1067,7 +1065,7 @@ Validation and DNSSEC Key stats are of particular interest in this use-case.
 |image23|
 
 * In the GUI, you can find similar data as above by navigating
-       **Statistics > Module Statistics > DNS > Caches**.
+  **Statistics > Module Statistics > DNS > Caches**.
 * Select “Statistics Type” of Caches.
 * Select “View” under the Details column for validating-resolver
 * Note the size of the cache for just this single RR query. You can
@@ -1088,8 +1086,8 @@ Validation and DNSSEC Key stats are of particular interest in this use-case.
 * What statistic incremented?
 * What was the query response to the client?
 
-EXERCISE 2.4 – FORWARDERS
--------------------------
+Forwarders
+----------
 
 In this use-case, we will configure conditional forwarders with local
 zone information.
@@ -1126,7 +1124,7 @@ Activity stats are of particular interest in this use-case.
 |image25|
 
 * In the GUI, you can find similar data as above by navigating
-       **Statistics > Module Statistics > DNS > Caches**.
+  **Statistics > Module Statistics > DNS > Caches**.
 * Select “Statistics Type” of Caches.
 * Select “View” under the Details column for validating-resolver
 

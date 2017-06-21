@@ -119,7 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#add-student2-com-zone-to-dns-express-on-bigip1">3.3.5. Add Student2.com zone to DNS Express on BIGIP1</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-2-1-transparent-caching">3.4. EXERCISE 2.1 – TRANSPARENT CACHING</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transparent-caching">3.4. Transparent Caching</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-dns-cache">3.4.1. Create a DNS Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id8">3.4.2. Create a new DNS Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-dns-monitor">3.4.3. Create a DNS Monitor</a></li>
@@ -127,23 +127,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#create-a-new-external-dns-listener">3.4.5. Create a new External DNS Listener</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-2-2-resolver-cache">3.5. EXERCISE 2.2 – RESOLVER CACHE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#resolver-cache">3.5. Resolver Cache</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-cache">3.5.1. Create a new DNS Cache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id11">3.5.2. Create a new DNS Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#edit-dns-listener">3.5.3. Edit DNS Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">3.5.4. Create a new DNS Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">3.5.5. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">3.5.6. Edit DNS Listener</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-2-3-dnssec-validating-resolver">3.6. EXERCISE 2.3 – DNSSEC VALIDATING RESOLVER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">3.6.1. Create a new DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">3.6.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">3.6.3. Edit DNS Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forwarders">3.6. Forwarders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-forwarder-to-existing-cache">3.6.1. Add Forwarder to Existing Cache</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-2-4-forwarders">3.7. EXERCISE 2.4 – FORWARDERS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-forwarder-to-existing-cache">3.7.1. Add Forwarder to Existing Cache</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">3.8. DNS 201 class is complete !  Thanks for attending!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">3.7. DNS 201 class is complete !  Thanks for attending!</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cache/index.html">4. Cache</a></li>
@@ -1087,8 +1084,8 @@ and/or query for your new record to the Listener.</li>
 <p><strong>Close out your browser session to BIGIP2, we will no longer be using it.</strong></p>
 </div>
 </div>
-<div class="section" id="exercise-2-1-transparent-caching">
-<h2>3.4. EXERCISE 2.1 – TRANSPARENT CACHING<a class="headerlink" href="#exercise-2-1-transparent-caching" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transparent-caching">
+<h2>3.4. Transparent Caching<a class="headerlink" href="#transparent-caching" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, you will configure GTM as a transparent cache to a pool of BIND servers.</p>
 <ul class="simple">
 <li>Estimated completion time: 10 minutes</li>
@@ -1324,8 +1321,8 @@ examples.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="exercise-2-2-resolver-cache">
-<h2>3.5. EXERCISE 2.2 – RESOLVER CACHE<a class="headerlink" href="#exercise-2-2-resolver-cache" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="resolver-cache">
+<h2>3.5. Resolver Cache<a class="headerlink" href="#resolver-cache" title="Permalink to this headline">¶</a></h2>
 <p>In this use case, you will configure GTM as a resolver cache which
 eliminates the need for the pool of resolvers.
 * Estimated completion time: 10 minutes</p>
@@ -1438,17 +1435,17 @@ cache hits and perform recursive queries. Below are some examples:</li>
 <p>Your output should look similar to below with statistics. Bits
 In/Out, Packets In/Out and Connections are of particular interest.</p>
 <p><a class="reference internal" href="_images/image24.png"><img alt="image21" src="_images/image24.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
-</div>
-</div>
-<div class="section" id="exercise-2-3-dnssec-validating-resolver">
-<h2>3.6. EXERCISE 2.3 – DNSSEC VALIDATING RESOLVER<a class="headerlink" href="#exercise-2-3-dnssec-validating-resolver" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>DNSSEC Validating Resolver</div></blockquote>
+<hr class="docutils" />
 <p>In this use case, you will configure GTM as a DNSSEC validating
 resolver which offloads heavy CPU computation to traditional
 resolvers. This simply adds DNSSEC validation to the resolver-cache
 use-case previously configured.
 * Estimated completion time: 10 minutes</p>
+</div>
 <div class="section" id="id12">
-<h3>3.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.4. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS cache as shown in the table below.</li>
@@ -1520,7 +1517,7 @@ entries.</li>
 <p><a class="reference internal" href="_images/image25.png"><img alt="image22" src="_images/image25.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
 </div>
 <div class="section" id="id13">
-<h3>3.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.5. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>In this task we will create a dns profile to be used by a listener for DNSSEC validation.
 * In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 * Create a new DNS profile as shown in the table below.</p>
@@ -1570,19 +1567,14 @@ entries.</li>
 </table>
 </div>
 <div class="section" id="id14">
-<h3>3.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.6. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
-<li><dl class="first docutils">
-<dt>Select ‘<strong>resolver-listener</strong>’ and modify the DNS Profile to use</dt>
-<dd>“<strong>validating</strong>”.</dd>
-</dl>
-</li>
+<li>Select ‘<strong>resolver-listener</strong>’ and modify the DNS Profile to use “<strong>validating</strong>”.</li>
 <li>Your Listener should now be setup as a validating resolver.</li>
 <li><strong>Use-Case: Valid Signed Zone.</strong> From your workstation, perform
-several recursive
-queries to your external Listener to test. Perform the following command
+several recursive queries to your external Listener to test. Perform the following command
 2 or 3 times:</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">internetsociety</span><span class="o">.</span><span class="n">org</span>
@@ -1598,11 +1590,8 @@ queries to your external Listener to test. Perform the following command
 Validation and DNSSEC Key stats are of particular interest in this use-case.</p>
 <p><a class="reference internal" href="_images/image26.png"><img alt="image23" src="_images/image26.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>In the GUI, you can find similar data as above by navigating</dt>
-<dd><strong>Statistics &gt; Module Statistics &gt; DNS &gt; Caches</strong>.</dd>
-</dl>
-</li>
+<li>In the GUI, you can find similar data as above by navigating
+<strong>Statistics &gt; Module Statistics &gt; DNS &gt; Caches</strong>.</li>
 <li>Select “Statistics Type” of Caches.</li>
 <li>Select “View” under the Details column for validating-resolver</li>
 <li>Note the size of the cache for just this single RR query. You can
@@ -1627,15 +1616,15 @@ following command 2 or 3 times:</li>
 </ul>
 </div>
 </div>
-<div class="section" id="exercise-2-4-forwarders">
-<h2>3.7. EXERCISE 2.4 – FORWARDERS<a class="headerlink" href="#exercise-2-4-forwarders" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forwarders">
+<h2>3.6. Forwarders<a class="headerlink" href="#forwarders" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, we will configure conditional forwarders with local
 zone information.</p>
 <ul class="simple">
 <li>Estimated completion time: 5 minutes</li>
 </ul>
 <div class="section" id="add-forwarder-to-existing-cache">
-<h3>3.7.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List</strong>. Click on
 <strong>validating-resolver</strong> from the previous exercise. Click <strong>Forward Zones</strong>
@@ -1663,18 +1652,15 @@ external Listener to test.</li>
 Activity stats are of particular interest in this use-case.</p>
 <p><a class="reference internal" href="_images/image28.png"><img alt="image25" src="_images/image28.png" style="width: 5.76000in; height: 3.47000in;" /></a></p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>In the GUI, you can find similar data as above by navigating</dt>
-<dd><strong>Statistics &gt; Module Statistics &gt; DNS &gt; Caches</strong>.</dd>
-</dl>
-</li>
+<li>In the GUI, you can find similar data as above by navigating
+<strong>Statistics &gt; Module Statistics &gt; DNS &gt; Caches</strong>.</li>
 <li>Select “Statistics Type” of Caches.</li>
 <li>Select “View” under the Details column for validating-resolver</li>
 </ul>
 </div>
 </div>
 <div class="section" id="dns-201-class-is-complete-thanks-for-attending">
-<h2>3.8. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
+<h2>3.7. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
