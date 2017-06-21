@@ -6,7 +6,7 @@ Navigate to: **DNS > GSLB > Data Centers > Data Center List: Create**
 
 https://gtm1.site1.example.com/tmui/Control/jspmap/xsl/gtm_dc/list
 
-.. note::   This task is only completed on gtm1.site1
+.. note::   The tasks in this section are to be only completed on gtm1.site1
 
 Create two darta centers according to the table below:
 
