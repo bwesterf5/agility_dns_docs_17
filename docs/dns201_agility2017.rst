@@ -211,11 +211,11 @@ You can break out of the tail process with *<Ctrl-C>*.
   messages look like this:
 ::
 
-Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
-Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
-Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531025:7: Serials equal (2017062201); transfer for zone dnsx.com complete.
-Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531008:7: Resetting transfer state for zone dnsx.com.
-Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531025:7: Serials equal (2017062201); transfer for zone dnsx.com complete.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531008:7: Resetting transfer state for zone dnsx.com.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
 
 * Now, issue the following command in the SSH console to view what is
    in DNS Express.
