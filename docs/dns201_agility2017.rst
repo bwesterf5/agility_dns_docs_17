@@ -254,11 +254,9 @@ You can break out of the tail process with *<Ctrl-C>*.
   and responses. It should look something like this:
 ::
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 from 10.128.10.240#51377: view none:
-   query: www3.dnsx.com IN A +E (203.0.113.8%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 from 203.0.113.1#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 to 203.0.113.1#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 to 10.128.10.240#51377: [NOERROR qr,aa,rd]
-   response: www3.dnsx.com. 38400 IN A 10.10.20.57;
 
 * In the GUI, navigate to **Statistics > Analytics > DNS**. Notice that
   you can view statics by different data points, over different periods of
