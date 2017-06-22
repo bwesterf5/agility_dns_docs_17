@@ -33,7 +33,7 @@ Configuring DNS Logging
 
 .. note:: remote high-speed logging is highly recommended for production environments.
 
-* Log in to **BIGIP1** by clicking on the browser shortcut on your
+* Log in to https://gtm1.site1.example.com from the jumpbox
   desktop and using user: *admin* password: *admin*
 * In the GUI, navigate to: **System > Logs > Configuration > Log Publishers: Create**
 * Create a new DNS Log Publisher as shown in the table below.
@@ -139,7 +139,7 @@ off-box BIND server.
 +-------------------------+-------------------------+
 | **Name**                | external-listener-UDP   |
 +=========================+=========================+
-| **Destination**         | Host: 10.128.10.53      |
+| **Destination**         | Host: 203.0.113.8       |
 +-------------------------+-------------------------+
 | **VLAN Traffic**        | Enabled on..            |
 +-------------------------+-------------------------+
@@ -151,7 +151,7 @@ off-box BIND server.
 +-------------------------+-------------------------+
 | **Name**                | external-listener-TCP   |
 +=========================+=========================+
-| **Destination**         | Host: 10.128.10.53      |
+| **Destination**         | Host: 203.0.113.8       |
 +-------------------------+-------------------------+
 | **VLAN Traffic**        | Enabled on..            |
 +-------------------------+-------------------------+
@@ -180,7 +180,7 @@ slave from.
 +---------------+-----------------+
 | **Name**      | Offbox-BIND     |
 +===============+=================+
-| **Address**   | 10.128.20.250   |
+| **Address**   | 203.0.113.15    |
 +---------------+-----------------+
 
 * Click **Finished** to create.
@@ -941,7 +941,7 @@ In/Out, Packets In/Out and Connections are of particular interest.
 
 |image21|
 
- DNSSEC Validating Resolver
+DNSSEC Validating Resolver
 ---------------------------
 
 In this use case, you will configure GTM as a DNSSEC validating
