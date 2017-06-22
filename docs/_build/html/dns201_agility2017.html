@@ -823,7 +823,7 @@ click <strong>Finished</strong>.</li>
 <li>Validate the DNS Express was updated by performing a dnsxdump and/or
 query for your new record to the Listener.</li>
 <li>Add another record using the steps above for <strong>www2.student1.com</strong>
-with IP address of <strong>10.41.3.2</strong> but before doing this, make sure to
+with IP address of <strong>203.0.113.102</strong> but before doing this, make sure to
 have a putty session open to your BIG-IP1 and tail the logs using
 <code class="docutils literal"><span class="pre">tail</span> <span class="pre">–f</span> <span class="pre">/var/log/ltm</span></code> to view the changes. By making a change to the
 zone on the Hidden Master (in this case ZoneRunner), you will see a
@@ -903,7 +903,7 @@ AVR.</li>
 <h3>10.3.2. Edit DNS Listeners<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
-<li>Edit the internal-listener-TCP to use the AuthNS-hybrid DNS profile.</li>
+<li>Edit the external-listener-TCP to use the AuthNS-hybrid DNS profile.</li>
 <li>Click <strong>Update</strong> to finish.</li>
 </ul>
 </div>
@@ -914,7 +914,7 @@ AVR.</li>
 we will use as the on-prem DNS Express Master.</li>
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Nameservers &gt; Nameserver List: Create</strong></li>
 <li>Create BIGIP2’s F5 as a Nameserver as shown in the table below. You
-will use the Internal SelfIP/Listener.</li>
+will use the External SelfIP/Listener.</li>
 </ul>
 <p><em>Keep the defaults if not noted in the table.</em></p>
 <table border="1" class="docutils">
@@ -924,12 +924,12 @@ will use the Internal SelfIP/Listener.</li>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Name</strong></th>
-<th class="head">On-prem-master</th>
+<th class="head">site2_gtm1_master</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>Address</strong></td>
-<td>10.128.20.230</td>
+<td>198.51.100.39</td>
 </tr>
 </tbody>
 </table>
@@ -937,14 +937,14 @@ will use the Internal SelfIP/Listener.</li>
 <div class="section" id="edit-student2-zones-on-bigip2-to-allow-zone-transfers">
 <h3>10.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers<a class="headerlink" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Log in to BIGIP2 (shortcut located on desktop) using a new browser
+<li>Log in to gtm1.site2 (shortcut located on desktop) using a new browser
 window with the following credentials:</li>
-<li><a class="reference external" href="https://10.128.1.235">https://10.128.1.235</a></li>
+<li><a class="reference external" href="https://10.1.10.23">https://10.1.10.23</a></li>
 <li>User: <em>admin</em> Pass: <em>admin</em></li>
 <li>In the GUI, navigate to: <strong>DNS &gt; Zones &gt; Zones &gt; Zone List</strong></li>
 <li>Edit the existing student2.com zone.</li>
-<li>Under Zone Transfer Clients, move <strong>BIGIP1</strong> (pre-defined to save
-time) to Active and <strong>Update</strong>.</li>
+<li>Under Zone Transfer Clients, move <strong>gtm1.site1</strong> (pre-defined to save
+time) to Active and click <strong>Update</strong>.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -985,7 +985,7 @@ the successful transfer of student2.com zone</li>
 adding a new record on the Master on-prem server (BIGIP2) and then it
 being replicated first to DNS Express on its own box, followed by an
 update to the cloud GTM (BIGIP1) in this scenario.</li>
-<li>Add a new record to the student2.com zone in ZoneRunner on <strong>BIGIP2</strong></li>
+<li>Add a new record to the student2.com zone in ZoneRunner on <strong>gtm1.site2</strong></li>
 <li>In the GUI, navigate to: <strong>DNS &gt; Zones: ZoneRunner &gt; Resource Record List</strong></li>
 <li>Select View Name -&gt; external</li>
 <li>Select Zone Name -&gt; student2.com.</li>
@@ -1020,7 +1020,7 @@ status and statistics related to the zone.
 <li>Validate DNS Express was updated by performing a <code class="docutils literal"><span class="pre">dnsxdump</span> <span class="pre">|</span> <span class="pre">more</span></code>
 and/or query for your new record to the Listener.</li>
 </ul>
-<p><strong>Close out your browser session to BIGIP2, we will no longer be using it.</strong></p>
+<p><strong>Close out your browser session to gtm1.site2, we will no longer be using it.</strong></p>
 </div>
 </div>
 <div class="section" id="transparent-caching">
@@ -1421,7 +1421,7 @@ utilities to obtain the anchors, the commands are below for your
 reference.</p>
 </div>
 <ul class="simple">
-<li>Get the root name servers in DNSKEY format and output to the file &#8220;root-dnskey&#8221;</li>
+<li>Get the root name servers in DNSKEY format and output to the file “root-dnskey”</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="o">+</span><span class="n">multi</span> <span class="o">+</span><span class="n">noall</span> <span class="o">+</span><span class="n">answer</span> <span class="n">DNSKEY</span> <span class="o">.</span> <span class="o">&gt;</span><span class="n">root</span><span class="o">-</span><span class="n">dnskey</span>
 </pre></div>

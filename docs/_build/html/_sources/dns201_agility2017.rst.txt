@@ -468,7 +468,7 @@ elements to consider:
   query for your new record to the Listener.
 
 * Add another record using the steps above for **www2.student1.com**
-  with IP address of **10.41.3.2** but before doing this, make sure to
+  with IP address of **203.0.113.102** but before doing this, make sure to
   have a putty session open to your BIG-IP1 and tail the logs using
   ``tail –f /var/log/ltm`` to view the changes. By making a change to the
   zone on the Hidden Master (in this case ZoneRunner), you will see a
@@ -528,7 +528,7 @@ Edit DNS Listeners
 ~~~~~~~~~~~~~~~~~~
 
 * In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List**
-* Edit the internal-listener-TCP to use the AuthNS-hybrid DNS profile.
+* Edit the external-listener-TCP to use the AuthNS-hybrid DNS profile.
 * Click **Update** to finish.
 
 Create Nameservers for Zone Transfer Clients
@@ -538,27 +538,27 @@ Create Nameservers for Zone Transfer Clients
   we will use as the on-prem DNS Express Master.
 * In the GUI, navigate to: **DNS > Delivery > Nameservers > Nameserver List: Create**
 * Create BIGIP2’s F5 as a Nameserver as shown in the table below. You
-  will use the Internal SelfIP/Listener.
+  will use the External SelfIP/Listener.
 
 *Keep the defaults if not noted in the table.*
 
 +---------------+------------------+
-| **Name**      | On-prem-master   |
+| **Name**      | site2_gtm1_master|
 +===============+==================+
-| **Address**   | 10.128.20.230    |
+| **Address**   | 198.51.100.39    |
 +---------------+------------------+
 
 Edit Student2 Zones on BIGIP2 to allow Zone transfers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Log in to BIGIP2 (shortcut located on desktop) using a new browser
+* Log in to gtm1.site2 (shortcut located on desktop) using a new browser
   window with the following credentials:
-* https://10.128.1.235
+* https://10.1.10.23
 * User: *admin* Pass: *admin*
 * In the GUI, navigate to: **DNS > Zones > Zones > Zone List**
 * Edit the existing student2.com zone.
-* Under Zone Transfer Clients, move **BIGIP1** (pre-defined to save
-  time) to Active and **Update**.
+* Under Zone Transfer Clients, move **gtm1.site1** (pre-defined to save
+  time) to Active and click **Update**.
 
 .. note:: The internal TCP listener on BIGIP2 is using the
    AuthNS-hybrid profile which is setup exactly like the profile with
@@ -595,7 +595,7 @@ Add Student2.com zone to DNS Express on BIGIP1
   being replicated first to DNS Express on its own box, followed by an
   update to the cloud GTM (BIGIP1) in this scenario.
 
-* Add a new record to the student2.com zone in ZoneRunner on **BIGIP2**
+* Add a new record to the student2.com zone in ZoneRunner on **gtm1.site2**
 * In the GUI, navigate to: **DNS > Zones: ZoneRunner > Resource Record List**
 * Select View Name -> external
 * Select Zone Name -> student2.com.
@@ -628,7 +628,7 @@ Add Student2.com zone to DNS Express on BIGIP1
 * Validate DNS Express was updated by performing a ``dnsxdump | more``
   and/or query for your new record to the Listener.
 
-**Close out your browser session to BIGIP2, we will no longer be using it.**
+**Close out your browser session to gtm1.site2, we will no longer be using it.**
 
 Transparent Caching
 -------------------
