@@ -1,4 +1,4 @@
-# put this file in /var/named/dnsx.zone
+;put this file in /var/named/dnsx.zone
 $TTL    100 ; 24 hours could have been written as 24h or 1d
 ; $TTL used for all RRs without explicit TTL value
 $ORIGIN dnsx.com.
