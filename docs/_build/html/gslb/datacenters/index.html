@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.4. Datacenters &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  <title>2.3. Datacenters &mdash; Agility 2017 - DNS 0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="2. GSLB" href="../index.html"/>
-        <link rel="next" title="2.4.1. Servers - HA Clusters" href="servers_hapairs.html"/>
-        <link rel="prev" title="2.3. Listeners" href="../listeners.html"/> 
+        <link rel="next" title="2.3.1. Servers" href="servers/index.html"/>
+        <link rel="prev" title="2.2.6. TCP IP Address" href="../listeners/tcp_listener.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -95,23 +95,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. GSLB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../global-settings.html">2.1. Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../profiles/index.html">2.2. Profiles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../listeners.html">2.3. Listeners</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Datacenters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="servers_hapairs.html">2.4.1. Servers - HA Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="servers_standalone.html">2.4.2. Servers - Add your GTM as a Standalone server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trust.html">2.4.3. Device Trust</a></li>
-<li class="toctree-l3"><a class="reference internal" href="join-to_sync-group.html">2.4.4. Join Sync Group</a></li>
-<li class="toctree-l3"><a class="reference internal" href="virtuals.html">2.4.5. LTM Virtuals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="links.html">2.4.6. Links</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autodiscover.html">2.4.7. Auto Discover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../listeners/index.html">2.2. Listeners</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Datacenters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="servers/index.html">2.3.1. Servers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trust.html">2.3.2. Device Trust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="join-to_sync-group.html">2.3.3. Join Sync Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virtuals.html">2.3.4. LTM Virtuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="links.html">2.3.5. Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="autodiscover.html">2.3.6. Auto Discover</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.5. Pools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.6. FQDN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.7. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.8. L4 ACL’s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.9. Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pools.html">2.4. Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wip.html">2.5. FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.6. Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.7. L4 ACL&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.8. Use Cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
@@ -121,6 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../dnssec/index.html">7. DNS Sec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../routing/index.html">8. Route Health Injection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../big-iq/index.html">9. BIG-IQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dns201_agility2017.html">10. DNS Services Beyond GSLB with BIG-IP DNS (201)</a></li>
 </ul>
 
             
@@ -167,7 +166,7 @@
         
           <li><a href="../index.html">2. GSLB</a> &raquo;</li>
         
-      <li>2.4. Datacenters</li>
+      <li>2.3. Datacenters</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,14 +186,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="datacenters">
-<h1>2.4. Datacenters<a class="headerlink" href="#datacenters" title="Permalink to this headline">¶</a></h1>
+<h1>2.3. Datacenters<a class="headerlink" href="#datacenters" title="Permalink to this headline">¶</a></h1>
 <p>Navigate to: <strong>DNS &gt; GSLB &gt; Data Centers &gt; Data Center List: Create</strong></p>
 <p><a class="reference external" href="https://gtm1.site1.example.com/tmui/Control/jspmap/xsl/gtm_dc/list">https://gtm1.site1.example.com/tmui/Control/jspmap/xsl/gtm_dc/list</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This task is only completed on gtm1.site1</p>
+<p class="last">The tasks in this section are to be only completed on gtm1.site1</p>
 </div>
-<p>Create two Data Centers as shown below. Retain defaults unless otherwise noted:</p>
+<p>Create two darta centers according to the table below:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="50%" />
@@ -214,7 +213,7 @@
 </tr>
 </tbody>
 </table>
-<a class="reference internal image-reference" href="../../_images/create_datacenters.png"><img alt="../../_images/create_datacenters.png" src="../../_images/create_datacenters.png" style="width: 700px;" /></a>
+<img alt="../../_images/create_datacenters.png" src="../../_images/create_datacenters.png" />
 <p>TMSH command to insert a data center..</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">gtm</span> <span class="n">datacenter</span> <span class="o">&lt;</span><span class="n">dc_name</span><span class="o">&gt;</span>
 </pre></div>
@@ -233,10 +232,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="servers_hapairs.html" class="btn btn-neutral float-right" title="2.4.1. Servers - HA Clusters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="servers/index.html" class="btn btn-neutral float-right" title="2.3.1. Servers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../listeners.html" class="btn btn-neutral" title="2.3. Listeners" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../listeners/tcp_listener.html" class="btn btn-neutral" title="2.2.6. TCP IP Address" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

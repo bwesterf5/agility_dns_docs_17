@@ -14,7 +14,6 @@ http://agility-dns-docs-17.readthedocs.io/en/latest/
 
    lab_environment/index
    gslb/index
-   dns201_agility2017
    cache/index
    dnsx/index
    irules/index
@@ -22,3 +21,4 @@ http://agility-dns-docs-17.readthedocs.io/en/latest/
    dnssec/index
    routing/index
    big-iq/index
+   dns201_agility2017

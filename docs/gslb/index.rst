@@ -11,7 +11,7 @@ GSLB
 
    global-settings.rst
    profiles/index
-   listeners.rst
+   listeners/index
    datacenters/index
    pools.rst
    wip.rst
