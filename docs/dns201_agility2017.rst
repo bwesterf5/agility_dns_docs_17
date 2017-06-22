@@ -33,7 +33,7 @@ Configuring DNS Logging
 
 .. note:: remote high-speed logging is highly recommended for production environments.
 
-* Log in to **BIGIP1** by clicking on the browser shortcut on your
+* Log in to https://gtm1.site1.example.com from the jumpbox
   desktop and using user: *admin* password: *admin*
 * In the GUI, navigate to: **System > Logs > Configuration > Log Publishers: Create**
 * Create a new DNS Log Publisher as shown in the table below.
@@ -97,49 +97,17 @@ Create a new DNS Profile
 Create DNS Listeners
 ~~~~~~~~~~~~~~~~~~~~~
 
-We are going to create both an internal and external Listener. The
-external Listener will be our target IP address when querying GTM. The
-internal Listener will be used merely to accept NOTIFY messages from our
-off-box BIND server.
+We are going to create both UDP and TCP external listeners. The
+external Listener will be our target IP address when querying GTM.
 
 * In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List: Create**
-* Create two **internal** Listeners as shown in the tables below.
-*Keep the defaults if not noted in the table.*
-
-+-------------------------+-------------------------+
-| **Name**                | internal-listener-UDP   |
-+=========================+=========================+
-| **Destination**         | Host: 10.128.20.240     |
-+-------------------------+-------------------------+
-| **VLAN Traffic**        | Enabled on..            |
-+-------------------------+-------------------------+
-| **VLANs and Tunnels**   | Internal                |
-+-------------------------+-------------------------+
-| **DNS Profile**         | AuthNS-offbox-BIND      |
-+-------------------------+-------------------------+
-
-+-------------------------+-------------------------+
-| **Name**                | internal-listener-TCP   |
-+=========================+=========================+
-| **Destination**         | Host: 10.128.20.240     |
-+-------------------------+-------------------------+
-| **VLAN Traffic**        | Enabled on..            |
-+-------------------------+-------------------------+
-| **VLANs and Tunnels**   | Internal                |
-+-------------------------+-------------------------+
-| **Protocol**            | TCP                     |
-+-------------------------+-------------------------+
-| **DNS Profile**         | AuthNS-offbox-BIND      |
-+-------------------------+-------------------------+
-
-* For each Listener, click **Finished** to create.
 * Create two **external** Listeners as shown in the tables below.
 *Keep the defaults if not noted in the table.*
 
 +-------------------------+-------------------------+
 | **Name**                | external-listener-UDP   |
 +=========================+=========================+
-| **Destination**         | Host: 10.128.10.53      |
+| **Destination**         | Host: 203.0.113.8       |
 +-------------------------+-------------------------+
 | **VLAN Traffic**        | Enabled on..            |
 +-------------------------+-------------------------+
@@ -151,7 +119,7 @@ off-box BIND server.
 +-------------------------+-------------------------+
 | **Name**                | external-listener-TCP   |
 +=========================+=========================+
-| **Destination**         | Host: 10.128.10.53      |
+| **Destination**         | Host: 203.0.113.8       |
 +-------------------------+-------------------------+
 | **VLAN Traffic**        | Enabled on..            |
 +-------------------------+-------------------------+
@@ -180,7 +148,7 @@ slave from.
 +---------------+-----------------+
 | **Name**      | Offbox-BIND     |
 +===============+=================+
-| **Address**   | 10.128.20.250   |
+| **Address**   | 203.0.113.15    |
 +---------------+-----------------+
 
 * Click **Finished** to create.
@@ -243,11 +211,11 @@ You can break out of the tail process with *<Ctrl-C>*.
   messages look like this:
 ::
 
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531025:7: Serials equal (2006081429); transfer for zone dnsx.com complete.
-
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531008:7: Resetting transfer state for zone dnsx.com.
-
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 10.128.20.250.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531025:7: Serials equal (2017062201); transfer for zone dnsx.com complete.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531008:7: Resetting transfer state for zone dnsx.com.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
 
 * Now, issue the following command in the SSH console to view what is
    in DNS Express.
@@ -260,37 +228,35 @@ You can break out of the tail process with *<Ctrl-C>*.
   verify that it succeeds. For example:
 ::
 
-   >dig @10.128.10.53 +short www1.dnsx.com
+   >dig @203.0.113.8 +short www1.dnsx.com
 
 
 * Issue several more queries of different types to generate some
   interesting statistics. Here are some examples:
 ::
 
-   dig @10.128.10.53 +short www1.dnsx.com
+   dig @203.0.113.8 +short www1.dnsx.com
 
-   dig @10.128.10.53 +short www2.dnsx.com
+   dig @203.0.113.8 +short www2.dnsx.com
 
-   dig @10.128.10.53 +short www3.dnsx.com
+   dig @203.0.113.8 +short www3.dnsx.com
 
-   dig @10.128.10.53 +short bigip1.dnsx.com
+   dig @203.0.113.8 +short bigip1.dnsx.com
 
-   dig @10.128.10.53 +short bigip2.dnsx.com
+   dig @203.0.113.8 +short bigip2.dnsx.com
 
-   dig @10.128.10.53 +short MX dnsx.com
+   dig @203.0.113.8 +short MX dnsx.com
 
-   dig @10.128.10.53 +short NS dnsx.com
+   dig @203.0.113.8 +short NS dnsx.com
 
 * Now is a good time to check query logging. Look at ``/var/log/ltm ``(i.e.
   tail /var/log/ltm ) to ensure that you’re properly logging queries
   and responses. It should look something like this:
 ::
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 from 10.128.10.240#51377: view none:
-   query: www3.dnsx.com IN A +E (10.128.10.53%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 from 203.0.113.1#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 to 203.0.113.1#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 to 10.128.10.240#51377: [NOERROR qr,aa,rd]
-   response: www3.dnsx.com. 38400 IN A 10.10.20.57;
 
 * In the GUI, navigate to **Statistics > Analytics > DNS**. Notice that
   you can view statics by different data points, over different periods of
@@ -349,7 +315,7 @@ scope of this lab).
 
 ::
 
-   dig @10.128.10.53 +dnssec www1.dnsx.com
+   dig @203.0.113.8 +dnssec www1.dnsx.com
 
 You should see RRSIG records indicating that the zone is signed. You
 will also note signing in the query logs (``/var/log/ltm``)
@@ -486,7 +452,7 @@ elements to consider:
   listener for a record in the zone
 ::
 
-    dig @10.128.10.53 SOA student1.com
+    dig @203.0.113.8 SOA student1.com
 
 * Add a new record to the Student1.com zone in ZoneRunner
 * In the GUI, navigate to: **DNS > Zones: ZoneRunner > Resource Record List.**
@@ -621,7 +587,7 @@ Add Student2.com zone to DNS Express on BIGIP1
 * Issue a query to the external listener for a record in the zone
 ::
 
-   dig @10.128.10.53 SOA student2.com
+   dig @203.0.113.8 SOA student2.com
 
 * Open putty sessions to both BIGIP1 and BIGIP2 and tail the logs using
   ``tail –f /var/log/ltm``. This will allow us to see the process of
@@ -941,7 +907,7 @@ In/Out, Packets In/Out and Connections are of particular interest.
 
 |image21|
 
- DNSSEC Validating Resolver
+DNSSEC Validating Resolver
 ---------------------------
 
 In this use case, you will configure GTM as a DNSSEC validating
