@@ -18,3 +18,8 @@ Create a Server Object as defined in the table below:
    "**Virtual Server Discovery**", "**Disabled**"
 
 .. figure:: ./images/gtm1.site1_create.png
+
+TMSH Command:
+
+create gtm server gtm1.site1_server  datacenter site1_datacenter devices add { gtm1.site1.example.com { addresses add { 203.0.113.7 } } } monitor bigip product bigip
+

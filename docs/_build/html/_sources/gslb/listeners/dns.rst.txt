@@ -29,5 +29,9 @@ Create a new DNS profile as shown in the following table.
 
 .. figure:: ./images/dns_profile_settings.png
 
+TMSH Command:
+
+create ltm profile udp example.com_udp-dns_profile defaults-from udp_gtm_dns
+
 .. rubric:: References
 .. [#f1] https://support.f5.com/csp/article/K14510

@@ -13,8 +13,13 @@ Create a Server Object as defined in the table below:
 
    "Name", "gtm1.site2_server"
    "Data Center", "site2_datacenter"
-   "Devices Add:", "gtm1.site2.example.com : 198.51.100.40"
+   "Devices Add:", "gtm1.site2.example.com : 198.51.100.39"
    "Health Monitors", "bigip"
    "Virtual Server Discovery", "Enabled"
 
 .. figure:: ./images/gtm1.site2_create.png
+
+TMSH Command:
+
+create gtm server gtm1.site2_server datacenter site2_datacenter devices add { gtm1.site2.example.com { addresses add { 198.51.100.39 } } } monitor bigip product bigip
+

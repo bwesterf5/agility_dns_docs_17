@@ -17,6 +17,6 @@ site2_ha-pair
    "Device Add:", "bigip2.site2.example.com : 198.51.100.38"
    "Health Monitors", "bigip"
    "Virtual Server Discovery", "Enabled"
-   "Link Discovery", "Enabled
+   "Link Discovery", "Enabled"
 
 .. image:: ./images/site2_ha-pair.png

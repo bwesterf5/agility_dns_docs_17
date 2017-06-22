@@ -181,34 +181,34 @@
 <dl class="docutils">
 <dt>when DNS_REQUEST {</dt>
 <dd><p class="first">set ldns [IP::client_addr]
-log local0. “LDNS LOC: $ldns [whereis $ldns]”</p>
+log local0. &#8220;LDNS LOC: $ldns [whereis $ldns]&#8221;</p>
 <dl class="docutils">
 <dt>if { [<a class="reference external" href="DNS::edns0">DNS::edns0</a> exists] &amp;! [catch { <a class="reference external" href="DNS::edns0">DNS::edns0</a> subnet address }] } {</dt>
 <dd>set gtm_ecs_address [<a class="reference external" href="DNS::edns0">DNS::edns0</a> subnet address]
 set gtm_ecs_source [<a class="reference external" href="DNS::edns0">DNS::edns0</a> subnet source]
 set gtm_ecs_scope [<a class="reference external" href="DNS::edns0">DNS::edns0</a> subnet scope]
 set ldns  $gtm_ecs_address
-log local0. “ECS LOC: $gtm_ecs_address [whereis $ldns]”</dd>
+log local0. &#8220;ECS LOC: $gtm_ecs_address [whereis $ldns]&#8221;</dd>
 </dl>
 <p>}</p>
-<p>log local0. “Final LDNS: $ldns”</p>
-<p>if {[matchregion $ldns “China”]} {</p>
+<p>log local0. &#8220;Final LDNS: $ldns&#8221;</p>
+<p>if {[matchregion $ldns &#8220;China&#8221;]} {</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>if { [active_members inet-cn.lb.rgsource.com] &gt;= 1 } {</dt>
-<dd>log local0. “Matched $ldns to region: China”
+<dd>log local0. &#8220;Matched $ldns to region: China&#8221;
 pool inet-cn.lb.rgsource.com</dd>
 <dt>} else {</dt>
-<dd>log local0. “Matched $ldns to region: China, failover to US”
+<dd>log local0. &#8220;Matched $ldns to region: China, failover to US&#8221;
 pool inet-us.lb.rgsource.com</dd>
 </dl>
 <p>}</p>
 </div></blockquote>
-<p>} elseif { [matchregion $ldns “Europe”]} {
-} elseif { [matchregion $ldns “Asia”]} {</p>
+<p>} elseif { [matchregion $ldns &#8220;Europe&#8221;]} {
+} elseif { [matchregion $ldns &#8220;Asia&#8221;]} {</p>
 <dl class="docutils">
 <dt>} else {</dt>
-<dd>log local0. “Matched $ldns to region: Default”
+<dd>log local0. &#8220;Matched $ldns to region: Default&#8221;
 pool inet-us.lb.rgsource.com</dd>
 </dl>
 <p class="last">}</p>

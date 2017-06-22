@@ -211,11 +211,11 @@ You can break out of the tail process with *<Ctrl-C>*.
   messages look like this:
 ::
 
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531025:7: Serials equal (2006081429); transfer for zone dnsx.com complete.
-
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531008:7: Resetting transfer state for zone dnsx.com.
-
-   Jun 5 07:48:01 bigip1 debug zxfrd[6429]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 10.128.20.250.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
+  Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531025:7: Serials equal (2017062201); transfer for zone dnsx.com complete.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531008:7: Resetting transfer state for zone dnsx.com.
+  Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
 
 * Now, issue the following command in the SSH console to view what is
    in DNS Express.
@@ -254,11 +254,9 @@ You can break out of the tail process with *<Ctrl-C>*.
   and responses. It should look something like this:
 ::
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 from 10.128.10.240#51377: view none:
-   query: www3.dnsx.com IN A +E (203.0.113.8%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 from 203.0.113.1#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)
+   Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 to 203.0.113.1#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;
 
-   Jun 4 20:33:24 localhost info tmm[14258]: 2015-06-04 20:33:23 bigip1.f5agility.com qid 46533 to 10.128.10.240#51377: [NOERROR qr,aa,rd]
-   response: www3.dnsx.com. 38400 IN A 10.10.20.57;
 
 * In the GUI, navigate to **Statistics > Analytics > DNS**. Notice that
   you can view statics by different data points, over different periods of

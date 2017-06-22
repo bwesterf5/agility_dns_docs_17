@@ -100,7 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pools.html">2.4. Pools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wip.html">2.5. FQDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="delegation.html">2.6. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="l4_acl.html">2.7. L4 ACL’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l4_acl.html">2.7. L4 ACL&#8217;s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usecases/index.html">2.8. Use Cases</a></li>
 </ul>
 </li>
@@ -180,6 +180,7 @@
   <div class="section" id="settings">
 <h1>2.1. Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
 <p>Configure the global settings for GSLB according to the following table:</p>
+<p>Log into gtm1.site1 and complete the following task in the UI or cli</p>
 <p>Navigate to: <strong>DNS  ››  Settings : GSLB : General</strong></p>
 <p><a class="reference external" href="https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/settings/gslb/properties_general.jsp">https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/settings/gslb/properties_general.jsp</a></p>
 <table border="1" class="colwidths-given docutils">
@@ -212,6 +213,10 @@
 <div class="figure">
 <img alt="../_images/gtm_global_settings.png" src="../_images/gtm_global_settings.png" />
 </div>
+<dl class="docutils">
+<dt>TMSH command</dt>
+<dd>modify gtm global-settings general synchronization yes synchronization-group-name EXAMPLE_group synchronize-zone-files yes</dd>
+</dl>
 <p class="rubric">References</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

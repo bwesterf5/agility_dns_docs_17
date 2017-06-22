@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pools.html">2.4. Pools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wip.html">2.5. FQDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../delegation.html">2.6. Delegation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.7. L4 ACL’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../l4_acl.html">2.7. L4 ACL&#8217;s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.8. Use Cases</a></li>
 </ul>
 </li>
@@ -194,7 +194,7 @@
 <p><a class="reference external" href="https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp">https://gtm1.site2.example.com/tmui/Control/jspmap/tmui/dns/listener/list.jsp</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is required to complete the following task on both gtm1.site and gtm1.site2</p>
+<p class="last">It is required to complete the following task on both gtm1.site1 and gtm1.site2</p>
 </div>
 <p>Create a UDP listener.</p>
 <table border="1" class="colwidths-given docutils">
@@ -230,10 +230,10 @@
 </table>
 <img alt="../../_images/listener_flyout.png" src="../../_images/listener_flyout.png" />
 <img alt="../../_images/listener_settings.png" src="../../_images/listener_settings.png" />
-<p>TMSH command for adding a listener:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="o">/</span><span class="n">gtm</span> <span class="n">listener</span> <span class="o">&lt;</span><span class="n">listener_name</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">&lt;</span><span class="n">listener_IP_address</span><span class="o">&gt;</span> <span class="n">ip</span><span class="o">-</span><span class="n">protocol</span> <span class="n">udp</span>
-</pre></div>
-</div>
+<p>gtm1.site1 TMSH command:</p>
+<p>create gtm listener isp1_site1_ns1.example.com_udp_53_virtual address 203.0.113.8 ip-protocol udp mask 255.255.255.255 port 53 profiles add {  example.com_dns_profile example.com_udp-dns_profile }</p>
+<p>gtm1.site2 TMSH command:</p>
+<p>create gtm listener isp2_site2_ns2.example.com_udp_53_virtual address 198.51.100.40 ip-protocol udp mask 255.255.255.255 port 53 profiles add {  example.com_dns_profile example.com_udp-dns_profile }</p>
 <p class="rubric">References</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
