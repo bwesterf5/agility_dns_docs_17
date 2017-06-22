@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. DNS Services Beyond GSLB with BIG-IP DNS (201) &mdash; Agility 2017 - DNS 0.1 documentation</title>
+  <title>10. DNS Services Beyond GSLB with BIG-IP DNS (201) &mdash; Agility 2017 - DNS 0.1 documentation</title>
   
 
   
@@ -36,8 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="index.html"/>
-        <link rel="next" title="4. Cache" href="cache/index.html"/>
-        <link rel="prev" title="2.9.4. GTP Director" href="gslb/usecases/gtp_director.html"/> 
+        <link rel="prev" title="9. BIG-IQ" href="big-iq/index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -93,66 +92,66 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gslb/index.html">2. GSLB</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. DNS Services Beyond GSLB with BIG-IP DNS (201)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#authoritative-ns-slave-from-off-box-bind">3.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-dns-logging">3.1.1. Configuring DNS Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-profile">3.1.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-dns-listeners">3.1.3. Create DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-hidden-master">3.1.4. Create a Nameserver for Hidden Master</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-zone-to-transfer-from-hidden-master">3.1.5. Create a zone to transfer from Hidden Master</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enable-dnssec-for-the-zone">3.1.6. Enable DNSSEC for the zone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/index.html">3. Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dnsx/index.html">4. Authoritative Slave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="irules/index.html">5. iRules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall/index.html">6. Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dnssec/index.html">7. DNS Sec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing/index.html">8. Route Health Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big-iq/index.html">9. BIG-IQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. DNS Services Beyond GSLB with BIG-IP DNS (201)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authoritative-ns-slave-from-off-box-bind">10.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-dns-logging">10.1.1. Configuring DNS Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-profile">10.1.2. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-dns-listeners">10.1.3. Create DNS Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-hidden-master">10.1.4. Create a Nameserver for Hidden Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-zone-to-transfer-from-hidden-master">10.1.5. Create a zone to transfer from Hidden Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-dnssec-for-the-zone">10.1.6. Enable DNSSEC for the zone</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#authoritative-name-server-slave-from-on-box-bind">3.2. Authoritative Name Server: slave from ON-BOX BIND</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.1. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listeners">3.2.2. Edit DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-student1-com-zone-using-zonerunner">3.2.3. Create a Student1.com zone using ZoneRunner</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-on-box-bind">3.2.4. Create a Nameserver for on-box BIND</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-express-zone-to-transfer-from-zonerunner">3.2.5. Create a DNS Express zone to transfer from ZoneRunner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authoritative-name-server-slave-from-on-box-bind">10.2. Authoritative Name Server: slave from ON-BOX BIND</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">10.2.1. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listeners">10.2.2. Edit DNS Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-student1-com-zone-using-zonerunner">10.2.3. Create a Student1.com zone using ZoneRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-on-box-bind">10.2.4. Create a Nameserver for on-box BIND</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-express-zone-to-transfer-from-zonerunner">10.2.5. Create a DNS Express zone to transfer from ZoneRunner</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#slaving-off-of-dns-express">3.3. Slaving off of DNS Express</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">3.3.1. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">3.3.2. Edit DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-nameservers-for-zone-transfer-clients">3.3.3. Create Nameservers for Zone Transfer Clients</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers">3.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-student2-com-zone-to-dns-express-on-bigip1">3.3.5. Add Student2.com zone to DNS Express on BIGIP1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slaving-off-of-dns-express">10.3. Slaving off of DNS Express</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">10.3.1. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">10.3.2. Edit DNS Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-nameservers-for-zone-transfer-clients">10.3.3. Create Nameservers for Zone Transfer Clients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers">10.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-student2-com-zone-to-dns-express-on-bigip1">10.3.5. Add Student2.com zone to DNS Express on BIGIP1</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#transparent-caching">3.4. Transparent Caching</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-cache">3.4.1. Create a DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">3.4.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-monitor">3.4.3. Create a DNS Monitor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-resolver-pool">3.4.4. Create a Resolver Pool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-external-dns-listener">3.4.5. Create a new External DNS Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transparent-caching">10.4. Transparent Caching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-cache">10.4.1. Create a DNS Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">10.4.2. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-monitor">10.4.3. Create a DNS Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-resolver-pool">10.4.4. Create a Resolver Pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-external-dns-listener">10.4.5. Create a new External DNS Listener</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#resolver-cache">3.5. Resolver Cache</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-cache">3.5.1. Create a new DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">3.5.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listener">3.5.3. Edit DNS Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolver-cache">10.5. Resolver Cache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-cache">10.5.1. Create a new DNS Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">10.5.2. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listener">10.5.3. Edit DNS Listener</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#dnssec-validating-resolver">3.6. DNSSEC Validating Resolver</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">3.6.1. Create a new DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">3.6.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">3.6.3. Edit DNS Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dnssec-validating-resolver">10.6. DNSSEC Validating Resolver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">10.6.1. Create a new DNS Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">10.6.2. Create a new DNS Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">10.6.3. Edit DNS Listener</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#forwarders">3.7. Forwarders</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-forwarder-to-existing-cache">3.7.1. Add Forwarder to Existing Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forwarders">10.7. Forwarders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-forwarder-to-existing-cache">10.7.1. Add Forwarder to Existing Cache</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">3.8. DNS 201 class is complete !  Thanks for attending!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">10.8. DNS 201 class is complete !  Thanks for attending!</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cache/index.html">4. Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnsx/index.html">5. Authoritative Slave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="irules/index.html">6. iRules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="firewall/index.html">7. Firewall</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnssec/index.html">8. DNS Sec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="routing/index.html">9. Route Health Injection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="big-iq/index.html">10. BIG-IQ</a></li>
 </ul>
 
             
@@ -197,7 +196,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. DNS Services Beyond GSLB with BIG-IP DNS (201)</li>
+      <li>10. DNS Services Beyond GSLB with BIG-IP DNS (201)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -220,9 +219,9 @@
 <p>Written for: TMOS<sup>®</sup> v13.0.0</p>
 <p>Presented by: DNS 2017 F5 Agility Team</p>
 <div class="section" id="dns-services-beyond-gslb-with-big-ip-dns-201">
-<h1>3. DNS Services Beyond GSLB with BIG-IP DNS (201)<a class="headerlink" href="#dns-services-beyond-gslb-with-big-ip-dns-201" title="Permalink to this headline">¶</a></h1>
+<h1>10. DNS Services Beyond GSLB with BIG-IP DNS (201)<a class="headerlink" href="#dns-services-beyond-gslb-with-big-ip-dns-201" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="authoritative-ns-slave-from-off-box-bind">
-<h2>3.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND<a class="headerlink" href="#authoritative-ns-slave-from-off-box-bind" title="Permalink to this headline">¶</a></h2>
+<h2>10.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND<a class="headerlink" href="#authoritative-ns-slave-from-off-box-bind" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>Objective:</strong> In this use-case, you will configure GTM as the
 authoritative slave using an off-box BIND server as the hidden
@@ -237,7 +236,7 @@ configure the following common components:</li>
 <li>Estimated completion time: 25 minutes</li>
 </ul>
 <div class="section" id="configuring-dns-logging">
-<h3>3.1.1. Configuring DNS Logging<a class="headerlink" href="#configuring-dns-logging" title="Permalink to this headline">¶</a></h3>
+<h3>10.1.1. Configuring DNS Logging<a class="headerlink" href="#configuring-dns-logging" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>You are going to configure DNS query and response logging. To do
 this, you must tell GTM where to send logs to (a log publisher) and
@@ -306,7 +305,7 @@ desktop and using user: <em>admin</em> password: <em>admin</em></li>
 </ul>
 </div>
 <div class="section" id="create-a-new-dns-profile">
-<h3>3.1.2. Create a new DNS Profile<a class="headerlink" href="#create-a-new-dns-profile" title="Permalink to this headline">¶</a></h3>
+<h3>10.1.2. Create a new DNS Profile<a class="headerlink" href="#create-a-new-dns-profile" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A DNS profile tells the DNS Listener how to process DNS traffic.
 We’re going to make some tweaks for our use-case and lab environment.</li>
@@ -353,71 +352,11 @@ as this would severely impact performance.</p>
 </div>
 </div>
 <div class="section" id="create-dns-listeners">
-<h3>3.1.3. Create DNS Listeners<a class="headerlink" href="#create-dns-listeners" title="Permalink to this headline">¶</a></h3>
-<p>We are going to create both an internal and external Listener. The
-external Listener will be our target IP address when querying GTM. The
-internal Listener will be used merely to accept NOTIFY messages from our
-off-box BIND server.</p>
+<h3>10.1.3. Create DNS Listeners<a class="headerlink" href="#create-dns-listeners" title="Permalink to this headline">¶</a></h3>
+<p>We are going to create both UDP and TCP external listeners. The
+external Listener will be our target IP address when querying GTM.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List: Create</strong></li>
-<li>Create two <strong>internal</strong> Listeners as shown in the tables below.</li>
-</ul>
-<p><em>Keep the defaults if not noted in the table.</em></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Name</strong></th>
-<th class="head">internal-listener-UDP</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>Destination</strong></td>
-<td>Host: 10.128.20.240</td>
-</tr>
-<tr class="row-odd"><td><strong>VLAN Traffic</strong></td>
-<td>Enabled on..</td>
-</tr>
-<tr class="row-even"><td><strong>VLANs and Tunnels</strong></td>
-<td>Internal</td>
-</tr>
-<tr class="row-odd"><td><strong>DNS Profile</strong></td>
-<td>AuthNS-offbox-BIND</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Name</strong></th>
-<th class="head">internal-listener-TCP</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>Destination</strong></td>
-<td>Host: 10.128.20.240</td>
-</tr>
-<tr class="row-odd"><td><strong>VLAN Traffic</strong></td>
-<td>Enabled on..</td>
-</tr>
-<tr class="row-even"><td><strong>VLANs and Tunnels</strong></td>
-<td>Internal</td>
-</tr>
-<tr class="row-odd"><td><strong>Protocol</strong></td>
-<td>TCP</td>
-</tr>
-<tr class="row-even"><td><strong>DNS Profile</strong></td>
-<td>AuthNS-offbox-BIND</td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li>For each Listener, click <strong>Finished</strong> to create.</li>
 <li>Create two <strong>external</strong> Listeners as shown in the tables below.</li>
 </ul>
 <p><em>Keep the defaults if not noted in the table.</em></p>
@@ -481,7 +420,7 @@ Listeners configured.</li>
 </ul>
 </div>
 <div class="section" id="create-a-nameserver-for-hidden-master">
-<h3>3.1.4. Create a Nameserver for Hidden Master<a class="headerlink" href="#create-a-nameserver-for-hidden-master" title="Permalink to this headline">¶</a></h3>
+<h3>10.1.4. Create a Nameserver for Hidden Master<a class="headerlink" href="#create-a-nameserver-for-hidden-master" title="Permalink to this headline">¶</a></h3>
 <p>We next need to tell GTM about our Hidden Master that DNS Express will
 slave from.</p>
 <ul class="simple">
@@ -510,7 +449,7 @@ slave from.</p>
 </ul>
 </div>
 <div class="section" id="create-a-zone-to-transfer-from-hidden-master">
-<h3>3.1.5. Create a zone to transfer from Hidden Master<a class="headerlink" href="#create-a-zone-to-transfer-from-hidden-master" title="Permalink to this headline">¶</a></h3>
+<h3>10.1.5. Create a zone to transfer from Hidden Master<a class="headerlink" href="#create-a-zone-to-transfer-from-hidden-master" title="Permalink to this headline">¶</a></h3>
 <p>We will now configure the specific zone for GTM to obtain from the
 Hidden Master. Note that the BIND server already has some key
 configuration elements to consider:</p>
@@ -588,26 +527,26 @@ messages look like this:</li>
 against your external listener for a record in the dnsx.com zone and
 verify that it succeeds. For example:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Issue several more queries of different types to generate some
 interesting statistics. Here are some examples:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">www2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">MX</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">MX</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">short</span> <span class="n">NS</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">NS</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -616,7 +555,7 @@ tail /var/log/ltm ) to ensure that you’re properly logging queries
 and responses. It should look something like this:</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Jun</span> <span class="mi">4</span> <span class="mi">20</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">24</span> <span class="n">localhost</span> <span class="n">info</span> <span class="n">tmm</span><span class="p">[</span><span class="mi">14258</span><span class="p">]:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">04</span> <span class="mi">20</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">23</span> <span class="n">bigip1</span><span class="o">.</span><span class="n">f5agility</span><span class="o">.</span><span class="n">com</span> <span class="n">qid</span> <span class="mi">46533</span> <span class="kn">from</span> <span class="mf">10.128</span><span class="o">.</span><span class="mf">10.240</span><span class="c1">#51377: view none:</span>
-<span class="n">query</span><span class="p">:</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="n">IN</span> <span class="n">A</span> <span class="o">+</span><span class="n">E</span> <span class="p">(</span><span class="mf">10.128</span><span class="o">.</span><span class="mf">10.53</span><span class="o">%</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">query</span><span class="p">:</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="n">IN</span> <span class="n">A</span> <span class="o">+</span><span class="n">E</span> <span class="p">(</span><span class="mf">203.0</span><span class="o">.</span><span class="mf">113.8</span><span class="o">%</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">Jun</span> <span class="mi">4</span> <span class="mi">20</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">24</span> <span class="n">localhost</span> <span class="n">info</span> <span class="n">tmm</span><span class="p">[</span><span class="mi">14258</span><span class="p">]:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">04</span> <span class="mi">20</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">23</span> <span class="n">bigip1</span><span class="o">.</span><span class="n">f5agility</span><span class="o">.</span><span class="n">com</span> <span class="n">qid</span> <span class="mi">46533</span> <span class="n">to</span> <span class="mf">10.128</span><span class="o">.</span><span class="mf">10.240</span><span class="c1">#51377: [NOERROR qr,aa,rd]</span>
 <span class="n">response</span><span class="p">:</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span><span class="o">.</span> <span class="mi">38400</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">20.57</span><span class="p">;</span>
@@ -635,7 +574,7 @@ at the various options.</li>
 <p>If no data exists, come back after the next task.</p>
 </div>
 <div class="section" id="enable-dnssec-for-the-zone">
-<h3>3.1.6. Enable DNSSEC for the zone<a class="headerlink" href="#enable-dnssec-for-the-zone" title="Permalink to this headline">¶</a></h3>
+<h3>10.1.6. Enable DNSSEC for the zone<a class="headerlink" href="#enable-dnssec-for-the-zone" title="Permalink to this headline">¶</a></h3>
 <p>We will now sign the dnsx.com zone. In this example, we are configuring
 GTM to sign the zone on the fly rather than signing the actual static
 zone information (which can be done starting in v11.5 but is outside the
@@ -706,7 +645,7 @@ keys as shown below.</li>
 <li>Test that the zone is successfully signed by issuing a DNSSEC query
 to the external listener. For example:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="o">+</span><span class="n">dnssec</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">dnssec</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <p>You should see RRSIG records indicating that the zone is signed. You
@@ -729,12 +668,12 @@ will also note signing in the query logs (<code class="docutils literal"><span c
 </div>
 </div>
 <div class="section" id="authoritative-name-server-slave-from-on-box-bind">
-<h2>3.2. Authoritative Name Server: slave from ON-BOX BIND<a class="headerlink" href="#authoritative-name-server-slave-from-on-box-bind" title="Permalink to this headline">¶</a></h2>
+<h2>10.2. Authoritative Name Server: slave from ON-BOX BIND<a class="headerlink" href="#authoritative-name-server-slave-from-on-box-bind" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, you will configure GTM as an authoritative slave
 using on-box BIND managed by ZoneRunner.</p>
 <p>Estimated completion time: 15 minutes</p>
 <div class="section" id="id5">
-<h3>3.2.1. Create a new DNS Profile<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.1. Create a new DNS Profile<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create.</strong>
 Create a new DNS profile as shown in the table below.</li>
@@ -778,7 +717,7 @@ Create a new DNS profile as shown in the table below.</li>
 </div>
 </div>
 <div class="section" id="edit-dns-listeners">
-<h3>3.2.2. Edit DNS Listeners<a class="headerlink" href="#edit-dns-listeners" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.2. Edit DNS Listeners<a class="headerlink" href="#edit-dns-listeners" title="Permalink to this headline">¶</a></h3>
 <p>We need to edit the external-listeners to use the new DNS profile
 created above.</p>
 <ul class="simple">
@@ -791,7 +730,7 @@ profile.</li>
 </ul>
 </div>
 <div class="section" id="create-a-student1-com-zone-using-zonerunner">
-<h3>3.2.3. Create a Student1.com zone using ZoneRunner<a class="headerlink" href="#create-a-student1-com-zone-using-zonerunner" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.3. Create a Student1.com zone using ZoneRunner<a class="headerlink" href="#create-a-student1-com-zone-using-zonerunner" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Zones: ZoneRunner &gt; Zone List: Create</strong></li>
 <li>Add a student1.com zone with the information as shown in the
@@ -804,7 +743,7 @@ loopback address. The diagram below shows the basic operation.</li>
 <p><a class="reference internal" href="_images/image9.png"><img alt="image6" src="_images/image9.png" style="width: 5.31042in; height: 6.32847in;" /></a></p>
 </div>
 <div class="section" id="create-a-nameserver-for-on-box-bind">
-<h3>3.2.4. Create a Nameserver for on-box BIND<a class="headerlink" href="#create-a-nameserver-for-on-box-bind" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.4. Create a Nameserver for on-box BIND<a class="headerlink" href="#create-a-nameserver-for-on-box-bind" title="Permalink to this headline">¶</a></h3>
 <p>Next, we need to tell DNS Express that on-box BIND is available to use
 as a source for zone transfers.</p>
 <ul class="simple">
@@ -833,7 +772,7 @@ as a source for zone transfers.</p>
 </ul>
 </div>
 <div class="section" id="create-a-dns-express-zone-to-transfer-from-zonerunner">
-<h3>3.2.5. Create a DNS Express zone to transfer from ZoneRunner<a class="headerlink" href="#create-a-dns-express-zone-to-transfer-from-zonerunner" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.5. Create a DNS Express zone to transfer from ZoneRunner<a class="headerlink" href="#create-a-dns-express-zone-to-transfer-from-zonerunner" title="Permalink to this headline">¶</a></h3>
 <p>We will now configure the specific zone for GTM to obtain from
 ZoneRunner. Note that on-box BIND already has some key configuration
 elements to consider:</p>
@@ -870,7 +809,7 @@ the successful transfer of student1.com to DNS Express</li>
 <li>From a command prompt on your jumpbox, issue a query to the external
 listener for a record in the zone</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="n">SOA</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="n">SOA</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -907,7 +846,7 @@ listener to validate the zone file has updated.</p>
 </div>
 </div>
 <div class="section" id="slaving-off-of-dns-express">
-<h2>3.3. Slaving off of DNS Express<a class="headerlink" href="#slaving-off-of-dns-express" title="Permalink to this headline">¶</a></h2>
+<h2>10.3. Slaving off of DNS Express<a class="headerlink" href="#slaving-off-of-dns-express" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, we will obtain a zone transfer from another F5’s
 DNS Express. This is a common deployment in a hybrid on-premise and
 cloud-based DNS solution. Our purpose here is to focus on DNS Express
@@ -917,7 +856,7 @@ transfer – but this is outside the scope of this lab</p>
 <li>Estimated completion time: 10 minutes</li>
 </ul>
 <div class="section" id="id6">
-<h3>3.3.1. Create a new DNS Profile<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>10.3.1. Create a new DNS Profile<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create.</strong>
 Create a new DNS profile as shown in the table below.</li>
@@ -964,7 +903,7 @@ AVR.</li>
 </div>
 </div>
 <div class="section" id="id7">
-<h3>3.3.2. Edit DNS Listeners<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>10.3.2. Edit DNS Listeners<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
 <li>Edit the internal-listener-TCP to use the AuthNS-hybrid DNS profile.</li>
@@ -972,7 +911,7 @@ AVR.</li>
 </ul>
 </div>
 <div class="section" id="create-nameservers-for-zone-transfer-clients">
-<h3>3.3.3. Create Nameservers for Zone Transfer Clients<a class="headerlink" href="#create-nameservers-for-zone-transfer-clients" title="Permalink to this headline">¶</a></h3>
+<h3>10.3.3. Create Nameservers for Zone Transfer Clients<a class="headerlink" href="#create-nameservers-for-zone-transfer-clients" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Your lab environment has a second pre-configured BIG-IP (BIGIP2) that
 we will use as the on-prem DNS Express Master.</li>
@@ -999,7 +938,7 @@ will use the Internal SelfIP/Listener.</li>
 </table>
 </div>
 <div class="section" id="edit-student2-zones-on-bigip2-to-allow-zone-transfers">
-<h3>3.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers<a class="headerlink" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers" title="Permalink to this headline">¶</a></h3>
+<h3>10.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers<a class="headerlink" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Log in to BIGIP2 (shortcut located on desktop) using a new browser
 window with the following credentials:</li>
@@ -1022,7 +961,7 @@ profile on the source for this to work correctly.</p>
 </ul>
 </div>
 <div class="section" id="add-student2-com-zone-to-dns-express-on-bigip1">
-<h3>3.3.5. Add Student2.com zone to DNS Express on BIGIP1<a class="headerlink" href="#add-student2-com-zone-to-dns-express-on-bigip1" title="Permalink to this headline">¶</a></h3>
+<h3>10.3.5. Add Student2.com zone to DNS Express on BIGIP1<a class="headerlink" href="#add-student2-com-zone-to-dns-express-on-bigip1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI on BIGIP1, navigate to: <strong>DNS &gt; Zones &gt; Zones &gt; Zone List: Create</strong></li>
 <li>Create the “student2.com” zone as shown in the figure below and then
@@ -1040,7 +979,7 @@ the successful transfer of student2.com zone</li>
 <li>Verify logs in <code class="docutils literal"><span class="pre">/var/log/ltm</span></code></li>
 <li>Issue a query to the external listener for a record in the zone</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">53</span> <span class="n">SOA</span> <span class="n">student2</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="n">SOA</span> <span class="n">student2</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1088,14 +1027,14 @@ and/or query for your new record to the Listener.</li>
 </div>
 </div>
 <div class="section" id="transparent-caching">
-<h2>3.4. Transparent Caching<a class="headerlink" href="#transparent-caching" title="Permalink to this headline">¶</a></h2>
+<h2>10.4. Transparent Caching<a class="headerlink" href="#transparent-caching" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, you will configure GTM as a transparent cache to a pool of BIND servers.</p>
 <ul class="simple">
 <li>Estimated completion time: 10 minutes</li>
 </ul>
 <p><a class="reference internal" href="_images/image14.png"><img alt="image11" src="_images/image14.png" style="width: 4.25347in; height: 3.55347in;" /></a></p>
 <div class="section" id="create-a-dns-cache">
-<h3>3.4.1. Create a DNS Cache<a class="headerlink" href="#create-a-dns-cache" title="Permalink to this headline">¶</a></h3>
+<h3>10.4.1. Create a DNS Cache<a class="headerlink" href="#create-a-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS profile as shown in the table below.</li>
@@ -1122,7 +1061,7 @@ and/or query for your new record to the Listener.</li>
 </ul>
 </div>
 <div class="section" id="id8">
-<h3>3.4.2. Create a new DNS Profile<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>10.4.2. Create a new DNS Profile<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 Create a new DNS profile as shown in the table below.</li>
@@ -1170,7 +1109,7 @@ Create a new DNS profile as shown in the table below.</li>
 </table>
 </div>
 <div class="section" id="create-a-dns-monitor">
-<h3>3.4.3. Create a DNS Monitor<a class="headerlink" href="#create-a-dns-monitor" title="Permalink to this headline">¶</a></h3>
+<h3>10.4.3. Create a DNS Monitor<a class="headerlink" href="#create-a-dns-monitor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Load Balancing &gt; Monitors: Create</strong>.
 Create a new DNS monitor as shown in the table below.</li>
@@ -1200,7 +1139,7 @@ Create a new DNS monitor as shown in the table below.</li>
 </ul>
 </div>
 <div class="section" id="create-a-resolver-pool">
-<h3>3.4.4. Create a Resolver Pool<a class="headerlink" href="#create-a-resolver-pool" title="Permalink to this headline">¶</a></h3>
+<h3>10.4.4. Create a Resolver Pool<a class="headerlink" href="#create-a-resolver-pool" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Load Balancing &gt; Pools &gt; Pools List: Create</strong>.
 Create a new pool of DNS resolvers as shown in the figure below.</li>
@@ -1227,7 +1166,7 @@ Create a new pool of DNS resolvers as shown in the figure below.</li>
 <p><a class="reference internal" href="_images/image15.png"><img alt="image12" src="_images/image15.png" style="width: 4.24000in; height: 4.25000in;" /></a></p>
 </div>
 <div class="section" id="create-a-new-external-dns-listener">
-<h3>3.4.5. Create a new External DNS Listener<a class="headerlink" href="#create-a-new-external-dns-listener" title="Permalink to this headline">¶</a></h3>
+<h3>10.4.5. Create a new External DNS Listener<a class="headerlink" href="#create-a-new-external-dns-listener" title="Permalink to this headline">¶</a></h3>
 <p>We are going to create a new external-facing DNS Listener to cache DNS
 requests and load-balance non-cached requests to pool_resolvers.</p>
 <ul class="simple">
@@ -1325,13 +1264,13 @@ examples.</li>
 </div>
 </div>
 <div class="section" id="resolver-cache">
-<h2>3.5. Resolver Cache<a class="headerlink" href="#resolver-cache" title="Permalink to this headline">¶</a></h2>
+<h2>10.5. Resolver Cache<a class="headerlink" href="#resolver-cache" title="Permalink to this headline">¶</a></h2>
 <p>In this use case, you will configure GTM as a resolver cache which
 eliminates the need for the pool of resolvers.
 * Estimated completion time: 10 minutes</p>
 <p><a class="reference internal" href="_images/image23.png"><img alt="image20" src="_images/image23.png" style="width: 4.58264in; height: 2.95764in;" /></a></p>
 <div class="section" id="create-a-new-dns-cache">
-<h3>3.5.1. Create a new DNS Cache<a class="headerlink" href="#create-a-new-dns-cache" title="Permalink to this headline">¶</a></h3>
+<h3>10.5.1. Create a new DNS Cache<a class="headerlink" href="#create-a-new-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS Cache as shown in the table below.</li>
@@ -1355,7 +1294,7 @@ eliminates the need for the pool of resolvers.
 </table>
 </div>
 <div class="section" id="id11">
-<h3>3.5.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3>10.5.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 Create a new DNS profile as shown in the table below.</li>
@@ -1406,7 +1345,7 @@ Create a new DNS profile as shown in the table below.</li>
 </table>
 </div>
 <div class="section" id="edit-dns-listener">
-<h3>3.5.3. Edit DNS Listener<a class="headerlink" href="#edit-dns-listener" title="Permalink to this headline">¶</a></h3>
+<h3>10.5.3. Edit DNS Listener<a class="headerlink" href="#edit-dns-listener" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
@@ -1441,14 +1380,14 @@ In/Out, Packets In/Out and Connections are of particular interest.</p>
 </div>
 </div>
 <div class="section" id="dnssec-validating-resolver">
-<h2>3.6. DNSSEC Validating Resolver<a class="headerlink" href="#dnssec-validating-resolver" title="Permalink to this headline">¶</a></h2>
+<h2>10.6. DNSSEC Validating Resolver<a class="headerlink" href="#dnssec-validating-resolver" title="Permalink to this headline">¶</a></h2>
 <p>In this use case, you will configure GTM as a DNSSEC validating
 resolver which offloads heavy CPU computation to traditional
 resolvers. This simply adds DNSSEC validation to the resolver-cache
 use-case previously configured.
 * Estimated completion time: 10 minutes</p>
 <div class="section" id="id12">
-<h3>3.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3>10.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS cache as shown in the table below.</li>
@@ -1520,7 +1459,7 @@ entries.</li>
 <p><a class="reference internal" href="_images/image25.png"><img alt="image22" src="_images/image25.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
 </div>
 <div class="section" id="id13">
-<h3>3.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3>10.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>In this task we will create a dns profile to be used by a listener for DNSSEC validation.
 * In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 * Create a new DNS profile as shown in the table below.</p>
@@ -1570,7 +1509,7 @@ entries.</li>
 </table>
 </div>
 <div class="section" id="id14">
-<h3>3.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<h3>10.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
@@ -1620,14 +1559,14 @@ following command 2 or 3 times:</li>
 </div>
 </div>
 <div class="section" id="forwarders">
-<h2>3.7. Forwarders<a class="headerlink" href="#forwarders" title="Permalink to this headline">¶</a></h2>
+<h2>10.7. Forwarders<a class="headerlink" href="#forwarders" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, we will configure conditional forwarders with local
 zone information.</p>
 <ul class="simple">
 <li>Estimated completion time: 5 minutes</li>
 </ul>
 <div class="section" id="add-forwarder-to-existing-cache">
-<h3>3.7.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
+<h3>10.7.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List</strong>. Click on
 <strong>validating-resolver</strong> from the previous exercise. Click <strong>Forward Zones</strong>
@@ -1663,7 +1602,7 @@ Activity stats are of particular interest in this use-case.</p>
 </div>
 </div>
 <div class="section" id="dns-201-class-is-complete-thanks-for-attending">
-<h2>3.8. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
+<h2>10.8. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1677,10 +1616,8 @@ Activity stats are of particular interest in this use-case.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cache/index.html" class="btn btn-neutral float-right" title="4. Cache" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="gslb/usecases/gtp_director.html" class="btn btn-neutral" title="2.9.4. GTP Director" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="big-iq/index.html" class="btn btn-neutral" title="9. BIG-IQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
