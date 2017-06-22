@@ -23,5 +23,9 @@ Create a new UDP profile as shown in the following table. Retain the defaults if
 
 .. figure:: ./images/udp-dns_profile.png
 
+TMSH command for both gtm1.site1 and gtm1.site2:
+
+
+
 .. rubric:: References
 .. [#f1] Share cool links here

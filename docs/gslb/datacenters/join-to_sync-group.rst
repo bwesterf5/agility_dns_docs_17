@@ -1,5 +1,11 @@
 ==================================
-Join Sync Group
+Sync Group Formation
 ==================================
 
-Join a new F5 BIG-IP DNS server to the DNS sync-group
+Launch Putty and log in to gtm1.site2
+
+Run the following command:
+
+gtm_add 203.0.113.7
+
+.. image:: ./images/putty_gtm1.site2.png

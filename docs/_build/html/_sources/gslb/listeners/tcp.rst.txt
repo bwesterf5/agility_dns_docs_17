@@ -23,5 +23,9 @@ Create a new TCP profile as shown in the following table.
 
 .. figure:: ./images/dns_profile_tcp.png
 
+TMSH Command for both gtm1.site and gtm1.site2:
+
+create ltm profile tcp example.com_tcp-dns_profile defaults-from tcp-wan-optimized
+
 .. rubric:: References
 .. [#f1] Share cool links here

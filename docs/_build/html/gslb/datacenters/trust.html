@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="2.3. Datacenters" href="index.html"/>
-        <link rel="next" title="2.3.3. Join Sync Group" href="join-to_sync-group.html"/>
+        <link rel="next" title="2.3.3. Sync Group Formation" href="join-to_sync-group.html"/>
         <link rel="prev" title="2.3.1.4. site2_ha-pair" href="servers/site2_ha-pair.html"/> 
 
   
@@ -99,7 +99,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. Datacenters</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="servers/index.html">2.3.1. Servers</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.2. Device Trust</a></li>
-<li class="toctree-l3"><a class="reference internal" href="join-to_sync-group.html">2.3.3. Join Sync Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="join-to_sync-group.html">2.3.3. Sync Group Formation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="virtuals.html">2.3.4. LTM Virtuals</a></li>
 <li class="toctree-l3"><a class="reference internal" href="links.html">2.3.5. Links</a></li>
 <li class="toctree-l3"><a class="reference internal" href="autodiscover.html">2.3.6. Auto Discover</a></li>
@@ -189,37 +189,15 @@
             
   <div class="section" id="device-trust">
 <h1>2.3.2. Device Trust<a class="headerlink" href="#device-trust" title="Permalink to this headline">¶</a></h1>
-<p>Prior to configuring the Server object, we need to establish trust
-between the GTM and LTM. The bigip_add script will exchange device
-certificates to establish a trust relationship.</p>
-<ul>
-<li><dl class="first docutils">
-<dt>Login via SSH using putty to your gtm1.site1 (10.1.10.13) using</dt>
-<dd><p class="first last">username: <em>root</em> password: <em>default</em></p>
-</dd>
+<p>A mesh of F5 DNS servers need to exchange keys to establish a trusted mechanism for HA communications.</p>
+<dl class="docutils">
+<dt>Lanch Putty and login to gtm1.site1.example.com</dt>
+<dd>username: <em>root</em> password: <em>default</em></dd>
 </dl>
-</li>
-<li><p class="first">Issue the following commands</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bigip_add</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.5</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Enter ‘<em>yes</em>’ to proceed and enter ‘<em>default</em>&#8216; as the password.</p>
-</li>
-<li><p class="first">Now Enter</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">big3d_install</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.5</span>
-</pre></div>
-</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This script likely won’t need to install a new version of the big3d agent… this is just for you to be familiar with the script.</p>
-</div>
-<ul class="simple">
-<li>Repeat the same operations (<code class="docutils literal"><span class="pre">bigip_add</span></code> and <code class="docutils literal"><span class="pre">big3d_install</span></code>) for the
-following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</li>
-</ul>
+<p>Run the following command:</p>
+<blockquote>
+<div>bigip_add</div></blockquote>
+<img alt="../../_images/putty_gtm1.site1.png" src="../../_images/putty_gtm1.site1.png" />
 </div>
 
 
@@ -232,7 +210,7 @@ following LTM objects: 203.0.113.6, 198.51.100.37, 198.51.100.38</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="join-to_sync-group.html" class="btn btn-neutral float-right" title="2.3.3. Join Sync Group" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="join-to_sync-group.html" class="btn btn-neutral float-right" title="2.3.3. Sync Group Formation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="servers/site2_ha-pair.html" class="btn btn-neutral" title="2.3.1.4. site2_ha-pair" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
