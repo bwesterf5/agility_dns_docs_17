@@ -18,3 +18,4 @@ Create a Transparent Cache according to the values in the table below:
    "Resolver Type", "Transparent"
 
 .. figure:: images/cache_transprarent.png
+   :width: 800

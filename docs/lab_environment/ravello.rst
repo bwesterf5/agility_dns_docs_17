@@ -12,6 +12,8 @@ The lab environment is hosted in cloud environments managed by Ravello Systems. 
 Once logged in, you will find the URL for your windows jumpbox.
 
 .. figure:: ./images/ravello.png
+  :width: 800
+
 
 NOTE: All the VMs should be in a STARTED state.
 
@@ -23,3 +25,4 @@ Username: **user**
 Password: **Agility1**
 
 .. figure:: ./images/rdp_to_jumpbox.jpeg
+  :width: 800

@@ -22,8 +22,12 @@ Create a UDP listener.
    "DNS Profile", "example.com_dns_profile", "example.com_dns_profile"
 
 .. image:: images/listener_flyout.png
+   :width: 800
 
 .. image:: images/listener_settings.png
+   :width: 800
+
+.. code::
 
 gtm1.site1 TMSH command:
 

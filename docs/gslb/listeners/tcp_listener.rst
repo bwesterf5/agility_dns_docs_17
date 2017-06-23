@@ -22,13 +22,17 @@ Create a TCP listener.
    "DNS Profile", "example.com_dns_profile", "example.com_dns_profile"
 
 .. image:: images/listener_flyout.png
+   :width: 800
 
 .. image:: images/listener_tcp_settings.png
+   :width: 800
 
 TMSH command for adding a listener:
-::
+.. code::
 
+   $
    create /gtm listener <listener_name> address <listener_IP_address> ip-protocol udp
+   $
 
 .. rubric:: References
 

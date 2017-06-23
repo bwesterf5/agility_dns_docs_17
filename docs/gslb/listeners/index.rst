@@ -6,7 +6,8 @@ A listener object is an spcialized virtual server that is configured to respond 
 
 We will be creating both TCP and UDP based listeners.
 
-.. note:: Why do we need to create both a UDP and a TCP listener here?  What would happen if the DNS query or response was greater than 512 bytes?
+.. image:: ./images/dns_lookup.png
+   :width: 500
 
 .. toctree::
    :maxdepth: 1

@@ -22,6 +22,7 @@ Create a new UDP profile as shown in the following table. Retain the defaults if
    "Parent Profile", "udp_gtm_dns"
 
 .. figure:: ./images/udp-dns_profile.png
+   :width: 800
 
 TMSH command for both gtm1.site1 and gtm1.site2:
 

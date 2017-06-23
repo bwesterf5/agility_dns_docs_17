@@ -17,3 +17,4 @@ Navigate to: **DNS  ››  GSLB : Servers : Server List**
 https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/globallb/server/list.jsp
 
 .. figure:: ./images/gslb_servers_flyout.png
+   :width: 800

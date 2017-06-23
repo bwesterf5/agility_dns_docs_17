@@ -1,227 +1,305 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>10. DNS Services Beyond GSLB with BIG-IP DNS (201) &mdash; Agility 2017 - DNS 0.1 documentation</title>
-  
 
-  
-  
-  
-  
 
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Agility 2017 - DNS 0.1 documentation" href="index.html"/>
-        <link rel="prev" title="9. BIG-IQ" href="big-iq/index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
+    <title>3. DNS Services Beyond GSLB with BIG-IP DNS (201) &#8212; Agility 2017 - DNS 0.1 documentation</title>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2.8.5. Geo Location" href="gslb/usecases/geolocation.html" />
+<!-- 
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body role="document">
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-          
-            <a href="index.html" class="icon icon-home"> Agility 2017 - DNS
-          
-
-          
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
           </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
 
-          
-            
-            
-              <div class="version">
-                0.1
-              </div>
-            
-          
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Services Proxy</span>
+                        <ul>
+                          <li><a href="/products/asp/latest" data-link-type="Nav: Mega">F5 Application Services Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="/containers/latest/">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks-asp" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="./">Agility 2017 - DNS 0.1</a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">3. DNS Services Beyond GSLB with BIG-IP DNS (201)</a><ul>
+<li><a class="reference internal" href="#authoritative-ns-slave-from-off-box-bind">3.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a><ul>
+<li><a class="reference internal" href="#configuring-dns-logging">3.1.1. Configuring DNS Logging</a></li>
+<li><a class="reference internal" href="#create-a-new-dns-profile">3.1.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#create-dns-listeners">3.1.3. Create DNS Listeners</a></li>
+<li><a class="reference internal" href="#create-a-nameserver-for-hidden-master">3.1.4. Create a Nameserver for Hidden Master</a></li>
+<li><a class="reference internal" href="#create-a-zone-to-transfer-from-hidden-master">3.1.5. Create a zone to transfer from Hidden Master</a></li>
+<li><a class="reference internal" href="#enable-dnssec-for-the-zone">3.1.6. Enable DNSSEC for the zone</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authoritative-name-server-slave-from-on-box-bind">3.2. Authoritative Name Server: slave from ON-BOX BIND</a><ul>
+<li><a class="reference internal" href="#id5">3.2.1. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#edit-dns-listeners">3.2.2. Edit DNS Listeners</a></li>
+<li><a class="reference internal" href="#create-a-student1-com-zone-using-zonerunner">3.2.3. Create a Student1.com zone using ZoneRunner</a></li>
+<li><a class="reference internal" href="#create-a-nameserver-for-on-box-bind">3.2.4. Create a Nameserver for on-box BIND</a></li>
+<li><a class="reference internal" href="#create-a-dns-express-zone-to-transfer-from-zonerunner">3.2.5. Create a DNS Express zone to transfer from ZoneRunner</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#slaving-off-of-dns-express">3.3. Slaving off of DNS Express</a><ul>
+<li><a class="reference internal" href="#id6">3.3.1. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#id7">3.3.2. Edit DNS Listeners</a></li>
+<li><a class="reference internal" href="#create-nameservers-for-zone-transfer-clients">3.3.3. Create Nameservers for Zone Transfer Clients</a></li>
+<li><a class="reference internal" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers">3.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers</a></li>
+<li><a class="reference internal" href="#add-student2-com-zone-to-dns-express-on-bigip1">3.3.5. Add Student2.com zone to DNS Express on BIGIP1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transparent-caching">3.4. Transparent Caching</a><ul>
+<li><a class="reference internal" href="#create-a-dns-cache">3.4.1. Create a DNS Cache</a></li>
+<li><a class="reference internal" href="#id8">3.4.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#create-a-dns-monitor">3.4.3. Create a DNS Monitor</a></li>
+<li><a class="reference internal" href="#create-a-resolver-pool">3.4.4. Create a Resolver Pool</a></li>
+<li><a class="reference internal" href="#create-a-new-external-dns-listener">3.4.5. Create a new External DNS Listener</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resolver-cache">3.5. Resolver Cache</a><ul>
+<li><a class="reference internal" href="#create-a-new-dns-cache">3.5.1. Create a new DNS Cache</a></li>
+<li><a class="reference internal" href="#id11">3.5.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#edit-dns-listener">3.5.3. Edit DNS Listener</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dnssec-validating-resolver">3.6. DNSSEC Validating Resolver</a><ul>
+<li><a class="reference internal" href="#id12">3.6.1. Create a new DNS Cache</a></li>
+<li><a class="reference internal" href="#id13">3.6.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#id14">3.6.3. Edit DNS Listener</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forwarders">3.7. Forwarders</a><ul>
+<li><a class="reference internal" href="#add-forwarder-to-existing-cache">3.7.1. Add Forwarder to Existing Cache</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">3.8. DNS 201 class is complete !  Thanks for attending!</a></li>
+</ul>
+</li>
+</ul>
 
-          
-        </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gslb/index.html">2. GSLB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cache/index.html">3. Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnsx/index.html">4. Authoritative Slave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="irules/index.html">5. iRules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="firewall/index.html">6. Firewall</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnssec/index.html">7. DNS Sec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="routing/index.html">8. Route Health Injection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="big-iq/index.html">9. BIG-IQ</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. DNS Services Beyond GSLB with BIG-IP DNS (201)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#authoritative-ns-slave-from-off-box-bind">10.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-dns-logging">10.1.1. Configuring DNS Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-profile">10.1.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-dns-listeners">10.1.3. Create DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-hidden-master">10.1.4. Create a Nameserver for Hidden Master</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-zone-to-transfer-from-hidden-master">10.1.5. Create a zone to transfer from Hidden Master</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enable-dnssec-for-the-zone">10.1.6. Enable DNSSEC for the zone</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#authoritative-name-server-slave-from-on-box-bind">10.2. Authoritative Name Server: slave from ON-BOX BIND</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">10.2.1. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listeners">10.2.2. Edit DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-student1-com-zone-using-zonerunner">10.2.3. Create a Student1.com zone using ZoneRunner</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-nameserver-for-on-box-bind">10.2.4. Create a Nameserver for on-box BIND</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-express-zone-to-transfer-from-zonerunner">10.2.5. Create a DNS Express zone to transfer from ZoneRunner</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#slaving-off-of-dns-express">10.3. Slaving off of DNS Express</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">10.3.1. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">10.3.2. Edit DNS Listeners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-nameservers-for-zone-transfer-clients">10.3.3. Create Nameservers for Zone Transfer Clients</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers">10.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-student2-com-zone-to-dns-express-on-bigip1">10.3.5. Add Student2.com zone to DNS Express on BIGIP1</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#transparent-caching">10.4. Transparent Caching</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-cache">10.4.1. Create a DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">10.4.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-dns-monitor">10.4.3. Create a DNS Monitor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-resolver-pool">10.4.4. Create a Resolver Pool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-external-dns-listener">10.4.5. Create a new External DNS Listener</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#resolver-cache">10.5. Resolver Cache</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-dns-cache">10.5.1. Create a new DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">10.5.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edit-dns-listener">10.5.3. Edit DNS Listener</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dnssec-validating-resolver">10.6. DNSSEC Validating Resolver</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">10.6.1. Create a new DNS Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">10.6.2. Create a new DNS Profile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">10.6.3. Edit DNS Listener</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#forwarders">10.7. Forwarders</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-forwarder-to-existing-cache">10.7.1. Add Forwarder to Existing Cache</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">10.8. DNS 201 class is complete !  Thanks for attending!</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. DNS Services Beyond GSLB with BIG-IP DNS (201)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authoritative-ns-slave-from-off-box-bind">3.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authoritative-name-server-slave-from-on-box-bind">3.2. Authoritative Name Server: slave from ON-BOX BIND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slaving-off-of-dns-express">3.3. Slaving off of DNS Express</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transparent-caching">3.4. Transparent Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolver-cache">3.5. Resolver Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dnssec-validating-resolver">3.6. DNSSEC Validating Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forwarders">3.7. Forwarders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-201-class-is-complete-thanks-for-attending">3.8. DNS 201 class is complete !  Thanks for attending!</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
-        </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gslb/usecases/geolocation.html"
+                        title="previous chapter">2.8.5. Geo Location</a></p>
+        
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="index.html">Agility 2017 - DNS</a>
+          <span class="right"><a href="genindex.html">Index</a></span>
+        </h4>
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Agility 2017 - DNS</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>10. DNS Services Beyond GSLB with BIG-IP DNS (201)</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/dns201_agility2017.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
   <p>Agility 2017 Hands-on Lab Guide</p>
 <p>Written for: TMOS<sup>®</sup> v13.0.0</p>
 <p>Presented by: DNS 2017 F5 Agility Team</p>
 <div class="section" id="dns-services-beyond-gslb-with-big-ip-dns-201">
-<h1>10. DNS Services Beyond GSLB with BIG-IP DNS (201)<a class="headerlink" href="#dns-services-beyond-gslb-with-big-ip-dns-201" title="Permalink to this headline">¶</a></h1>
+<h1>3. DNS Services Beyond GSLB with BIG-IP DNS (201)<a class="headerlink" href="#dns-services-beyond-gslb-with-big-ip-dns-201" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="authoritative-ns-slave-from-off-box-bind">
-<h2>10.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND<a class="headerlink" href="#authoritative-ns-slave-from-off-box-bind" title="Permalink to this headline">¶</a></h2>
+<h2>3.1. AUTHORITATIVE NS: SLAVE FROM OFF-BOX BIND<a class="headerlink" href="#authoritative-ns-slave-from-off-box-bind" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>Objective:</strong> In this use-case, you will configure GTM as the
 authoritative slave using an off-box BIND server as the hidden
@@ -236,7 +314,7 @@ configure the following common components:</li>
 <li>Estimated completion time: 25 minutes</li>
 </ul>
 <div class="section" id="configuring-dns-logging">
-<h3>10.1.1. Configuring DNS Logging<a class="headerlink" href="#configuring-dns-logging" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.1. Configuring DNS Logging<a class="headerlink" href="#configuring-dns-logging" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>You are going to configure DNS query and response logging. To do
 this, you must tell GTM where to send logs to (a log publisher) and
@@ -305,7 +383,7 @@ desktop and using user: <em>admin</em> password: <em>admin</em></li>
 </ul>
 </div>
 <div class="section" id="create-a-new-dns-profile">
-<h3>10.1.2. Create a new DNS Profile<a class="headerlink" href="#create-a-new-dns-profile" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.2. Create a new DNS Profile<a class="headerlink" href="#create-a-new-dns-profile" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A DNS profile tells the DNS Listener how to process DNS traffic.
 We’re going to make some tweaks for our use-case and lab environment.</li>
@@ -352,7 +430,7 @@ as this would severely impact performance.</p>
 </div>
 </div>
 <div class="section" id="create-dns-listeners">
-<h3>10.1.3. Create DNS Listeners<a class="headerlink" href="#create-dns-listeners" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.3. Create DNS Listeners<a class="headerlink" href="#create-dns-listeners" title="Permalink to this headline">¶</a></h3>
 <p>We are going to create both UDP and TCP external listeners. The
 external Listener will be our target IP address when querying GTM.</p>
 <ul class="simple">
@@ -420,7 +498,7 @@ Listeners configured.</li>
 </ul>
 </div>
 <div class="section" id="create-a-nameserver-for-hidden-master">
-<h3>10.1.4. Create a Nameserver for Hidden Master<a class="headerlink" href="#create-a-nameserver-for-hidden-master" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.4. Create a Nameserver for Hidden Master<a class="headerlink" href="#create-a-nameserver-for-hidden-master" title="Permalink to this headline">¶</a></h3>
 <p>We next need to tell GTM about our Hidden Master that DNS Express will
 slave from.</p>
 <ul class="simple">
@@ -449,7 +527,7 @@ slave from.</p>
 </ul>
 </div>
 <div class="section" id="create-a-zone-to-transfer-from-hidden-master">
-<h3>10.1.5. Create a zone to transfer from Hidden Master<a class="headerlink" href="#create-a-zone-to-transfer-from-hidden-master" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.5. Create a zone to transfer from Hidden Master<a class="headerlink" href="#create-a-zone-to-transfer-from-hidden-master" title="Permalink to this headline">¶</a></h3>
 <p>We will now configure the specific zone for GTM to obtain from the
 Hidden Master. Note that the BIND server already has some key
 configuration elements to consider:</p>
@@ -571,7 +649,7 @@ at the various options.</li>
 <p>If no data exists, come back after the next task.</p>
 </div>
 <div class="section" id="enable-dnssec-for-the-zone">
-<h3>10.1.6. Enable DNSSEC for the zone<a class="headerlink" href="#enable-dnssec-for-the-zone" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.6. Enable DNSSEC for the zone<a class="headerlink" href="#enable-dnssec-for-the-zone" title="Permalink to this headline">¶</a></h3>
 <p>We will now sign the dnsx.com zone. In this example, we are configuring
 GTM to sign the zone on the fly rather than signing the actual static
 zone information (which can be done starting in v11.5 but is outside the
@@ -665,12 +743,12 @@ will also note signing in the query logs (<code class="docutils literal"><span c
 </div>
 </div>
 <div class="section" id="authoritative-name-server-slave-from-on-box-bind">
-<h2>10.2. Authoritative Name Server: slave from ON-BOX BIND<a class="headerlink" href="#authoritative-name-server-slave-from-on-box-bind" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Authoritative Name Server: slave from ON-BOX BIND<a class="headerlink" href="#authoritative-name-server-slave-from-on-box-bind" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, you will configure GTM as an authoritative slave
 using on-box BIND managed by ZoneRunner.</p>
 <p>Estimated completion time: 15 minutes</p>
 <div class="section" id="id5">
-<h3>10.2.1. Create a new DNS Profile<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.1. Create a new DNS Profile<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create.</strong>
 Create a new DNS profile as shown in the table below.</li>
@@ -714,7 +792,7 @@ Create a new DNS profile as shown in the table below.</li>
 </div>
 </div>
 <div class="section" id="edit-dns-listeners">
-<h3>10.2.2. Edit DNS Listeners<a class="headerlink" href="#edit-dns-listeners" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.2. Edit DNS Listeners<a class="headerlink" href="#edit-dns-listeners" title="Permalink to this headline">¶</a></h3>
 <p>We need to edit the external-listeners to use the new DNS profile
 created above.</p>
 <ul class="simple">
@@ -727,7 +805,7 @@ profile.</li>
 </ul>
 </div>
 <div class="section" id="create-a-student1-com-zone-using-zonerunner">
-<h3>10.2.3. Create a Student1.com zone using ZoneRunner<a class="headerlink" href="#create-a-student1-com-zone-using-zonerunner" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.3. Create a Student1.com zone using ZoneRunner<a class="headerlink" href="#create-a-student1-com-zone-using-zonerunner" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Zones: ZoneRunner &gt; Zone List: Create</strong></li>
 <li>Add a student1.com zone with the information as shown in the
@@ -740,7 +818,7 @@ loopback address. The diagram below shows the basic operation.</li>
 <p><a class="reference internal" href="_images/image9.png"><img alt="image6" src="_images/image9.png" style="width: 5.31042in; height: 6.32847in;" /></a></p>
 </div>
 <div class="section" id="create-a-nameserver-for-on-box-bind">
-<h3>10.2.4. Create a Nameserver for on-box BIND<a class="headerlink" href="#create-a-nameserver-for-on-box-bind" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.4. Create a Nameserver for on-box BIND<a class="headerlink" href="#create-a-nameserver-for-on-box-bind" title="Permalink to this headline">¶</a></h3>
 <p>Next, we need to tell DNS Express that on-box BIND is available to use
 as a source for zone transfers.</p>
 <ul class="simple">
@@ -769,7 +847,7 @@ as a source for zone transfers.</p>
 </ul>
 </div>
 <div class="section" id="create-a-dns-express-zone-to-transfer-from-zonerunner">
-<h3>10.2.5. Create a DNS Express zone to transfer from ZoneRunner<a class="headerlink" href="#create-a-dns-express-zone-to-transfer-from-zonerunner" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.5. Create a DNS Express zone to transfer from ZoneRunner<a class="headerlink" href="#create-a-dns-express-zone-to-transfer-from-zonerunner" title="Permalink to this headline">¶</a></h3>
 <p>We will now configure the specific zone for GTM to obtain from
 ZoneRunner. Note that on-box BIND already has some key configuration
 elements to consider:</p>
@@ -843,7 +921,7 @@ listener to validate the zone file has updated.</p>
 </div>
 </div>
 <div class="section" id="slaving-off-of-dns-express">
-<h2>10.3. Slaving off of DNS Express<a class="headerlink" href="#slaving-off-of-dns-express" title="Permalink to this headline">¶</a></h2>
+<h2>3.3. Slaving off of DNS Express<a class="headerlink" href="#slaving-off-of-dns-express" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, we will obtain a zone transfer from another F5’s
 DNS Express. This is a common deployment in a hybrid on-premise and
 cloud-based DNS solution. Our purpose here is to focus on DNS Express
@@ -853,7 +931,7 @@ transfer – but this is outside the scope of this lab</p>
 <li>Estimated completion time: 10 minutes</li>
 </ul>
 <div class="section" id="id6">
-<h3>10.3.1. Create a new DNS Profile<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.1. Create a new DNS Profile<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create.</strong>
 Create a new DNS profile as shown in the table below.</li>
@@ -900,7 +978,7 @@ AVR.</li>
 </div>
 </div>
 <div class="section" id="id7">
-<h3>10.3.2. Edit DNS Listeners<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.2. Edit DNS Listeners<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
 <li>Edit the external-listener-TCP to use the AuthNS-hybrid DNS profile.</li>
@@ -908,7 +986,7 @@ AVR.</li>
 </ul>
 </div>
 <div class="section" id="create-nameservers-for-zone-transfer-clients">
-<h3>10.3.3. Create Nameservers for Zone Transfer Clients<a class="headerlink" href="#create-nameservers-for-zone-transfer-clients" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.3. Create Nameservers for Zone Transfer Clients<a class="headerlink" href="#create-nameservers-for-zone-transfer-clients" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Your lab environment has a second pre-configured BIG-IP (BIGIP2) that
 we will use as the on-prem DNS Express Master.</li>
@@ -935,7 +1013,7 @@ will use the External SelfIP/Listener.</li>
 </table>
 </div>
 <div class="section" id="edit-student2-zones-on-bigip2-to-allow-zone-transfers">
-<h3>10.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers<a class="headerlink" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.4. Edit Student2 Zones on BIGIP2 to allow Zone transfers<a class="headerlink" href="#edit-student2-zones-on-bigip2-to-allow-zone-transfers" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Log in to gtm1.site2 (shortcut located on desktop) using a new browser
 window with the following credentials:</li>
@@ -958,7 +1036,7 @@ profile on the source for this to work correctly.</p>
 </ul>
 </div>
 <div class="section" id="add-student2-com-zone-to-dns-express-on-bigip1">
-<h3>10.3.5. Add Student2.com zone to DNS Express on BIGIP1<a class="headerlink" href="#add-student2-com-zone-to-dns-express-on-bigip1" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.5. Add Student2.com zone to DNS Express on BIGIP1<a class="headerlink" href="#add-student2-com-zone-to-dns-express-on-bigip1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI on BIGIP1, navigate to: <strong>DNS &gt; Zones &gt; Zones &gt; Zone List: Create</strong></li>
 <li>Create the “student2.com” zone as shown in the figure below and then
@@ -1024,14 +1102,14 @@ and/or query for your new record to the Listener.</li>
 </div>
 </div>
 <div class="section" id="transparent-caching">
-<h2>10.4. Transparent Caching<a class="headerlink" href="#transparent-caching" title="Permalink to this headline">¶</a></h2>
+<h2>3.4. Transparent Caching<a class="headerlink" href="#transparent-caching" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, you will configure GTM as a transparent cache to a pool of BIND servers.</p>
 <ul class="simple">
 <li>Estimated completion time: 10 minutes</li>
 </ul>
 <p><a class="reference internal" href="_images/image14.png"><img alt="image11" src="_images/image14.png" style="width: 4.25347in; height: 3.55347in;" /></a></p>
 <div class="section" id="create-a-dns-cache">
-<h3>10.4.1. Create a DNS Cache<a class="headerlink" href="#create-a-dns-cache" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.1. Create a DNS Cache<a class="headerlink" href="#create-a-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS profile as shown in the table below.</li>
@@ -1058,7 +1136,7 @@ and/or query for your new record to the Listener.</li>
 </ul>
 </div>
 <div class="section" id="id8">
-<h3>10.4.2. Create a new DNS Profile<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.2. Create a new DNS Profile<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 Create a new DNS profile as shown in the table below.</li>
@@ -1106,7 +1184,7 @@ Create a new DNS profile as shown in the table below.</li>
 </table>
 </div>
 <div class="section" id="create-a-dns-monitor">
-<h3>10.4.3. Create a DNS Monitor<a class="headerlink" href="#create-a-dns-monitor" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.3. Create a DNS Monitor<a class="headerlink" href="#create-a-dns-monitor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Load Balancing &gt; Monitors: Create</strong>.
 Create a new DNS monitor as shown in the table below.</li>
@@ -1136,7 +1214,7 @@ Create a new DNS monitor as shown in the table below.</li>
 </ul>
 </div>
 <div class="section" id="create-a-resolver-pool">
-<h3>10.4.4. Create a Resolver Pool<a class="headerlink" href="#create-a-resolver-pool" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.4. Create a Resolver Pool<a class="headerlink" href="#create-a-resolver-pool" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Load Balancing &gt; Pools &gt; Pools List: Create</strong>.
 Create a new pool of DNS resolvers as shown in the figure below.</li>
@@ -1163,7 +1241,7 @@ Create a new pool of DNS resolvers as shown in the figure below.</li>
 <p><a class="reference internal" href="_images/image15.png"><img alt="image12" src="_images/image15.png" style="width: 4.24000in; height: 4.25000in;" /></a></p>
 </div>
 <div class="section" id="create-a-new-external-dns-listener">
-<h3>10.4.5. Create a new External DNS Listener<a class="headerlink" href="#create-a-new-external-dns-listener" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.5. Create a new External DNS Listener<a class="headerlink" href="#create-a-new-external-dns-listener" title="Permalink to this headline">¶</a></h3>
 <p>We are going to create a new external-facing DNS Listener to cache DNS
 requests and load-balance non-cached requests to pool_resolvers.</p>
 <ul class="simple">
@@ -1261,13 +1339,13 @@ examples.</li>
 </div>
 </div>
 <div class="section" id="resolver-cache">
-<h2>10.5. Resolver Cache<a class="headerlink" href="#resolver-cache" title="Permalink to this headline">¶</a></h2>
+<h2>3.5. Resolver Cache<a class="headerlink" href="#resolver-cache" title="Permalink to this headline">¶</a></h2>
 <p>In this use case, you will configure GTM as a resolver cache which
 eliminates the need for the pool of resolvers.
 * Estimated completion time: 10 minutes</p>
 <p><a class="reference internal" href="_images/image23.png"><img alt="image20" src="_images/image23.png" style="width: 4.58264in; height: 2.95764in;" /></a></p>
 <div class="section" id="create-a-new-dns-cache">
-<h3>10.5.1. Create a new DNS Cache<a class="headerlink" href="#create-a-new-dns-cache" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.1. Create a new DNS Cache<a class="headerlink" href="#create-a-new-dns-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS Cache as shown in the table below.</li>
@@ -1291,7 +1369,7 @@ eliminates the need for the pool of resolvers.
 </table>
 </div>
 <div class="section" id="id11">
-<h3>10.5.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 Create a new DNS profile as shown in the table below.</li>
@@ -1342,7 +1420,7 @@ Create a new DNS profile as shown in the table below.</li>
 </table>
 </div>
 <div class="section" id="edit-dns-listener">
-<h3>10.5.3. Edit DNS Listener<a class="headerlink" href="#edit-dns-listener" title="Permalink to this headline">¶</a></h3>
+<h3>3.5.3. Edit DNS Listener<a class="headerlink" href="#edit-dns-listener" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
@@ -1377,14 +1455,14 @@ In/Out, Packets In/Out and Connections are of particular interest.</p>
 </div>
 </div>
 <div class="section" id="dnssec-validating-resolver">
-<h2>10.6. DNSSEC Validating Resolver<a class="headerlink" href="#dnssec-validating-resolver" title="Permalink to this headline">¶</a></h2>
+<h2>3.6. DNSSEC Validating Resolver<a class="headerlink" href="#dnssec-validating-resolver" title="Permalink to this headline">¶</a></h2>
 <p>In this use case, you will configure GTM as a DNSSEC validating
 resolver which offloads heavy CPU computation to traditional
 resolvers. This simply adds DNSSEC validation to the resolver-cache
 use-case previously configured.
 * Estimated completion time: 10 minutes</p>
 <div class="section" id="id12">
-<h3>10.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS cache as shown in the table below.</li>
@@ -1421,7 +1499,7 @@ utilities to obtain the anchors, the commands are below for your
 reference.</p>
 </div>
 <ul class="simple">
-<li>Get the root name servers in DNSKEY format and output to the file “root-dnskey”</li>
+<li>Get the root name servers in DNSKEY format and output to the file &#8220;root-dnskey&#8221;</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="o">+</span><span class="n">multi</span> <span class="o">+</span><span class="n">noall</span> <span class="o">+</span><span class="n">answer</span> <span class="n">DNSKEY</span> <span class="o">.</span> <span class="o">&gt;</span><span class="n">root</span><span class="o">-</span><span class="n">dnskey</span>
 </pre></div>
@@ -1456,7 +1534,7 @@ entries.</li>
 <p><a class="reference internal" href="_images/image25.png"><img alt="image22" src="_images/image25.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
 </div>
 <div class="section" id="id13">
-<h3>10.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>In this task we will create a dns profile to be used by a listener for DNSSEC validation.
 * In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 * Create a new DNS profile as shown in the table below.</p>
@@ -1506,7 +1584,7 @@ entries.</li>
 </table>
 </div>
 <div class="section" id="id14">
-<h3>10.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
@@ -1556,14 +1634,14 @@ following command 2 or 3 times:</li>
 </div>
 </div>
 <div class="section" id="forwarders">
-<h2>10.7. Forwarders<a class="headerlink" href="#forwarders" title="Permalink to this headline">¶</a></h2>
+<h2>3.7. Forwarders<a class="headerlink" href="#forwarders" title="Permalink to this headline">¶</a></h2>
 <p>In this use-case, we will configure conditional forwarders with local
 zone information.</p>
 <ul class="simple">
 <li>Estimated completion time: 5 minutes</li>
 </ul>
 <div class="section" id="add-forwarder-to-existing-cache">
-<h3>10.7.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
+<h3>3.7.1. Add Forwarder to Existing Cache<a class="headerlink" href="#add-forwarder-to-existing-cache" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List</strong>. Click on
 <strong>validating-resolver</strong> from the previous exercise. Click <strong>Forward Zones</strong>
@@ -1599,78 +1677,136 @@ Activity stats are of particular interest in this use-case.</p>
 </div>
 </div>
 <div class="section" id="dns-201-class-is-complete-thanks-for-attending">
-<h2>10.8. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
+<h2>3.8. DNS 201 class is complete !  Thanks for attending!<a class="headerlink" href="#dns-201-class-is-complete-thanks-for-attending" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
 
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="big-iq/index.html" class="btn btn-neutral" title="9. BIG-IQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, Agility DNS team.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
+        
+		     <div class="row">
+           <div class="col-lg-12">
+           
+		        <a href="gslb/usecases/geolocation.html" title="2.8.5. Geo Location" accesskey="p" class="btn btn-primary pull-left">&lt;&lt; Previous</a>
+           
+           
+		     </div>
+         </div>
+          
       </div>
-
-    </section>
-
+    </div>
   </div>
-  
 
 
-  
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
 
-  
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
 
-  
-  
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="_static/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
+    jQuery.noConflict(true)
   </script>
-   
-
-</body>
+  </body>
 </html>

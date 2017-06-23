@@ -20,3 +20,4 @@ site1_ha-pair
    "Link Discovery", "Enabled"
 
 .. image:: ./images/site1_ha-pair.png
+   :width: 800
