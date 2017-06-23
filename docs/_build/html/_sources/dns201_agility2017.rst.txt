@@ -169,14 +169,14 @@ configuration elements to consider:
   desktop. Use username: **root** password: **default** and issue the
   following TMSH command once logged in.
 
-::
+.. code-block:: cli
 
     tmsh modify sys db log.zxfrd.level value "debug"
 
 
 * Now, view the log file real-time by issuing this command at the SSH prompt:
 
-::
+.. code-block:: cli
 
     tail –f /var/log/ltm
 
@@ -200,7 +200,7 @@ You can break out of the tail process with *<Ctrl-C>*.
 
 * Issue the following command from SSH console to see specifics of the
   status and statistics related to the zone.
-::
+.. code-block:: cli
 
    tmsh show ltm dns zone dnsx.com | more
 
@@ -209,7 +209,7 @@ You can break out of the tail process with *<Ctrl-C>*.
   every 60 seconds for zone updates. This very low interval is merely
   for lab purposes so you can view what happens in the logs. The log
   messages look like this:
-::
+.. code-block:: cli
 
   Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
   Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
@@ -219,21 +219,21 @@ You can break out of the tail process with *<Ctrl-C>*.
 
 * Now, issue the following command in the SSH console to view what is
    in DNS Express.
-::
+.. code-block:: cli
 
    dnsxdump | more
 
 * Open the command prompt from your windows desktop. Issue a DNS query
   against your external listener for a record in the dnsx.com zone and
   verify that it succeeds. For example:
-::
+.. code-block:: cli
 
    >dig @203.0.113.8 +short www1.dnsx.com
 
 
 * Issue several more queries of different types to generate some
   interesting statistics. Here are some examples:
-::
+.. code-block:: cli
 
    dig @203.0.113.8 +short www1.dnsx.com
 
@@ -252,7 +252,7 @@ You can break out of the tail process with *<Ctrl-C>*.
 * Now is a good time to check query logging. Look at ``/var/log/ltm ``(i.e.
   tail /var/log/ltm ) to ensure that you’re properly logging queries
   and responses. It should look something like this:
-::
+.. code-block:: cli
 
    Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 from 203.0.113.1#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)
    Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 to 203.0.113.1#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;
@@ -313,7 +313,7 @@ scope of this lab).
 * Test that the zone is successfully signed by issuing a DNSSEC query
   to the external listener. For example:
 
-::
+.. code-block:: cli
 
    dig @203.0.113.8 +dnssec www1.dnsx.com
 
@@ -438,19 +438,19 @@ elements to consider:
 * View the details of the zone in the GUI
 * Issue the following command from the ssh console:
 
-::
+.. code-block:: cli
 
    tmsh show ltm dns zone student1.com | more
 
 * Dump the dns express output to see the records
-::
+.. code-block:: cli
 
     dnsxdump | more
 
 * Verify logs in ``/var/log/ltm``
 * From a command prompt on your jumpbox, issue a query to the external
   listener for a record in the zone
-::
+.. code-block:: cli
 
     dig @203.0.113.8 SOA student1.com
 
@@ -475,7 +475,7 @@ elements to consider:
   proactive update to DNS Express via a NOTIFY. Watch the ``/var/log/ltm``
   file to see the update occur. The logs should look something like
   this:
-::
+.. code-block:: cli
 
    Jun 5 08:21:26 bigip1 notice zxfrd[6429]: 0153101c:5: Handling NOTIFY for zone student1.com.
    Jun 5 08:21:26 bigip1 debug zxfrd[6429]: 01531008:7: Resetting transfer state for zone student1.com.
@@ -585,7 +585,7 @@ Add Student2.com zone to DNS Express on BIGIP1
 * Issue a ``dnsxdump | more`` command from SSH console
 * Verify logs in ``/var/log/ltm``
 * Issue a query to the external listener for a record in the zone
-::
+.. code-block:: cli
 
    dig @203.0.113.8 SOA student2.com
 
@@ -614,14 +614,14 @@ Add Student2.com zone to DNS Express on BIGIP1
 * Issue the following command from SSH console on BIGIP1 to see the
   status and statistics related to the zone.
   *Take note of the “Notifies Received” counter.*
-::
+.. code-block:: cli
 
    tmsh show ltm dns zone student2.com | more
 
 * Issue the following command from SSH console on BIGIP2 to see the
   status and statistics related to the zone.
   *Take note of the “Notifies To Client” counter.*
-::
+.. code-block:: cli
 
    tmsh show ltm dns zone student2.com | more
 
@@ -718,7 +718,7 @@ Create a Resolver Pool
 +====================+
 | 198.51.100.39:53   |
 +--------------------+
-| 203.0.113.15:53     |
+| 203.0.113.15:53    |
 +--------------------+
 | 198.51.100.47:53   |
 +--------------------+
@@ -754,7 +754,7 @@ requests and load-balance non-cached requests to pool\_resolvers.
 **Viewing Cache Entries**
 
 * In the SSH shell, type the following command:
-::
+.. code-block:: cli
 
   tmsh show ltm dns cache records rrset cache transparent-cache
 
@@ -779,7 +779,7 @@ requests and load-balance non-cached requests to pool\_resolvers.
 **Viewing Cache Statistics**
 
 * In the SSH shell, type:
-::
+.. code-block:: cli
 
    tmsh show ltm dns cache transparent transparent-cache
 
@@ -804,7 +804,7 @@ requests and load-balance non-cached requests to pool\_resolvers.
 * Specific cache entries can be deleted via the TMSH console. Entries
   to be deleted can be filtered by several aspects.
 * In the TMSH shell, go to the DNS prompt and type
-::
+.. code-block:: cli
 
    delete cache records rrset cache transparent-cache ?
 
@@ -889,7 +889,7 @@ We will now apply the new profile to the existing DNS Listener.
   queries to your external Listener to test. You will want to repeat
   some of the same queries multiple times. We are attempting to see
   cache hits and perform recursive queries. Below are some examples:
-::
+.. code-block:: cli
 
  dig @10.128.10.54 www.cnn.com
 
@@ -900,7 +900,7 @@ We will now apply the new profile to the existing DNS Listener.
 **Viewing Cache Statistics**
 
 * In the SSH shell, type the following command:
-::
+.. code-block:: cli
 
    tmsh show ltm dns cache resolver resolver-cache | more
 
@@ -944,17 +944,17 @@ Create a new DNS Cache
    reference.
 
 * Get the root name servers in DNSKEY format and output to the file "root-dnskey"
-::
+.. code-block:: cli
 
    >dig +multi +noall +answer DNSKEY . >root-dnskey
 
 * Convert the root trust anchors from DNSKEY format to DS
-::
+.. code-block:: cli
 
    >dnssec-dsfromkey -f root-dnskey . >root-ds
 
 * Output of the root DS keys
-::
+.. code-block:: cli
 
    >cat ./root-ds
 
@@ -1019,12 +1019,12 @@ We will now apply the new profile to the existing DNS Listener.
   several recursive queries to your external Listener to test. Perform the following command
   2 or 3 times:
 
-::
+.. code-block:: cli
 
  dig @10.128.10.54 internetsociety.org
 
 * In the SSH shell, type the following:
-::
+.. code-block:: cli
 
    tmsh show ltm dns cache validating-resolver | more
 
@@ -1039,14 +1039,14 @@ Validation and DNSSEC Key stats are of particular interest in this use-case.
 * Select “View” under the Details column for validating-resolver
 * Note the size of the cache for just this single RR query. You can
   view what’s in the cache from the CLI with:
-::
+.. code-block:: cli
 
     tmsh show ltm dns cache records rrset cache validating-resolver | more
 
 * **Use-Case: Invalid Signed Zone:** From your workstation, perform
   several recursive queries to your external Listener to test. Perform the
   following command 2 or 3 times:
-::
+.. code-block:: cli
 
   dig @10.128.10.54 dnssec-failed.org
 
@@ -1076,14 +1076,14 @@ Add Forwarder to Existing Cache
 
 * From your workstation, perform the following recursive queries to your
   external Listener to test.
-::
+.. code-block:: cli
 
   dig @10.128.10.54 www.forward.com
 
   dig @10.128.10.54 mail.forward.com
 
 * In the SSH shell, type the following tmsh command:
-::
+.. code-block:: cli
 
    tmsh show ltm dns cache validating-resolver | more
 

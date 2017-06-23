@@ -221,14 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../usecases/index.html">2.8. Use Cases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../cache/index.html">3. Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dnsx/index.html">4. Authoritative Slave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../irules/index.html">5. iRules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../firewall/index.html">6. Firewall</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dnssec/index.html">7. DNS Sec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../routing/index.html">8. Route Health Injection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../big-iq/index.html">9. BIG-IQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dns201_agility2017.html">10. DNS Services Beyond GSLB with BIG-IP DNS (201)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dns201_agility2017.html">3. DNS Services Beyond GSLB with BIG-IP DNS (201)</a></li>
 </ul>
 
   <h4>Previous topic</h4>
@@ -286,10 +279,13 @@
 </tr>
 </tbody>
 </table>
-<img alt="../../_images/listener_flyout.png" src="../../_images/listener_flyout.png" />
-<img alt="../../_images/listener_tcp_settings.png" src="../../_images/listener_tcp_settings.png" />
-<p>TMSH command for adding a listener:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="o">/</span><span class="n">gtm</span> <span class="n">listener</span> <span class="o">&lt;</span><span class="n">listener_name</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">&lt;</span><span class="n">listener_IP_address</span><span class="o">&gt;</span> <span class="n">ip</span><span class="o">-</span><span class="n">protocol</span> <span class="n">udp</span>
+<a class="reference internal image-reference" href="../../_images/listener_flyout.png"><img alt="../../_images/listener_flyout.png" src="../../_images/listener_flyout.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/listener_tcp_settings.png"><img alt="../../_images/listener_tcp_settings.png" src="../../_images/listener_tcp_settings.png" style="width: 800px;" /></a>
+<p>TMSH command for adding a listener:
+.. code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$
+create /gtm listener &lt;listener_name&gt; address &lt;listener_IP_address&gt; ip-protocol udp
+$
 </pre></div>
 </div>
 <p class="rubric">References</p>

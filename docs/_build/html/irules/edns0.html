@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5.2. EDNS0 &#8212; Agility 2017 - DNS 0.1 documentation</title>
+    <title>EDNS0 &#8212; Agility 2017 - DNS 0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Firewall" href="../firewall/index.html" />
-    <link rel="prev" title="5.1. Hello World" href="hello_world.html" />
 <!--
 # Copyright 2017 F5 Networks
 #
@@ -208,29 +206,12 @@
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
 
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../lab_environment/index.html">1. Lab Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gslb/index.html">2. GSLB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cache/index.html">3. Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dnsx/index.html">4. Authoritative Slave</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. iRules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="hello_world.html">5.1. Hello World</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. EDNS0</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../firewall/index.html">6. Firewall</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dnssec/index.html">7. DNS Sec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../routing/index.html">8. Route Health Injection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../big-iq/index.html">9. BIG-IQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dns201_agility2017.html">10. DNS Services Beyond GSLB with BIG-IP DNS (201)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns201_agility2017.html">3. DNS Services Beyond GSLB with BIG-IP DNS (201)</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="hello_world.html"
-                        title="previous chapter">5.1. Hello World</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../firewall/index.html"
-                        title="next chapter">6. Firewall</a></p>
         
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
@@ -240,12 +221,9 @@
         </h4>
         
   <div class="section" id="edns0">
-<h1>5.2. EDNS0<a class="headerlink" href="#edns0" title="Permalink to this headline">¶</a></h1>
+<h1>EDNS0<a class="headerlink" href="#edns0" title="Permalink to this headline">¶</a></h1>
 <p>Configure the F5 to use the edns0 field</p>
 <p><a class="reference external" href="https://devcentral.f5.com/wiki/iRules.DNS__edns0.ashx?lc=1">https://devcentral.f5.com/wiki/iRules.DNS__edns0.ashx?lc=1</a></p>
-<div class="highlight-tcl"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <dl class="docutils">
 <dt>when DNS_REQUEST {</dt>
 <dd><p class="first">set ldns [IP::client_addr]
@@ -286,17 +264,6 @@ pool inet-us.lb.rgsource.com</dd>
 </div>
 
 
-        
-		     <div class="row">
-           <div class="col-lg-12">
-           
-		        <a href="hello_world.html" title="5.1. Hello World" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
-           
-           
-              <a href="../firewall/index.html" title="6. Firewall" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-           
-		     </div>
-         </div>
         
       </div>
     </div>
