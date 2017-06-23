@@ -246,14 +246,14 @@
 </li>
 <li><a class="reference internal" href="#resolver-cache">3.5. Resolver Cache</a><ul>
 <li><a class="reference internal" href="#create-a-new-dns-cache">3.5.1. Create a new DNS Cache</a></li>
-<li><a class="reference internal" href="#id11">3.5.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#id9">3.5.2. Create a new DNS Profile</a></li>
 <li><a class="reference internal" href="#edit-dns-listener">3.5.3. Edit DNS Listener</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dnssec-validating-resolver">3.6. DNSSEC Validating Resolver</a><ul>
-<li><a class="reference internal" href="#id12">3.6.1. Create a new DNS Cache</a></li>
-<li><a class="reference internal" href="#id13">3.6.2. Create a new DNS Profile</a></li>
-<li><a class="reference internal" href="#id14">3.6.3. Edit DNS Listener</a></li>
+<li><a class="reference internal" href="#id10">3.6.1. Create a new DNS Cache</a></li>
+<li><a class="reference internal" href="#id11">3.6.2. Create a new DNS Profile</a></li>
+<li><a class="reference internal" href="#id12">3.6.3. Edit DNS Listener</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#forwarders">3.7. Forwarders</a><ul>
@@ -541,13 +541,13 @@ to your F5 BIGIP1. You should have a BIGIP1 putty icon on your
 desktop. Use username: <strong>root</strong> password: <strong>default</strong> and issue the
 following TMSH command once logged in.</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">modify</span> <span class="n">sys</span> <span class="n">db</span> <span class="n">log</span><span class="o">.</span><span class="n">zxfrd</span><span class="o">.</span><span class="n">level</span> <span class="n">value</span> <span class="s2">&quot;debug&quot;</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh modify sys db log.zxfrd.level value &quot;debug&quot;
 </pre></div>
 </div>
 <ul class="simple">
 <li>Now, view the log file real-time by issuing this command at the SSH prompt:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span>tail –f /var/log/ltm
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tail –f /var/log/ltm
 </pre></div>
 </div>
 <div class="admonition note">
@@ -573,7 +573,7 @@ observing the “Availability” as shown in the figure below.</li>
 <li>Issue the following command from SSH console to see specifics of the
 status and statistics related to the zone.</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">zone</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns zone dnsx.com | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -583,11 +583,11 @@ every 60 seconds for zone updates. This very low interval is merely
 for lab purposes so you can view what happens in the logs. The log
 messages look like this:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">38</span> <span class="n">gtm1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">4251</span><span class="p">]:</span> <span class="mi">01531023</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Scheduling</span> <span class="n">zone</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="mi">60</span><span class="n">s</span> <span class="k">for</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="kn">from</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.15</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">38</span> <span class="n">gtm1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">4251</span><span class="p">]:</span> <span class="mi">01531106</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Availability</span> <span class="n">status</span> <span class="n">of</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="n">changed</span> <span class="kn">from</span> <span class="nn">YELLOW</span> <span class="n">to</span> <span class="n">GREEN</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">38</span> <span class="n">gtm1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">4251</span><span class="p">]:</span> <span class="mi">01531025</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Serials</span> <span class="n">equal</span> <span class="p">(</span><span class="mi">2017062201</span><span class="p">);</span> <span class="n">transfer</span> <span class="k">for</span> <span class="n">zone</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="n">complete</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">38</span> <span class="n">gtm1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">4251</span><span class="p">]:</span> <span class="mi">01531008</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Resetting</span> <span class="n">transfer</span> <span class="n">state</span> <span class="k">for</span> <span class="n">zone</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">38</span> <span class="n">gtm1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">4251</span><span class="p">]:</span> <span class="mi">01531023</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Scheduling</span> <span class="n">zone</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="mi">60</span><span class="n">s</span> <span class="k">for</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span> <span class="kn">from</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.15</span><span class="o">.</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
+Jun 22 14:49:38 gtm1 debug zxfrd[4251]: 01531106:7: Availability status of dnsx.com changed from YELLOW to GREEN.
+Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531025:7: Serials equal (2017062201); transfer for zone dnsx.com complete.
+Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531008:7: Resetting transfer state for zone dnsx.com.
+Jun 22 14:50:38 gtm1 debug zxfrd[4251]: 01531023:7: Scheduling zone transfer in 60s for dnsx.com from 203.0.113.15.
 </pre></div>
 </div>
 <ul class="simple">
@@ -597,7 +597,7 @@ messages look like this:</li>
 </dl>
 </li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dnsxdump</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dnsxdump | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -605,26 +605,26 @@ messages look like this:</li>
 against your external listener for a record in the dnsx.com zone and
 verify that it succeeds. For example:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>&gt;dig @203.0.113.8 +short www1.dnsx.com
 </pre></div>
 </div>
 <ul class="simple">
 <li>Issue several more queries of different types to generate some
 interesting statistics. Here are some examples:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @203.0.113.8 +short www1.dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short www2.dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">www3</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short www3.dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short bigip1.dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">bigip2</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short bigip2.dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">MX</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short MX dnsx.com
 
-<span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">short</span> <span class="n">NS</span> <span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+dig @203.0.113.8 +short NS dnsx.com
 </pre></div>
 </div>
 <ul class="simple">
@@ -632,8 +632,8 @@ interesting statistics. Here are some examples:</li>
 tail /var/log/ltm ) to ensure that you’re properly logging queries
 and responses. It should look something like this:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">14</span> <span class="n">gtm1</span> <span class="n">info</span> <span class="n">tmm</span><span class="p">[</span><span class="mi">10506</span><span class="p">]:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">14</span> <span class="n">gtm1</span><span class="o">.</span><span class="n">site1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span> <span class="n">qid</span> <span class="mi">340</span> <span class="kn">from</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.1</span><span class="c1">#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)</span>
-<span class="n">Jun</span> <span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">14</span> <span class="n">gtm1</span> <span class="n">info</span> <span class="n">tmm</span><span class="p">[</span><span class="mi">10506</span><span class="p">]:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">14</span> <span class="n">gtm1</span><span class="o">.</span><span class="n">site1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span> <span class="n">qid</span> <span class="mi">340</span> <span class="n">to</span> <span class="mf">203.0</span><span class="o">.</span><span class="mf">113.1</span><span class="c1">#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 from 203.0.113.1#50316: view none: query: www3.dnsx.com IN A + (203.0.113.8%0)
+Jun 22 14:55:14 gtm1 info tmm[10506]: 2017-06-22 14:55:14 gtm1.site1.example.com qid 340 to 203.0.113.1#50316: [NOERROR qr,aa,rd] response: www3.dnsx.com. 100 IN A 203.0.113.103;
 </pre></div>
 </div>
 <ul class="simple">
@@ -720,7 +720,7 @@ keys as shown below.</li>
 <li>Test that the zone is successfully signed by issuing a DNSSEC query
 to the external listener. For example:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="o">+</span><span class="n">dnssec</span> <span class="n">www1</span><span class="o">.</span><span class="n">dnsx</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @203.0.113.8 +dnssec www1.dnsx.com
 </pre></div>
 </div>
 <p>You should see RRSIG records indicating that the zone is signed. You
@@ -870,13 +870,13 @@ the successful transfer of student1.com to DNS Express</li>
 <li>View the details of the zone in the GUI</li>
 <li>Issue the following command from the ssh console:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">zone</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns zone student1.com | more
 </pre></div>
 </div>
 <ul class="simple">
 <li>Dump the dns express output to see the records</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dnsxdump</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dnsxdump | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -884,7 +884,7 @@ the successful transfer of student1.com to DNS Express</li>
 <li>From a command prompt on your jumpbox, issue a query to the external
 listener for a record in the zone</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="n">SOA</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @203.0.113.8 SOA student1.com
 </pre></div>
 </div>
 <ul class="simple">
@@ -909,11 +909,11 @@ proactive update to DNS Express via a NOTIFY. Watch the <code class="docutils li
 file to see the update occur. The logs should look something like
 this:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Jun</span> <span class="mi">5</span> <span class="mi">08</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">26</span> <span class="n">bigip1</span> <span class="n">notice</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">6429</span><span class="p">]:</span> <span class="mi">0153101</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span> <span class="n">Handling</span> <span class="n">NOTIFY</span> <span class="k">for</span> <span class="n">zone</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">5</span> <span class="mi">08</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">26</span> <span class="n">bigip1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">6429</span><span class="p">]:</span> <span class="mi">01531008</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Resetting</span> <span class="n">transfer</span> <span class="n">state</span> <span class="k">for</span> <span class="n">zone</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">5</span> <span class="mi">08</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">26</span> <span class="n">bigip1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">6429</span><span class="p">]:</span> <span class="mi">01531023</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Scheduling</span> <span class="n">zone</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="mi">5</span><span class="n">s</span> <span class="k">for</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span> <span class="kn">from</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">5</span> <span class="mi">08</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">26</span> <span class="n">bigip1</span> <span class="n">debug</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">6429</span><span class="p">]:</span> <span class="mi">01531027</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span> <span class="n">Notify</span> <span class="n">response</span> <span class="n">to</span> <span class="p">::</span><span class="mi">1</span> <span class="n">succeeded</span> <span class="p">(</span><span class="mi">81</span><span class="p">:</span><span class="n">na</span><span class="p">)</span><span class="o">.</span>
-<span class="n">Jun</span> <span class="mi">5</span> <span class="mi">08</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">31</span> <span class="n">bigip1</span> <span class="n">notice</span> <span class="n">zxfrd</span><span class="p">[</span><span class="mi">6429</span><span class="p">]:</span> <span class="mi">0153101</span><span class="n">f</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span> <span class="n">IXFR</span> <span class="n">Transfer</span> <span class="n">of</span> <span class="n">zone</span> <span class="n">student1</span><span class="o">.</span><span class="n">com</span> <span class="kn">from</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">succeeded</span><span class="o">.</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>Jun 5 08:21:26 bigip1 notice zxfrd[6429]: 0153101c:5: Handling NOTIFY for zone student1.com.
+Jun 5 08:21:26 bigip1 debug zxfrd[6429]: 01531008:7: Resetting transfer state for zone student1.com.
+Jun 5 08:21:26 bigip1 debug zxfrd[6429]: 01531023:7: Scheduling zone transfer in 5s for student1.com from 127.0.0.1.
+Jun 5 08:21:26 bigip1 debug zxfrd[6429]: 01531027:7: Notify response to ::1 succeeded (81:na).
+Jun 5 08:21:31 bigip1 notice zxfrd[6429]: 0153101f:5: IXFR Transfer of zone student1.com from 127.0.0.1 succeeded.
 </pre></div>
 </div>
 <p>Issue a <code class="docutils literal"><span class="pre">dnsxdump</span> <span class="pre">|</span> <span class="pre">more</span></code> command for the SSH console or a query to the
@@ -1054,7 +1054,7 @@ the successful transfer of student2.com zone</li>
 <li>Verify logs in <code class="docutils literal"><span class="pre">/var/log/ltm</span></code></li>
 <li>Issue a query to the external listener for a record in the zone</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@203</span><span class="o">.</span><span class="mf">0.113</span><span class="o">.</span><span class="mi">8</span> <span class="n">SOA</span> <span class="n">student2</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @203.0.113.8 SOA student2.com
 </pre></div>
 </div>
 <ul class="simple">
@@ -1083,7 +1083,7 @@ configured for the zone.</li>
 status and statistics related to the zone.
 <em>Take note of the “Notifies Received” counter.</em></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">zone</span> <span class="n">student2</span><span class="o">.</span><span class="n">com</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns zone student2.com | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -1091,7 +1091,7 @@ status and statistics related to the zone.
 status and statistics related to the zone.
 <em>Take note of the “Notifies To Client” counter.</em></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">zone</span> <span class="n">student2</span><span class="o">.</span><span class="n">com</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns zone student2.com | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -1175,13 +1175,14 @@ Create a new DNS profile as shown in the table below.</li>
 <td>Enabled</td>
 </tr>
 <tr class="row-odd"><td><strong>Logging Profile</strong></td>
-<td>dns-logging //from previous lab</td>
+<td>dns-logging</td>
 </tr>
 <tr class="row-even"><td><strong>AVR Statistics Sampling Rate</strong></td>
 <td>Enabled; 1/1 queries sampled</td>
 </tr>
 </tbody>
 </table>
+<p>Click <strong>Finished</strong> when complete.</p>
 </div>
 <div class="section" id="create-a-dns-monitor">
 <h3>3.4.3. Create a DNS Monitor<a class="headerlink" href="#create-a-dns-monitor" title="Permalink to this headline">¶</a></h3>
@@ -1205,7 +1206,7 @@ Create a new DNS monitor as shown in the table below.</li>
 <td>DNS</td>
 </tr>
 <tr class="row-odd"><td><strong>Query Name</strong></td>
-<td><a class="reference external" href="http://www.f5.com">www.f5.com</a></td>
+<td>www.f5.com</td>
 </tr>
 </tbody>
 </table>
@@ -1230,11 +1231,11 @@ Create a new pool of DNS resolvers as shown in the figure below.</li>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>10.128.20.101:53</td>
+<tr class="row-even"><td>198.51.100.39:53</td>
 </tr>
-<tr class="row-odd"><td>10.128.20.102:53</td>
+<tr class="row-odd"><td>203.0.113.15:53</td>
 </tr>
-<tr class="row-even"><td>10.128.20.103:53</td>
+<tr class="row-even"><td>198.51.100.47:53</td>
 </tr>
 </tbody>
 </table>
@@ -1247,7 +1248,7 @@ requests and load-balance non-cached requests to pool_resolvers.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List: Create</strong></li>
 <li>Create a Listener named ‘<strong>resolver-listener</strong>’ as shown in the
-figure below. Use the Listener IP of <a href="#id9"><span class="problematic" id="id10">**</span></a>10.128.10.54</li>
+figure below. Use the Listener IP of <strong>203.0.113.9</strong></li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1259,9 +1260,9 @@ figure below. Use the Listener IP of <a href="#id9"><span class="problematic" id
 queries to your new listener to test. You will want to repeat some of the same queries multiple times
 We are attempting to see cache hits. Below are some examples:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">f5</span><span class="o">.</span><span class="n">com</span>
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span>
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">ncsu</span><span class="o">.</span><span class="n">edu</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @10.128.10.54 www.f5.com
+dig @10.128.10.54 www.wikipedia.org
+dig @10.128.10.54 www.ncsu.edu
 </pre></div>
 </div>
 <ul class="simple">
@@ -1271,7 +1272,7 @@ We are attempting to see cache hits. Below are some examples:</li>
 <ul class="simple">
 <li>In the SSH shell, type the following command:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">records</span> <span class="n">rrset</span> <span class="n">cache</span> <span class="n">transparent</span><span class="o">-</span><span class="n">cache</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache records rrset cache transparent-cache
 </pre></div>
 </div>
 <ul class="simple">
@@ -1296,7 +1297,7 @@ yourself with the options.</li>
 <ul class="simple">
 <li>In the SSH shell, type:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">transparent</span> <span class="n">transparent</span><span class="o">-</span><span class="n">cache</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache transparent transparent-cache
 </pre></div>
 </div>
 <ul class="simple">
@@ -1322,7 +1323,7 @@ graphing query stats as expected.</li>
 to be deleted can be filtered by several aspects.</li>
 <li>In the TMSH shell, go to the DNS prompt and type</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span>delete cache records rrset cache transparent-cache ?
+<div class="highlight-cli"><div class="highlight"><pre><span></span>delete cache records rrset cache transparent-cache ?
 </pre></div>
 </div>
 <ul class="simple">
@@ -1368,8 +1369,8 @@ eliminates the need for the pool of resolvers.
 </tbody>
 </table>
 </div>
-<div class="section" id="id11">
-<h3>3.5.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>3.5.2. Create a new DNS Profile<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 Create a new DNS profile as shown in the table below.</li>
@@ -1435,18 +1436,18 @@ queries to your external Listener to test. You will want to repeat
 some of the same queries multiple times. We are attempting to see
 cache hits and perform recursive queries. Below are some examples:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">cnn</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @10.128.10.54 www.cnn.com
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span>
+dig @10.128.10.54 www.google.com
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">umich</span><span class="o">.</span><span class="n">edu</span>
+dig @10.128.10.54 www.umich.edu
 </pre></div>
 </div>
 <p><strong>Viewing Cache Statistics</strong></p>
 <ul class="simple">
 <li>In the SSH shell, type the following command:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">resolver</span> <span class="n">resolver</span><span class="o">-</span><span class="n">cache</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache resolver resolver-cache | more
 </pre></div>
 </div>
 <p>Your output should look similar to below with statistics. Bits
@@ -1461,8 +1462,8 @@ resolver which offloads heavy CPU computation to traditional
 resolvers. This simply adds DNSSEC validation to the resolver-cache
 use-case previously configured.
 * Estimated completion time: 10 minutes</p>
-<div class="section" id="id12">
-<h3>3.6.1. Create a new DNS Cache<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>3.6.1. Create a new DNS Cache<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Caches &gt; Cache List: Create</strong></li>
 <li>Create a new DNS cache as shown in the table below.</li>
@@ -1501,24 +1502,24 @@ reference.</p>
 <ul class="simple">
 <li>Get the root name servers in DNSKEY format and output to the file &#8220;root-dnskey&#8221;</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dig</span> <span class="o">+</span><span class="n">multi</span> <span class="o">+</span><span class="n">noall</span> <span class="o">+</span><span class="n">answer</span> <span class="n">DNSKEY</span> <span class="o">.</span> <span class="o">&gt;</span><span class="n">root</span><span class="o">-</span><span class="n">dnskey</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>&gt;dig +multi +noall +answer DNSKEY . &gt;root-dnskey
 </pre></div>
 </div>
 <ul class="simple">
 <li>Convert the root trust anchors from DNSKEY format to DS</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">dnssec</span><span class="o">-</span><span class="n">dsfromkey</span> <span class="o">-</span><span class="n">f</span> <span class="n">root</span><span class="o">-</span><span class="n">dnskey</span> <span class="o">.</span> <span class="o">&gt;</span><span class="n">root</span><span class="o">-</span><span class="n">ds</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>&gt;dnssec-dsfromkey -f root-dnskey . &gt;root-ds
 </pre></div>
 </div>
 <ul class="simple">
 <li>Output of the root DS keys</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">cat</span> <span class="o">./</span><span class="n">root</span><span class="o">-</span><span class="n">ds</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>&gt;cat ./root-ds
 
-<span class="n">IN</span> <span class="n">DS</span> <span class="mi">19036</span> <span class="mi">8</span> <span class="mi">1</span> <span class="n">B256BD09DC8DD59F0E0F0D8541B8328DD986DF6E</span>
+IN DS 19036 8 1 B256BD09DC8DD59F0E0F0D8541B8328DD986DF6E
 
-<span class="n">IN</span> <span class="n">DS</span> <span class="mi">19036</span> <span class="mi">8</span> <span class="mi">2</span>
-<span class="mi">49</span><span class="n">AAC11D7B6F6446702E54A1607371607A1A41855200FD2CE1CDDE32</span> <span class="n">F24E8FB5</span>
+IN DS 19036 8 2
+49AAC11D7B6F6446702E54A1607371607A1A41855200FD2CE1CDDE32 F24E8FB5
 </pre></div>
 </div>
 <ul class="simple">
@@ -1533,8 +1534,8 @@ entries.</li>
 </ul>
 <p><a class="reference internal" href="_images/image25.png"><img alt="image22" src="_images/image25.png" style="width: 4.00694in; height: 1.06042in;" /></a></p>
 </div>
-<div class="section" id="id13">
-<h3>3.6.2. Create a new DNS Profile<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>3.6.2. Create a new DNS Profile<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>In this task we will create a dns profile to be used by a listener for DNSSEC validation.
 * In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Profiles &gt; DNS: Create</strong>.
 * Create a new DNS profile as shown in the table below.</p>
@@ -1583,8 +1584,8 @@ entries.</li>
 </tbody>
 </table>
 </div>
-<div class="section" id="id14">
-<h3>3.6.3. Edit DNS Listener<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>3.6.3. Edit DNS Listener<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>We will now apply the new profile to the existing DNS Listener.</p>
 <ul class="simple">
 <li>In the GUI, navigate to: <strong>DNS &gt; Delivery &gt; Listeners &gt; Listener List</strong></li>
@@ -1594,13 +1595,13 @@ entries.</li>
 several recursive queries to your external Listener to test. Perform the following command
 2 or 3 times:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">internetsociety</span><span class="o">.</span><span class="n">org</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @10.128.10.54 internetsociety.org
 </pre></div>
 </div>
 <ul class="simple">
 <li>In the SSH shell, type the following:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">validating</span><span class="o">-</span><span class="n">resolver</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache validating-resolver | more
 </pre></div>
 </div>
 <p>Your output should look similar to below with statistics. Response
@@ -1614,7 +1615,7 @@ Validation and DNSSEC Key stats are of particular interest in this use-case.</p>
 <li>Note the size of the cache for just this single RR query. You can
 view what’s in the cache from the CLI with:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">records</span> <span class="n">rrset</span> <span class="n">cache</span> <span class="n">validating</span><span class="o">-</span><span class="n">resolver</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache records rrset cache validating-resolver | more
 </pre></div>
 </div>
 <ul class="simple">
@@ -1622,7 +1623,7 @@ view what’s in the cache from the CLI with:</li>
 several recursive queries to your external Listener to test. Perform the
 following command 2 or 3 times:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">dnssec</span><span class="o">-</span><span class="n">failed</span><span class="o">.</span><span class="n">org</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @10.128.10.54 dnssec-failed.org
 </pre></div>
 </div>
 <ul class="simple">
@@ -1654,15 +1655,15 @@ click <strong>Finished</strong>:</li>
 <li>From your workstation, perform the following recursive queries to your
 external Listener to test.</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">www</span><span class="o">.</span><span class="n">forward</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>dig @10.128.10.54 www.forward.com
 
-<span class="n">dig</span> <span class="nd">@10</span><span class="o">.</span><span class="mf">128.10</span><span class="o">.</span><span class="mi">54</span> <span class="n">mail</span><span class="o">.</span><span class="n">forward</span><span class="o">.</span><span class="n">com</span>
+dig @10.128.10.54 mail.forward.com
 </pre></div>
 </div>
 <ul class="simple">
 <li>In the SSH shell, type the following tmsh command:</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmsh</span> <span class="n">show</span> <span class="n">ltm</span> <span class="n">dns</span> <span class="n">cache</span> <span class="n">validating</span><span class="o">-</span><span class="n">resolver</span> <span class="o">|</span> <span class="n">more</span>
+<div class="highlight-cli"><div class="highlight"><pre><span></span>tmsh show ltm dns cache validating-resolver | more
 </pre></div>
 </div>
 <p>Your output should look similar to below with statistics. Forwarder
