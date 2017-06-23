@@ -18,6 +18,7 @@ Create two darta centers according to the table below:
    "Name", "site2_datacenter"
 
 .. image:: images/create_datacenters.png
+   :width: 800
 
 TMSH command:
 ::

@@ -18,6 +18,7 @@ Create a Server Object as defined in the table below:
    "Virtual Server Discovery", "Enabled"
 
 .. figure:: ./images/gtm1.site2_create.png
+   :width: 800
 
 TMSH Command:
 

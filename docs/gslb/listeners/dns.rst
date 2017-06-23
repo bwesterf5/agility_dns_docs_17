@@ -26,8 +26,10 @@ Create a new DNS profile as shown in the following table.
    "AVR statistics Sample Rate", "Enabled, 1/1 queries sampled"
 
 .. figure:: ./images/dns_profile_flyout.png
+   :width: 800
 
 .. figure:: ./images/dns_profile_settings.png
+   :width: 800
 
 TMSH Command:
 

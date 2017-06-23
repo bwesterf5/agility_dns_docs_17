@@ -22,6 +22,7 @@ Create a new TCP profile as shown in the following table.
    "Parent Profile", "tcp-wan-optimized"
 
 .. figure:: ./images/dns_profile_tcp.png
+   :width: 800
 
 TMSH Command for both gtm1.site and gtm1.site2:
 

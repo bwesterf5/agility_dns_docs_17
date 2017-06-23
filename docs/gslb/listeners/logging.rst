@@ -24,8 +24,10 @@ Create a new DNS logging profile as shown in the table below. Retain the default
    "Include Query ID", "enabled"
 
 .. figure:: ./images/dns_logging_profile_flyout.png
+   :width: 800
 
 .. figure:: ./images/dns_logging_profile_create.png
+   :width: 800
 
 TMSH command for both gtm1.site1 and gtm1.site2:
 

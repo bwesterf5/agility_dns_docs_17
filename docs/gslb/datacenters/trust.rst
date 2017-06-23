@@ -12,3 +12,4 @@ Run the following command:
    bigip_add
 
 .. image:: ./images/putty_gtm1.site1.png
+   :width: 800
