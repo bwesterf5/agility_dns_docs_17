@@ -20,7 +20,7 @@ Orientation
 .. image:: ./images/start-rdp-dco1.png
   :width: 800
 
-   .. image:: ./images/logon_screen.png
+.. image:: ./images/logon_screen.png
   :width: 800
    
 #. Click on **Server Manager**, and in the top right corner choose **Tools** and then **DNS**.

@@ -6,7 +6,7 @@ Configure the F5 to use the edns0 field
 
 https://devcentral.f5.com/wiki/iRules.DNS__edns0.ashx?lc=1
 
-.. code-block:: tcl
+.. code-block::
 
 when DNS_REQUEST { 
     set ldns [IP::client_addr] 
