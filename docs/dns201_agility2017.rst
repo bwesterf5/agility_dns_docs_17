@@ -679,10 +679,12 @@ Create a new DNS Profile
 +------------------------------------+-----------------------------------+
 | **Logging**                        | Enabled                           |
 +------------------------------------+-----------------------------------+
-| **Logging Profile**                | dns-logging //from previous lab   |
+| **Logging Profile**                | dns-logging                       |
 +------------------------------------+-----------------------------------+
 | **AVR Statistics Sampling Rate**   | Enabled; 1/1 queries sampled      |
 +------------------------------------+-----------------------------------+
+
+Click **Finished** when complete.
 
 Create a DNS Monitor
 ~~~~~~~~~~~~~~~~~~~~
@@ -697,7 +699,7 @@ Create a DNS Monitor
 +==================+======================================+
 | **Type**         | DNS                                  |
 +------------------+--------------------------------------+
-| **Query Name**   | `www.f5.com <http://www.f5.com>`__   |
+| **Query Name**   | www.f5.com                           |
 +------------------+--------------------------------------+
 
 * Click **Finished** to create.
@@ -714,11 +716,11 @@ Create a Resolver Pool
 +--------------------+
 | **Pool Members**   |
 +====================+
-| 10.128.20.101:53   |
+| 198.51.100.39:53   |
 +--------------------+
-| 10.128.20.102:53   |
+| 203.0.113.15:53    |
 +--------------------+
-| 10.128.20.103:53   |
+| 198.51.100.47:53   |
 +--------------------+
 
 |image12|
@@ -731,7 +733,7 @@ requests and load-balance non-cached requests to pool\_resolvers.
 
 * In the GUI, navigate to: **DNS > Delivery > Listeners > Listener List: Create**
 * Create a Listener named ‘\ **resolver-listener**\ ’ as shown in the
-  figure below. Use the Listener IP of **10.128.10.54
+  figure below. Use the Listener IP of **203.0.113.9**
 
 .. note:: you need to be in the “Advanced” Menu to set some of the options.
 
@@ -740,11 +742,12 @@ requests and load-balance non-cached requests to pool\_resolvers.
 * From your workstation at a command prompt, perform several recursive
   queries to your new listener to test. You will want to repeat some of the same queries multiple times
   We are attempting to see cache hits. Below are some examples:
-::
 
- dig @10.128.10.54 www.f5.com
- dig @10.128.10.54 www.wikipedia.org
- dig @10.128.10.54 www.ncsu.edu
+.. code-block:: cli
+
+  dig @10.128.10.54 www.f5.com
+  dig @10.128.10.54 www.wikipedia.org
+  dig @10.128.10.54 www.ncsu.edu
 
 * You should have successful resolution. Now it’s time to see statistics and cache entries.
 
