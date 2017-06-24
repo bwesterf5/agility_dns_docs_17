@@ -21,8 +21,8 @@ https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/dns/settings/gslb/proper
 .. image:: ./images/gtm_global_settings.png
    :width: 800
 
-TMSH command
- modify gtm global-settings general synchronization yes synchronization-group-name EXAMPLE_group synchronize-zone-files yes
+.. code-block:: cli
+   tmsh modify gtm global-settings general synchronization yes synchronization-group-name EXAMPLE_group synchronize-zone-files yes
 
 
 .. rubric:: References

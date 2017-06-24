@@ -6,7 +6,7 @@ Management IP Addresses:
 
 
 .. csv-table::
-   :header: "Host", "Address"
+   :header: "Host", "Managment"
    :widths: 15, 15
    
    "bigip1.site1", "10.1.10.11"
