@@ -6,7 +6,7 @@ Lab Environment
 * From the Windows jumpbox students will configure F5 devices across two datacenters and a branch office.
 * The Windows jumpbox is in the branch office along with an Active Directory domain controller.
 
-.. figure:: ./images/Agility_DNS.png
+.. figure:: ./images/AGILITY_topology.png
   :width: 800
 
 .. toctree::
