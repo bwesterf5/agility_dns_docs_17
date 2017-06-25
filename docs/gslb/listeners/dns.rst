@@ -31,9 +31,11 @@ Create a new DNS profile as shown in the following table.
 .. figure:: ./images/dns_profile_settings.png
    :width: 800
 
-TMSH Command:
+TMSH command for both gtm1.site1 and gtm1.site2:
 
-create ltm profile udp example.com_udp-dns_profile defaults-from udp_gtm_dns
+.. code-block:: cli
+
+   tmsh create ltm profile dns example.com_dns_profile use-local-bind no unhandled-query-action drop log-profile example_dns_logging_profile enable-logging yes avr-dnsstat-sample-rate 1
 
 .. rubric:: References
 .. [#f1] https://support.f5.com/csp/article/K14510

@@ -21,3 +21,9 @@ site2_ha-pair
 
 .. image:: ./images/site2_ha-pair.png
    :width: 800
+
+TMSH command for only gtm1.site2:
+
+.. code-block:: cli
+
+   tmsh create gtm server site2_ha-pair datacenter site2_datacenter devices add { bigip1.site2.example.com { addresses add { 198.51.100.37 { } } } bigip2.site2.example.com { addresses add { 198.51.100.38 { } } } } link-discovery enabled monitor bigip product bigip virtual-server-discovery enabled

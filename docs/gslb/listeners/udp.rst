@@ -26,7 +26,9 @@ Create a new UDP profile as shown in the following table. Retain the defaults if
 
 TMSH command for both gtm1.site1 and gtm1.site2:
 
+.. code-block:: cli
 
+ tmsh create ltm profile udp example.com_udp-dns_profile defaults-from udp_gtm_dns
 
 .. rubric:: References
 .. [#f1] Share cool links here

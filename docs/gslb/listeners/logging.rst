@@ -31,7 +31,9 @@ Create a new DNS logging profile as shown in the table below. Retain the default
 
 TMSH command for both gtm1.site1 and gtm1.site2:
 
- create ltm profile dns-logging  example_dns_logging_profile enable-response-logging yes include-query-id yes
+.. code-block:: cli
+
+   tmsh create ltm profile dns-logging  example_dns_logging_profile enable-response-logging yes include-query-id   yes log-publisher local-db-publisher
 
 .. rubric:: References
 .. [#f1] https://support.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-external-monitoring-implementations-12-0-0/5.html

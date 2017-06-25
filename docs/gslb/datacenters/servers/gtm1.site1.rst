@@ -20,7 +20,9 @@ Create a Server Object as defined in the table below:
 .. figure:: ./images/gtm1.site1_create.png
    :width: 800
 
-TMSH Command:
+TMSH command for only site1.gtm1:
 
-create gtm server gtm1.site1_server  datacenter site1_datacenter devices add { gtm1.site1.example.com { addresses add { 203.0.113.7 } } } monitor bigip product bigip
+.. code-block:: cli
+
+   tmsh create gtm server gtm1.site1_server  datacenter site1_datacenter devices add { gtm1.site1.example.com { addresses add { 203.0.113.7 } } } monitor bigip product bigip
 
