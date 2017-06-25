@@ -2,4 +2,6 @@
 LTM Virtuals
 =============================
 
-Virtuals associated with a server object.
+Virtual Servers are automatically inventoried with Auto-Discover
+
+.. image: ./images/auto-discover_virtuals.png
