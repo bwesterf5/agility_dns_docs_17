@@ -1,13 +1,20 @@
 =================================
-Delegation
+CNAME
 =================================
 
-Log in to the Windows Domain Controller from the jumpbox, and open the DNS management UI:
+Delete the static A record for www
 
-.. image:: ./images/dc01_dns_tools.png
+
+.. image:: ./images/dc01_new_delegation_delete_www.png
    :width: 800
 
-Expand "Forward Lookup Zones", right click on EXAMPLE.COM and select "New Host"
+Create a new CNAME record
 
-.. image:: ./images/dc01_new_A_www.png
+.. image:: ./images/dc01_new_delegation_create_cname.png
+   :width: 800
+
+.. image:: ./images/dc01_new_delegation_create_cname_finish.png
+   :width: 800
+
+.. image:: ./images/dc01_new_delegation_create_cname_results.png
    :width: 800

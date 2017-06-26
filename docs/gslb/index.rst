@@ -25,5 +25,5 @@ At the end of the lab students will have configured F5 GSLB DNS servers to alter
    pools.rst
    wip.rst
    delegation/index
-   l4_acl.rst
-   usecases/index.rst
+   #l4_acl.rst
+   #usecases/index.rst

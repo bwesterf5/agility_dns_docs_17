@@ -1,13 +1,19 @@
 =================================
-Delegation
+Sub Domain
 =================================
 
-Log in to the Windows Domain Controller from the jumpbox, and open the DNS management UI:
 
-.. image:: ./images/dc01_dns_tools.png
+.. image:: ./images/dc01_new_delegation.png
    :width: 800
 
-Expand "Forward Lookup Zones", right click on EXAMPLE.COM and select "New Host"
+.. image:: ./images/dc01_new_delegation_ns1ns2.png
+   :width: 800
 
-.. image:: ./images/dc01_new_A_www.png
+.. image:: ./images/dc01_new_delegation_ns1ns2_create.png
+   :width: 800
+
+.. image:: ./images/dc01_new_delegation_ns1ns2_create_finish.png
+   :width: 800
+
+.. image:: ./images/dc01_new_delegation_ns1ns2_create_results.png
    :width: 800
