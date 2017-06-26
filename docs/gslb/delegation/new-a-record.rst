@@ -13,5 +13,5 @@ Create two new A records
 
 Expand "Forward Lookup Zones", right click on EXAMPLE.COM and select "New Host"
 
-.. image:: ./images/dc01_new_A_www.png
+.. image:: ./images/dc01_new_A_ns2.png
    :width: 800

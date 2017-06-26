@@ -14,7 +14,7 @@ Create an F5 "wide IP"
    :header: "Setting", "Value"
    :widths: 15, 15
 
-   "Name", "www.example.com"
+   "Name", "www.gslb.example.com"
    "Type", "A"
    "Pool", "www.example.com_pool"
 
