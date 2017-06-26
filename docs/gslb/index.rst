@@ -16,7 +16,6 @@ At the end of the lab students will have configured F5 GSLB DNS servers to alter
    :width: 500
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
 
    global-settings.rst
@@ -25,6 +24,6 @@ At the end of the lab students will have configured F5 GSLB DNS servers to alter
    datacenters/index
    pools.rst
    wip.rst
-   delegation.rst
+   delegation/index
    l4_acl.rst
    usecases/index.rst

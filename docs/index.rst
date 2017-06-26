@@ -7,7 +7,7 @@ https://github.com/bwesterf5/agility_dns_docs_17
 http://agility-dns-docs-17.readthedocs.io/en/latest/
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :numbered:
    :name: mastertoc
    :hidden:

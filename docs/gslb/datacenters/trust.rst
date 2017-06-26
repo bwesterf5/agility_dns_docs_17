@@ -13,3 +13,10 @@ Run the following command:
 
 .. image:: ./images/putty_gtm1.site1.png
    :width: 800
+
+In the UI you should see:
+
+https://gtm1.site1.example.com/tmui/Control/jspmap/tmui/locallb/ssl_certificate/properties.jsp?certificate_name=server&store=iquery
+
+.. image:: ./images/gslb_dataceter_servers_trusted_certificates.png
+   :width: 800
