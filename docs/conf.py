@@ -45,9 +45,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Agility 2017 - DNS'
-copyright = u'2017, Agility DNS team'
-author = u'Agility DNS team'
+project = u'Agility - DNS'
+copyright = u'F5 Networks Inc.'
+author = u'DNS SME group'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
